@@ -27,7 +27,7 @@ const Button = ({
       whileHover={
         !disabled
           ? {
-              scale: 1.2,
+              scale: 1.1,
               transition: { duration: 1, type: "spring", stiffness: 200 },
             }
           : {}
