@@ -1,9 +1,4 @@
-import Image from "next/image";
-
+import Homepage from "@/features/home/Homepage";
 export default function Home() {
-  return (
-    <>
-      <header>Entacrest</header>
-    </>
-  );
+  return <Homepage />;
 }
