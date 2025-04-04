@@ -13,7 +13,7 @@ const Homepage = () => {
         <div className="absolute inset-0 bg-black/40" />
         <article className="relative max-w-7xl mx-auto z-10">
           <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
-            <h2 className="mt-6 text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
+            <h2 className="mt-6 text-3xl font-medium md:text-[56px] md:leading-[90px] md:font-bold">
               Innovative Software Solutions for Seamless Connectivity
             </h2>
             <p className="leading-8">
@@ -27,14 +27,14 @@ const Homepage = () => {
               <Button
                 title="Get Started"
                 onClick={() => console.log("clicked")}
-                className=" max-w-2xs"
+                className=" max-w-2xs py-4"
               />
             </div>
           </div>
         </article>
       </section>
       {/* Undraw  */}
-      <section className="max-w-7xl mx-auto flex justify-between items-center  px-5 py-20">
+      <section className="max-w-7xl mx-auto flex-col md:flex-row gap-6 flex justify-between items-center  px-5 py-20">
         <div className="basis-1/2 max-w-[570px]">
           <Image
             src="/images/undraw_pay.svg"
@@ -56,8 +56,8 @@ const Homepage = () => {
         </article>
       </section>
       {/* smart Tech  */}
-      <section className="flex justify-between items-end-safe max-w-7xl mx-auto px-5 py-20 gap-6 ">
-        <article className="basis-[46%] max-w-lg">
+      <section className="flex flex-col-reverse md:flex-row  justify-between items-end-safe max-w-7xl mx-auto px-5 py-20 gap-6 ">
+        <article className="md:basis-[46%] w-full max-w-lg">
           <h2 className="text-4xl font-bold">
             Smart Technology to Power Your Business
           </h2>
@@ -72,7 +72,7 @@ const Homepage = () => {
             seamlessly for you and your customers.
           </p>
         </article>
-        <article className="w-1/2 grid grid-cols-2 gap-6">
+        <article className="md:w-1/2 grid grid-cols-2 gap-6">
           <Image
             src="/images/pos.svg"
             alt=""
@@ -175,7 +175,7 @@ const Homepage = () => {
       </section>
       {/* expert support  */}
       <section className="p-10 py-[100px] bg-button-blue ">
-        <article className="flex items-center gap-10 justify-center mx-auto max-w-7xl">
+        <article className="flex items-center flex-col md:fle-row gap-10 justify-center mx-auto max-w-7xl">
           <div>
             <Image
               src="/images/support.svg"

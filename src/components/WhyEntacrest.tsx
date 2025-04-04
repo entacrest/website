@@ -7,12 +7,12 @@ const WhyEntacrest = () => {
       <h2 className="text-white text-center font-bold text-4xl">
         Why Entacrest
       </h2>
-      <article className="mt-10 flex items-center gap-4 justify-center">
+      <article className="mt-10 sm:flex flex-wrap space-y-4 items-center gap-4 justify-center">
         {whyEntacrest.map(({ icon, heading, text }, i) => {
           return (
             <div
               key={i}
-              className="bg-white max-w-3xs p-3 py-5 space-y-4 rounded-3xl "
+              className="bg-white mx-auto max-w-3xs p-3 py-5 space-y-4 rounded-3xl "
             >
               <Image src={icon} alt={heading} width={54} height={54} />
               <h2 className="text-xl font-bold text-text-primary">{heading}</h2>
