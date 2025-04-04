@@ -1,9 +1,7 @@
 "use client";
-import { motion } from "motion/react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -12,7 +10,7 @@ const navLinks = [
   { href: "/contact", label: "Contact us" },
 ];
 
-const HeaderNav = () => {
+const HeaderNav = ({ onClick }: { onClick: () => void }) => {
   const pathname = usePathname();
   return (
     <>
@@ -21,9 +19,10 @@ const HeaderNav = () => {
           <Link
             key={link.href}
             href={link.href}
+            onClick={onClick}
             className={` transition  text-lg ${
               pathname === link.href
-                ? "text-button-blue font-semibold border-b-2 border-button-blue"
+                ? "text-button-blue font-semibold md:border-b-2 border-button-blue"
                 : "text-custom-blue900 hover:text-blue-300"
             }`}
           >
