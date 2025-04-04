@@ -1,0 +1,162 @@
+"use client";
+import Button from "@/components/Button";
+import { trustedPartners } from "@/components/data";
+import WhyEntacrest from "@/components/WhyEntacrest";
+import Image from "next/image";
+
+const Homepage = () => {
+  return (
+    <main>
+      {/* hero */}
+
+      <section className="hero w-full h-[600px] md:h-[700px]">
+        <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
+          <h2 className="mt-6 text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
+            Innovative Software Solutions for Seamless Connectivity
+          </h2>
+          <p className="leading-8">
+            Empowering businesses with cutting-edge technology to streamline
+            operations, enhance efficieny, and drive digital transformation. Our
+            software solutions connect enterprises, entrepreneurs, and
+            organizations with scalable tools for automation, security, and
+            growth
+          </p>
+          <div className="flex items-center md:justify-start md:px-0 justify-center px-6">
+            <Button
+              title="Get Started"
+              onClick={() => console.log("clicked")}
+              className=" max-w-2xs"
+            />
+          </div>
+        </div>
+      </section>
+      {/* Undraw  */}
+      <section className="max-w-7xl mx-auto flex justify-between items-center  px-5 py-20">
+        <div className="basis-1/2 max-w-[570px]">
+          <Image
+            src="/images/undraw_pay.svg"
+            alt="Support"
+            width={563}
+            height={563}
+            className="size-full"
+          />
+        </div>
+        <article className="basis-[45%]">
+          <h2 className="text-4xl font-bold ">
+            Custom Payment Solutions for Businesses
+          </h2>
+          <p className="text-[24px] leading-[48px] ">
+            "We develop secure, scalable payment solutions tailored for
+            merchants, marketplaces, and enterprises, ensuring seamless
+            integration and smooth transactions."
+          </p>
+        </article>
+      </section>
+      {/* smart Tech  */}
+      <section className="flex justify-between items-end-safe max-w-7xl mx-auto px-5 py-20 gap-6 ">
+        <article className="basis-[46%] max-w-lg">
+          <h2 className="text-4xl font-bold">
+            Smart Technology to Power Your Business
+          </h2>
+          <p className="text-[24px] leading-12 mt-5">
+            Break free from limitations and embrace endless possibilities. At
+            Entacrest Nexus, we build custom software solutions that empower
+            businesses to operate efficiently. Whether you need an enterprise
+            application, a fintech solution, an automation system, or a digital
+            platform tailored to your industry, we develop scalable, secure, and
+            user-friendly systems designed to meet your unique needs. Let us
+            help you transform your business with technology that works
+            seamlessly for you and your customers.
+          </p>
+        </article>
+        <article className="w-1/2 grid grid-cols-2 gap-6">
+          <Image
+            src="/images/pos.svg"
+            alt=""
+            width={270}
+            height={270}
+            className="size-full"
+          />
+          <Image
+            src="/images/scan_pay.svg"
+            alt=""
+            width={270}
+            height={270}
+            className="size-full"
+          />
+
+          <div className="col-span-2 flex justify-center">
+            <Image src="/images/him.svg" alt="" width={150} height={150} />
+          </div>
+
+          <Image
+            src="/images/money_man.svg"
+            alt=""
+            width={270}
+            height={270}
+            className="size-full"
+          />
+          <Image
+            src="/images/money_lady.svg"
+            alt=""
+            width={270}
+            height={270}
+            className="size-full"
+          />
+        </article>
+      </section>
+      {/* why entacrest  */}
+      <WhyEntacrest />
+
+      {/* Trusted partners */}
+      <section className="p-10 max-w-7xl mx-auto ">
+        <h2 className="text-center">Trusted partners</h2>
+        <article className="flex flex-wrap gap-6 justify-between">
+          {trustedPartners.map(({ icon, className }, i) => {
+            return (
+              <div
+                key={i}
+                className="flex justify-center items-center w-[211px] shadow bg-white h-28"
+              >
+                <Image
+                  src={icon}
+                  width={100}
+                  height={100}
+                  className={className}
+                  alt={icon}
+                />
+              </div>
+            );
+          })}
+        </article>
+      </section>
+      {/* expert support  */}
+      <section className="p-10 bg-button-blue ">
+        <article className="flex items-center justify-between mx-auto max-w-7xl">
+          <div>
+            <Image
+              src="/images/support.svg"
+              alt="Support"
+              width={563}
+              height={563}
+            />
+          </div>
+          <article className="basis-[45%]">
+            <h2>Expert Support at Your Fingertips</h2>
+            <p>
+              At Entacrest, we provide dedicated support to help your business
+              succeed. Whether you need assistance with software integration,
+              troubleshooting, or optimizing your digital processes, our expert
+              team is always ready to assist. We pride ourselves on delivering
+              fast, accurate, and reliable support—ensuring you get the best
+              experience possible. Have a question? We’re just a call or message
+              away.
+            </p>
+          </article>
+        </article>
+      </section>
+    </main>
+  );
+};
+
+export default Homepage;

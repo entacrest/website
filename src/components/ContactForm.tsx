@@ -32,7 +32,7 @@ const ContactForm = () => {
       </p>
       {inputs.map(({ value, placeholder }, i) => {
         return (
-          <div className="mb-4">
+          <div className="mb-4" key={i}>
             <input
               {...register(value)}
               className="w-full p-3 py-4 bg-white border-none text-secondary-one outline-none rounded"

@@ -16,12 +16,12 @@ const HeaderNav = () => {
   const pathname = usePathname();
   return (
     <>
-      <nav className="flex space-x-6 p-4 flex-col md:flex-row ">
+      <nav className="flex gap-6 lg:gap-10 p-4 flex-col md:flex-row ">
         {navLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className={` transition  text-base ${
+            className={` transition  text-lg ${
               pathname === link.href
                 ? "text-button-blue font-semibold border-b-2 border-button-blue"
                 : "text-custom-blue900 hover:text-blue-300"

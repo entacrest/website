@@ -1,4 +1,4 @@
-import { WhyEntacrest } from "@/types/global";
+import { TrustedPartners, WhyEntacrest } from "@/types/global";
 
 export const whyEntacrest: WhyEntacrest[] = [
   {
@@ -21,4 +21,15 @@ export const whyEntacrest: WhyEntacrest[] = [
     heading: "Security",
     text: "Our solutions are built with advanced security layers to safeguard your data from cyber threats and breaches.",
   },
+];
+export const trustedPartners: TrustedPartners[] = [
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
+  { icon: "/icons/hydrogen.svg", className: "size-[75px]" },
 ];

@@ -3,3 +3,7 @@ export interface WhyEntacrest {
   heading: string;
   text: string;
 }
+export interface TrustedPartners {
+  icon: string;
+  className: string;
+}

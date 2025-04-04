@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/features/home/Header";
-import Footer from "@/features/home/Footer";
+import Header from "@/components/home/Header";
+import Footer from "@/components/home/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Entacrest Nexus",
   description: "Entacrest Webpage",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
