@@ -1,16 +1,17 @@
 "use client";
 import Button from "@/components/Button";
-import { trustedPartners } from "@/components/data";
+import { trustedPartners, trustedPartnersTwo } from "@/components/data";
 import WhyEntacrest from "@/components/WhyEntacrest";
 import Image from "next/image";
-
+import { motion } from "motion/react";
 const Homepage = () => {
   return (
     <main>
       {/* hero */}
 
-      <section className="hero w-full h-[600px] md:h-[700px] ">
-        <article className="max-w-7xl mx-auto">
+      <section className="hero relative w-full h-[600px] md:h-[700px] ">
+        <div className="absolute inset-0 bg-black/40" />
+        <article className="relative max-w-7xl mx-auto z-10">
           <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
             <h2 className="mt-6 text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
               Innovative Software Solutions for Seamless Connectivity
@@ -113,24 +114,64 @@ const Homepage = () => {
       {/* Trusted partners */}
       <section className="p-10 max-w-7xl mx-auto ">
         <h2 className="text-center">Trusted partners</h2>
-        <article className="flex flex-wrap gap-6 justify-between">
-          {trustedPartners.map(({ icon, className }, i) => {
-            return (
-              <div
-                key={i}
-                className="flex justify-center items-center w-[211px] shadow bg-white h-28"
-              >
-                <Image
-                  src={icon}
-                  width={100}
-                  height={100}
-                  className={className}
-                  alt={icon}
-                />
-              </div>
-            );
-          })}
-        </article>
+        <div className="overflow-hidden w-full">
+          <motion.article
+            className="flex gap-6 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 20,
+              ease: "linear",
+            }}
+          >
+            {/* Duplicate content for seamless loop */}
+            {[...trustedPartners, ...trustedPartners].map(
+              ({ icon, className }, i) => (
+                <div
+                  key={i}
+                  className="flex justify-center items-center w-[211px] shadow bg-white h-28 shrink-0"
+                >
+                  <Image
+                    src={icon}
+                    width={100}
+                    height={100}
+                    className={className}
+                    alt="Partner Logo"
+                  />
+                </div>
+              )
+            )}
+          </motion.article>
+        </div>
+        <div className="overflow-hidden w-full">
+          <motion.article
+            className="flex gap-6 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 20,
+              ease: "linear",
+            }}
+          >
+            {/* Duplicate content for seamless loop */}
+            {[...trustedPartnersTwo, ...trustedPartnersTwo].map(
+              ({ icon, className }, i) => (
+                <div
+                  key={i}
+                  className="flex justify-center items-center w-[211px] shadow bg-white h-28 shrink-0"
+                >
+                  <Image
+                    src={icon}
+                    width={100}
+                    height={100}
+                    className={className}
+                    alt="Partner Logo"
+                  />
+                </div>
+              )
+            )}
+          </motion.article>
+        </div>
       </section>
       {/* expert support  */}
       <section className="p-10 py-[100px] bg-button-blue ">

@@ -20,15 +20,11 @@
   background-repeat: no-repeat;
   background-size: auto;
 
-  background-color: black;
   background-image: url(/images/about.jfif);
-  background-blend-mode: hard-light;
 }
 .contact-hero {
   background-repeat: no-repeat;
   background-size: auto;
 
-  background-color: black;
   background-image: url(/images/contact.jfif);
-  background-blend-mode: hard-light;
 }

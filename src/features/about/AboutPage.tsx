@@ -3,8 +3,10 @@ import WhyEntacrest from "@/components/WhyEntacrest";
 const AboutPage = () => {
   return (
     <main>
-      <section className="about-hero w-full h-[600px] flex justify-center items-center md:h-[700px] bg-black/60">
-        <div className="max-w-5xl">
+      <section className="about-hero w-full h-[600px] flex justify-center items-center md:h-[700px] relative">
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="max-w-5xl relative">
           <h2 className="mt-6 text-white text-center text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
             About us
           </h2>
