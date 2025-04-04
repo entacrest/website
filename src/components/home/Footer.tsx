@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <article className="py-16 px-6 flex justify-center">
-      <section className="flex justify-between gap-6 w-full max-w-6xl text-secondary-one">
+      <section className="flex justify-between gap-6 w-full max-w-7xl text-secondary-one">
         <div>
           <Image src="/entacrest_logo.png" alt="logo" width={100} height={80} />
           <div className="mt-5">

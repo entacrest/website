@@ -9,26 +9,28 @@ const Homepage = () => {
     <main>
       {/* hero */}
 
-      <section className="hero w-full h-[600px] md:h-[700px]">
-        <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
-          <h2 className="mt-6 text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
-            Innovative Software Solutions for Seamless Connectivity
-          </h2>
-          <p className="leading-8">
-            Empowering businesses with cutting-edge technology to streamline
-            operations, enhance efficieny, and drive digital transformation. Our
-            software solutions connect enterprises, entrepreneurs, and
-            organizations with scalable tools for automation, security, and
-            growth
-          </p>
-          <div className="flex items-center md:justify-start md:px-0 justify-center px-6">
-            <Button
-              title="Get Started"
-              onClick={() => console.log("clicked")}
-              className=" max-w-2xs"
-            />
+      <section className="hero w-full h-[600px] md:h-[700px] ">
+        <article className="max-w-7xl mx-auto">
+          <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
+            <h2 className="mt-6 text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
+              Innovative Software Solutions for Seamless Connectivity
+            </h2>
+            <p className="leading-8">
+              Empowering businesses with cutting-edge technology to streamline
+              operations, enhance efficieny, and drive digital transformation.
+              Our software solutions connect enterprises, entrepreneurs, and
+              organizations with scalable tools for automation, security, and
+              growth
+            </p>
+            <div className="flex items-center md:justify-start md:px-0 justify-center px-6">
+              <Button
+                title="Get Started"
+                onClick={() => console.log("clicked")}
+                className=" max-w-2xs"
+              />
+            </div>
           </div>
-        </div>
+        </article>
       </section>
       {/* Undraw  */}
       <section className="max-w-7xl mx-auto flex justify-between items-center  px-5 py-20">
@@ -45,7 +47,7 @@ const Homepage = () => {
           <h2 className="text-4xl font-bold ">
             Custom Payment Solutions for Businesses
           </h2>
-          <p className="text-[24px] leading-[48px] ">
+          <p className="text-[24px] leading-[48px] mt-6">
             "We develop secure, scalable payment solutions tailored for
             merchants, marketplaces, and enterprises, ensuring seamless
             integration and smooth transactions."
@@ -131,8 +133,8 @@ const Homepage = () => {
         </article>
       </section>
       {/* expert support  */}
-      <section className="p-10 bg-button-blue ">
-        <article className="flex items-center justify-between mx-auto max-w-7xl">
+      <section className="p-10 py-[100px] bg-button-blue ">
+        <article className="flex items-center gap-10 justify-center mx-auto max-w-7xl">
           <div>
             <Image
               src="/images/support.svg"
@@ -141,9 +143,11 @@ const Homepage = () => {
               height={563}
             />
           </div>
-          <article className="basis-[45%]">
-            <h2>Expert Support at Your Fingertips</h2>
-            <p>
+          <article className="basis-[45%] text-white">
+            <h2 className="text-4xl font-bold ">
+              Expert Support at Your Fingertips
+            </h2>
+            <p className="text-[24px] leading-[48px] mt-6 ">
               At Entacrest, we provide dedicated support to help your business
               succeed. Whether you need assistance with software integration,
               troubleshooting, or optimizing your digital processes, our expert
