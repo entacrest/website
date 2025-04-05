@@ -10,7 +10,6 @@
   --color-text-primary: #1e1e1e;
   --color-secondary-one: #1d1d1d;
 }
-
 .hero {
   background-image: url(/images/her.jfif);
   background-repeat: no-repeat;
@@ -27,4 +26,14 @@
   background-size: auto;
 
   background-image: url(/images/contact.jfif);
+}
+
+@layer utilities {
+  .heading-text {
+    @apply text-[36px] leading-[40px] md:text-[36px] md:leading-[40px] text-center md:text-left;
+  }
+
+  .paragraph-text {
+    @apply text-[16px] leading-[32px] md:text-[24px] md:leading-[48px] text-center md:text-left;
+  }
 }
