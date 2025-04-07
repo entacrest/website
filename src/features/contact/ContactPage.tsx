@@ -2,14 +2,13 @@ import ContactForm from "../../components/ContactForm";
 
 const ContactPage = () => {
   return (
-    <main>
-      <section className="contact-hero w-full h-[600px]  md:h-[700px] bg-black/60 relative">
+    <main className="relative">
+      <section className="md:bg-[url('/images/contact.jfif')] bg-[url('/images/resp-contact.jfif')]  backgroundImage w-full h-[600px]  md:h-[700px] bg-black/60 relative">
         <div className="absolute inset-0 bg-black/40" />
-
-        <div className="max-w-6xl mx-auto h-full flex items-center relative">
-          <ContactForm />
-        </div>
       </section>
+      <div className="w-full mx-auto h-full flex bg-button-blue md:bg-transparent justify-center items-center md:absolute md:top-0">
+        <ContactForm />
+      </div>
     </main>
   );
 };

@@ -60,7 +60,6 @@ const Footer = () => {
             <h2 className="text-xl font-bold ">Links</h2>
             <ul className="mt-5 space-y-4 text-secondary-one">
               <li>Home</li>
-              <li>ISMS Policy</li>
               <li>About us</li>
             </ul>
           </div>
