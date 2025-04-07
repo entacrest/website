@@ -9,14 +9,14 @@ const Homepage = () => {
     <main>
       {/* hero */}
 
-      <section className="hero relative w-full h-[600px] md:h-[700px] ">
+      <section className="bg-[url('/images/resp-hero.jfif')] md:bg-[url('/images/her.jfif')] bg-cover bg-center backgroundImage relative w-full h-[600px] md:h-[700px] ">
         <div className="absolute inset-0 bg-black/40" />
         <article className="relative max-w-7xl mx-auto z-10">
           <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
             <h2 className="mt-6 text-3xl font-medium md:text-[56px] md:leading-[90px] md:font-bold">
               Innovative Software Solutions for Seamless Connectivity
             </h2>
-            <p className="leading-8">
+            <p className="leading-8 md:text-lg">
               Empowering businesses with cutting-edge technology to streamline
               operations, enhance efficieny, and drive digital transformation.
               Our software solutions connect enterprises, entrepreneurs, and
