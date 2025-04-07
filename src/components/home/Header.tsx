@@ -23,7 +23,7 @@ const Header = () => {
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ type: "tween", duration: 0.3 }}
-          className="md:hidden fixed right-0 top-0 w-9/10 max-w-[300px] z-20 bg-gray-200 p-5 h-full"
+          className="md:hidden fixed right-0 top-0 w-9/10 max-w-[250px] z-20 bg-gray-200 p-5 h-full"
         >
           <X
             onClick={() => setToggleSide(false)}

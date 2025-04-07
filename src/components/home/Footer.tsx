@@ -40,7 +40,7 @@ const Footer = () => {
             />
             <div className="text-secondary-one">
               <p className="text-[22px] leading-[26px]">
-                Pinnacle to enterprise solution
+                Pinnacle of enterprise solution
               </p>
               <p>info@entacrest.com</p>
               <p>+2348068535646</p>
