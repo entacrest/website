@@ -6,6 +6,7 @@ import {
   FaLinkedin,
   FaXTwitter,
 } from "react-icons/fa6";
+import SubscribeNews from "../SubscribeNews";
 
 const socials = [
   {
@@ -73,7 +74,9 @@ const Footer = () => {
               <li>Press</li>
             </ul>
           </div>
-          <div>{/* <h2 className="text-xl font-bold ">Our office</h2> */}</div>
+          <div>
+            <SubscribeNews />
+          </div>
         </section>
       </article>
       <hr className="text-secondary-one/70" />
