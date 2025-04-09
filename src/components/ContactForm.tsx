@@ -58,7 +58,7 @@ const ContactForm = () => {
         <div className="mb-4 flex items-center">
           <input type="checkbox" className="mr-2" />
           <label className="text-white">
-            I agree that entacrest may contact me at the email address or phone
+            I agree that Entacrest may contact me at the email address or phone
             number above.
           </label>
         </div>

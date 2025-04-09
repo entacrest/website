@@ -27,5 +27,5 @@ export const trustedPartners: TrustedPartners[] = [
   { icon: "/images/Epis.svg", className: "size-[100px]" },
   { icon: "/images/Nomba.svg", className: "w-[100px] h-[80px]" },
   { icon: "/images/OSD.svg", className: "size-[100px]" },
-  { icon: "/images/cove.svg", className: "size-[100px]" },
+  { icon: "/images/cove.jpg", className: "size-[100px]" },
 ];

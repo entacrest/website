@@ -43,7 +43,7 @@ const Footer = () => {
                 Pinnacle of enterprise solution
               </p>
               <p>info@entacrest.com</p>
-              <p>+2348068535646</p>
+              <p>+2349010380794</p>
               <div className="flex items-center"></div>
             </div>
             <div className="flex gap-4 text-xl text-gray-500">
@@ -58,9 +58,9 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="text-xl font-bold ">Links</h2>
-            <ul className="mt-5 space-y-4 text-secondary-one">
-              <li>Home</li>
-              <li>About us</li>
+            <ul className="mt-5 space-y-4 text-secondary-one flex flex-col ">
+              <Link href="/">Home</Link>
+              <Link href="/about">About us</Link>
             </ul>
           </div>
           <div>
