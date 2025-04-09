@@ -4,13 +4,14 @@ import HeaderNav from "./HeaderNav";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 const Header = () => {
   const [toggleSide, setToggleSide] = useState(false);
   return (
     <header className="bg-white w-full flex items-center justify-between max-w-7xl mx-auto p-4">
-      <div className="flex items-center">
+      <Link href="/" className="flex items-center">
         <Image src="/entacrest_logo.png" alt="logo" width={200} height={60} />
-      </div>
+      </Link>
       <div className="hidden md:flex justify-end items-center basis-6/10 gap-2">
         <HeaderNav onClick={() => setToggleSide(false)} />
       </div>
