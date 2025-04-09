@@ -10,21 +10,30 @@
   --color-text-primary: #1e1e1e;
   --color-secondary-one: #1d1d1d;
 }
-
-.hero {
-  background-image: url(/images/her.jfif);
+.backgroundImage {
+  background-size: cover;
+  background-position: left;
   background-repeat: no-repeat;
-  background-size: auto;
 }
-.about-hero {
-  background-repeat: no-repeat;
-  background-size: auto;
 
+.about-hero {
   background-image: url(/images/about.jfif);
 }
 .contact-hero {
-  background-repeat: no-repeat;
-  background-size: auto;
-
   background-image: url(/images/contact.jfif);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-image: url(/images/resp-hero.jfif);
+  }
+}
+@layer utilities {
+  .heading-text {
+    @apply text-[36px] leading-[40px] md:text-[36px] md:leading-[40px] text-center md:text-left;
+  }
+
+  .paragraph-text {
+    @apply text-[16px] leading-[32px] md:text-[24px] md:leading-[48px] text-center md:text-left;
+  }
 }

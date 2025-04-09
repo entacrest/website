@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/components/Button";
-import { trustedPartners, trustedPartnersTwo } from "@/components/data";
+import { trustedPartners } from "@/components/data";
 import WhyEntacrest from "@/components/WhyEntacrest";
 import Image from "next/image";
 import { motion } from "motion/react";
@@ -9,14 +9,14 @@ const Homepage = () => {
     <main>
       {/* hero */}
 
-      <section className="hero relative w-full h-[600px] md:h-[700px] ">
+      <section className="bg-[url('/images/resp-hero.jfif')] md:bg-[url('/images/her.jfif')] bg-cover  relative w-full h-[600px] md:h-[700px] ">
         <div className="absolute inset-0 bg-black/40" />
-        <article className="relative max-w-7xl mx-auto z-10">
-          <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
-            <h2 className="mt-6 text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
+        <article className="relative pt-10 md:pt-0 max-w-7xl mx-auto z-10">
+          <div className="p-6  space-y-5 text-white w-full md:max-w-2xl">
+            <h2 className="mt-6 text-3xl font-medium md:text-[56px] md:leading-[90px] md:font-bold">
               Innovative Software Solutions for Seamless Connectivity
             </h2>
-            <p className="leading-8">
+            <p className="leading-8 md:text-lg">
               Empowering businesses with cutting-edge technology to streamline
               operations, enhance efficieny, and drive digital transformation.
               Our software solutions connect enterprises, entrepreneurs, and
@@ -27,14 +27,14 @@ const Homepage = () => {
               <Button
                 title="Get Started"
                 onClick={() => console.log("clicked")}
-                className=" max-w-2xs"
+                className=" max-w-2xs py-4"
               />
             </div>
           </div>
         </article>
       </section>
       {/* Undraw  */}
-      <section className="max-w-7xl mx-auto flex justify-between items-center  px-5 py-20">
+      <section className="max-w-7xl mx-auto flex-col md:flex-row gap-6 flex justify-between items-center  px-5 py-20">
         <div className="basis-1/2 max-w-[570px]">
           <Image
             src="/images/undraw_pay.svg"
@@ -45,10 +45,10 @@ const Homepage = () => {
           />
         </div>
         <article className="basis-[45%]">
-          <h2 className="text-4xl font-bold ">
+          <h2 className="heading-text font-bold ">
             Custom Payment Solutions for Businesses
           </h2>
-          <p className="text-[24px] leading-[48px] mt-6">
+          <p className="paragraph-text mt-6">
             "We develop secure, scalable payment solutions tailored for
             merchants, marketplaces, and enterprises, ensuring seamless
             integration and smooth transactions."
@@ -56,12 +56,12 @@ const Homepage = () => {
         </article>
       </section>
       {/* smart Tech  */}
-      <section className="flex justify-between items-end-safe max-w-7xl mx-auto px-5 py-20 gap-6 ">
-        <article className="basis-[46%] max-w-lg">
-          <h2 className="text-4xl font-bold">
+      <section className="flex flex-col-reverse md:flex-row  justify-between items-end-safe max-w-7xl mx-auto px-5 py-20 gap-6 ">
+        <article className="md:basis-[46%] w-full md:max-w-lg">
+          <h2 className="heading-text font-bold">
             Smart Technology to Power Your Business
           </h2>
-          <p className="text-[24px] leading-12 mt-5">
+          <p className="paragraph-text mt-5">
             Break free from limitations and embrace endless possibilities. At
             Entacrest Nexus, we build custom software solutions that empower
             businesses to operate efficiently. Whether you need an enterprise
@@ -72,7 +72,7 @@ const Homepage = () => {
             seamlessly for you and your customers.
           </p>
         </article>
-        <article className="w-1/2 grid grid-cols-2 gap-6">
+        <article className="md:w-1/2 grid grid-cols-2 gap-6">
           <Image
             src="/images/pos.svg"
             alt=""
@@ -112,53 +112,25 @@ const Homepage = () => {
       <WhyEntacrest />
 
       {/* Trusted partners */}
-      <section className="p-10 max-w-7xl mx-auto ">
-        <h2 className="text-center">Trusted partners</h2>
+      <section className="py-16 px-5  max-w-7xl mx-auto ">
+        <h2 className="text-center heading-text mb-16 font-bold">
+          Trusted Partners
+        </h2>
         <div className="overflow-hidden w-full">
           <motion.article
-            className="flex gap-6 w-max"
+            className="flex gap-10 w-max "
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               repeat: Infinity,
-              duration: 20,
+              duration: 10,
               ease: "linear",
             }}
           >
-            {/* Duplicate content for seamless loop */}
             {[...trustedPartners, ...trustedPartners].map(
               ({ icon, className }, i) => (
                 <div
                   key={i}
-                  className="flex justify-center items-center w-[211px] shadow bg-white h-28 shrink-0"
-                >
-                  <Image
-                    src={icon}
-                    width={100}
-                    height={100}
-                    className={className}
-                    alt="Partner Logo"
-                  />
-                </div>
-              )
-            )}
-          </motion.article>
-        </div>
-        <div className="overflow-hidden w-full">
-          <motion.article
-            className="flex gap-6 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 20,
-              ease: "linear",
-            }}
-          >
-            {/* Duplicate content for seamless loop */}
-            {[...trustedPartnersTwo, ...trustedPartnersTwo].map(
-              ({ icon, className }, i) => (
-                <div
-                  key={i}
-                  className="flex justify-center items-center w-[211px] shadow bg-white h-28 shrink-0"
+                  className="flex justify-center items-center w-[211px] border border-[#eee9e980] bg-white shadow-lg  h-28 shrink-0"
                 >
                   <Image
                     src={icon}
@@ -175,7 +147,7 @@ const Homepage = () => {
       </section>
       {/* expert support  */}
       <section className="p-10 py-[100px] bg-button-blue ">
-        <article className="flex items-center gap-10 justify-center mx-auto max-w-7xl">
+        <article className="flex items-center flex-col md:flex-row gap-10 justify-center mx-auto max-w-7xl">
           <div>
             <Image
               src="/images/support.svg"
@@ -185,10 +157,10 @@ const Homepage = () => {
             />
           </div>
           <article className="basis-[45%] text-white">
-            <h2 className="text-4xl font-bold ">
+            <h2 className="heading-text font-bold ">
               Expert Support at Your Fingertips
             </h2>
-            <p className="text-[24px] leading-[48px] mt-6 ">
+            <p className="paragraph-text mt-6 ">
               At Entacrest, we provide dedicated support to help your business
               succeed. Whether you need assistance with software integration,
               troubleshooting, or optimizing your digital processes, our expert
