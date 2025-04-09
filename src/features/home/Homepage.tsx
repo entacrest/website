@@ -4,7 +4,9 @@ import { trustedPartners } from "@/components/data";
 import WhyEntacrest from "@/components/WhyEntacrest";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 const Homepage = () => {
+  const router = useRouter();
   return (
     <main>
       {/* hero */}
@@ -26,7 +28,7 @@ const Homepage = () => {
             <div className="flex items-center md:justify-start md:px-0 justify-center px-6">
               <Button
                 title="Get Started"
-                onClick={() => console.log("clicked")}
+                onClick={() => router.push("/contact")}
                 className=" max-w-2xs py-4"
               />
             </div>

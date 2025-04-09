@@ -7,10 +7,10 @@ const AboutPage = () => {
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="max-w-5xl relative">
-          <h2 className="mt-6 text-white text-center text-3xl font-medium md:text-[56px] leading-[90px] md:font-bold">
+          <h2 className="mt-6 text-white !text-center  font-medium heading-text md:font-bold">
             About us
           </h2>
-          <p className="text-center leading-8 text-white px-2">
+          <p className="text-center paragraph-text text-white px-2">
             At Entacrest Nexus, we specialize in delivering cutting-edge
             software solutions that streamline business operations and enhance
             efficiency across industries. With a proven track record of success,
