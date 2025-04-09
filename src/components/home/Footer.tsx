@@ -44,6 +44,8 @@ const Footer = () => {
               </p>
               <p>info@entacrest.com</p>
               <p>+2349010380794</p>
+              <p>Oba Akran, Ikeja Lagos</p>
+
               <div className="flex items-center"></div>
             </div>
             <div className="flex gap-4 text-xl text-gray-500">
@@ -71,10 +73,7 @@ const Footer = () => {
               <li>Press</li>
             </ul>
           </div>
-          <div>
-            <h2 className="text-xl font-bold ">Our office</h2>
-            <p className="mt-5">Oba Akran, Ikeja Lagos</p>
-          </div>
+          <div>{/* <h2 className="text-xl font-bold ">Our office</h2> */}</div>
         </section>
       </article>
       <hr className="text-secondary-one/70" />
