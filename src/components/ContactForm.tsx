@@ -39,9 +39,7 @@ const ContactForm = () => {
                 className="w-full p-3 py-4 bg-white border-none text-secondary-one outline-none rounded"
                 placeholder={placeholder}
               />
-              <p className="text-red-500 text-sm">
-                {errors.firstName?.message}
-              </p>
+              <p className="text-red-500 text-sm">{errors[value]?.message}</p>
             </div>
           );
         })}
