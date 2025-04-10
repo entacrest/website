@@ -3,7 +3,7 @@
 @theme {
   --color-button-blue: #003366;
   --color-custom-blue900: #241623;
-  --color-yellow-icon: #fff856;
+  --color-green-button: #28a236;
   --color-yellow-light: #f2cb00;
   --color-light-gray: #f9f9f9;
   --color-border-one: #c5e0ff;
@@ -16,24 +16,12 @@
   background-repeat: no-repeat;
 }
 
-.about-hero {
-  background-image: url(/images/about.jfif);
-}
-.contact-hero {
-  background-image: url(/images/contact.jfif);
-}
-
-@media (max-width: 768px) {
-  .hero {
-    background-image: url(/images/resp-hero.jfif);
-  }
-}
 @layer utilities {
   .heading-text {
-    @apply text-[36px] leading-[40px] md:text-[36px] md:leading-[40px] text-center md:text-left;
+    @apply text-[36px] leading-[40px] md:text-[36px] md:leading-[40px];
   }
 
   .paragraph-text {
-    @apply text-[16px] leading-[32px] md:text-[24px] md:leading-[48px] text-center md:text-left;
+    @apply text-[16px] leading-[32px] md:text-[24px] md:leading-[48px];
   }
 }

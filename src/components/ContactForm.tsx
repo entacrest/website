@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ContactFormSchema } from "./validation";
 import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
+import { Inputs } from "@/types/global";
 const ContactForm = () => {
   const {
     register,
@@ -15,10 +16,7 @@ const ContactForm = () => {
   const onSubmit = (data: any) => {
     console.log("Form Data:", data);
   };
-  const inputs: {
-    value: "firstName" | "lastName" | "email" | "message" | "phoneNumber";
-    placeholder: string;
-  }[] = [
+  const inputs: Inputs[] = [
     { value: "firstName", placeholder: "First Name" },
     { value: "lastName", placeholder: "Last Name" },
     { value: "email", placeholder: "E mail" },
@@ -26,7 +24,10 @@ const ContactForm = () => {
   ];
   return (
     <div className="w-[560px] md:w-full max-w-6xl">
-      <form className="space-y-6 max-w-[560px] p-6 bg-button-blue ">
+      <form
+        className="space-y-4 max-w-[560px] p-6 bg-button-blue "
+        onClick={handleSubmit(onSubmit)}
+      >
         <p className="text-white">
           Fill out the form below with questions or inquiries you maybe have and
           a member of our team will get back to you in no time!
@@ -36,7 +37,7 @@ const ContactForm = () => {
             <div className="mb-4" key={i}>
               <input
                 {...register(value)}
-                className="w-full p-3 py-4 bg-white border-none text-secondary-one outline-none rounded"
+                className="w-full p-3 py-2 bg-white border-none text-secondary-one outline-none rounded"
                 placeholder={placeholder}
               />
               <p className="text-red-500 text-sm">{errors[value]?.message}</p>
@@ -47,7 +48,7 @@ const ContactForm = () => {
         <div className="mb-4">
           <textarea
             {...register("message")}
-            className="w-full p-2 bg-white resize-none h-32 border rounded"
+            className="w-full p-2 bg-white outline-none resize-none h-22 border rounded"
             placeholder="Message "
           ></textarea>
           <p className="text-red-500 text-sm">{errors.message?.message}</p>
@@ -61,13 +62,13 @@ const ContactForm = () => {
           </label>
         </div>
 
-        <div className="w-full mx-auto">
-          <Button
-            title="Submit"
-            className="bg-white text-secondary-one font-bold "
-            textClassName="text-secondary-one"
-            onClick={handleSubmit(onSubmit)}
-          />
+        <div className="w-full flex justify-center items-center px-4">
+          <button
+            type="submit"
+            className="bg-white text-secondary-one font-bold w-full max-w-md rounded p-2 hover:bg-button-blue hover:text-white hover:border cursor-pointer"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>
