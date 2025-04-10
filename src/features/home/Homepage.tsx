@@ -51,9 +51,9 @@ const Homepage = () => {
             Custom Payment Solutions for Businesses
           </h2>
           <p className="paragraph-text mt-6">
-            "We develop secure, scalable payment solutions tailored for
+            We develop secure, scalable payment solutions tailored for
             merchants, marketplaces, and enterprises, ensuring seamless
-            integration and smooth transactions."
+            integration and smooth transactions.
           </p>
         </article>
       </section>
