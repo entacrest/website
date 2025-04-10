@@ -1,40 +1,93 @@
 "use client";
 
 import { useState } from "react";
-import Button from "./Button";
+import { AiOutlineLoading } from "react-icons/ai";
+import api from "@/config/api_config";
+import toast from "react-hot-toast";
 
 const SubscribeNews = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email.trim()) {
+      setIsError(true);
+      setErrorMsg("Email is required.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setIsError(true);
+      setErrorMsg("Please enter a valid email.");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      setIsError(false);
+      setErrorMsg("");
+      setSuccess(false);
+
+      const resp = await api.post("/account/newsletter", { email });
+      console.log(resp);
+
+      setSuccess(true);
+      toast.success("You have successfully subscribed");
+      setEmail("");
+    } catch (error: any) {
+      const msg =
+        error?.response?.data?.message ||
+        "Something went wrong. Please try again later.";
+      setIsError(true);
+      toast.error(msg);
+      setErrorMsg(msg);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="max-w-[270px] rounded-2xl bg-blue-600 p-4">
+    <div className="max-w-[300px] rounded-2xl bg-gray-50 shadow p-4">
       <div className="relative z-10 max-w-xl mx-auto sm:text-center">
         <div className="space-y-3">
-          <h3 className="text-2xl text-white font-bold">
-            Subscribe to our newsletter
-          </h3>
-          <p className="text-blue-100 leading-relaxed">
+          <h3 className="text-xl font-bold">Subscribe to our newsletter</h3>
+          <p className="leading-relaxed text-left">
             Subscribe to our newsletter and get our latest update about our
             products and company
           </p>
         </div>
         <div className="mt-6">
-          <form className="space-y-3 rounded-lg p-1 sm:max-w-md sm:mx-auto">
+          <form
+            className="space-y-3 rounded-lg p-1 sm:max-w-md sm:mx-auto"
+            onSubmit={handleSubmit}
+          >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="text-gray-500 bg-white border-none rounded-md w-full p-2 outline-none"
+              placeholder="Enter your email address"
+              className="text-gray-500 bg-[#EDEAEA] border-none rounded-md w-full p-2 outline-none"
             />
-            <Button
-              title="Subscribe"
-              onClick={() => console.log("form")}
-              className=" max-w-2xs py-2 hover:bg-gray-100"
-              textClassName="hover:text-blue-600"
-            />
-            {/* <button className="p-2 px-3 w-full rounded-lg font-medium bg-white text-blue-600 hover:bg-gray-100 active:bg-blue-700 active:text-white duration-150 outline-none shadow-md focus:shadow-none sm:px-4">
-              Subscribe
-            </button> */}
+            {isError && <p className="text-red-500 text-sm">{errorMsg}</p>}
+            {success && (
+              <p className="text-green-600 text-sm">Subscribed successfully!</p>
+            )}
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="p-2 px-3 w-full rounded-lg font-medium text-white bg-button-blue cursor-pointer hover:bg-white hover:border hover:border-button-blue hover:text-button-blue duration-150 outline-none sm:px-4 flex justify-center items-center gap-2"
+            >
+              {isLoading && (
+                <AiOutlineLoading className="animate-spin h-5 w-5" />
+              )}
+              {isLoading ? "Submitting..." : "Subscribe"}
+            </button>
           </form>
         </div>
       </div>
