@@ -115,7 +115,7 @@ const Homepage = () => {
 
       {/* Trusted partners */}
       <section className="py-16 px-5  max-w-7xl mx-auto ">
-        <h2 className="text-center heading-text mb-16 font-bold">
+        <h2 className="!text-center heading-text mb-16 font-bold">
           Trusted Partners
         </h2>
         <div className="overflow-hidden w-full">

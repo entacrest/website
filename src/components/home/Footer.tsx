@@ -6,6 +6,7 @@ import {
   FaLinkedin,
   FaXTwitter,
 } from "react-icons/fa6";
+import SubscribeNews from "../SubscribeNews";
 
 const socials = [
   {
@@ -44,6 +45,8 @@ const Footer = () => {
               </p>
               <p>info@entacrest.com</p>
               <p>+2349010380794</p>
+              <p>Oba Akran, Ikeja Lagos</p>
+
               <div className="flex items-center"></div>
             </div>
             <div className="flex gap-4 text-xl text-gray-500">
@@ -72,8 +75,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-xl font-bold ">Our office</h2>
-            <p className="mt-5">Oba Akran, Ikeja Lagos</p>
+            <SubscribeNews />
           </div>
         </section>
       </article>
