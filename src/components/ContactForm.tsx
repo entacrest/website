@@ -39,6 +39,7 @@ const ContactForm = () => {
       setIsSuccess(true);
       toast.success("Message sent successfully!");
       reset(); // clear form
+      setTimeout(() => setIsSuccess(false), 4000);
     } catch (error: any) {
       setIsError(true);
       const msg =
@@ -46,6 +47,7 @@ const ContactForm = () => {
         "An error occurred. Please try again.";
       setErrorMsg(msg);
       toast.error(msg);
+      setTimeout(() => setIsError(false), 4000);
     } finally {
       setIsLoading(false);
     }
