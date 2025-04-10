@@ -10,7 +10,7 @@ const ProductPage = () => {
         </h2>
         <article className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-7xl mx-auto">
           <div className="text-white md:basis-1/2 max-w-xl">
-            <h3 className="text-3xl md:text-6xl font-bold mb-4">
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
               Transform The Way You Manage Your Real Estate Business
             </h3>
             <p className="md:text-[24px] md:leading-12  mb-6">

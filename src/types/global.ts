@@ -8,6 +8,6 @@ export interface TrustedPartners {
   className: string;
 }
 export interface Inputs {
-  value: "firstName" | "lastName" | "email" | "message" | "phoneNumber";
+  value: "first_name" | "last_name" | "email" | "message" | "phone";
   placeholder: string;
 }
