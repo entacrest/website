@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Button from "./Button";
 
 const SubscribeNews = () => {
   const [email, setEmail] = useState("");
@@ -25,9 +26,15 @@ const SubscribeNews = () => {
               placeholder="Enter your email"
               className="text-gray-500 bg-white border-none rounded-md w-full p-2 outline-none"
             />
-            <button className="p-2 px-3 w-full rounded-lg font-medium bg-white text-blue-600 hover:bg-gray-100 active:bg-blue-700 active:text-white duration-150 outline-none shadow-md focus:shadow-none sm:px-4">
+            <Button
+              title="Subscribe"
+              onClick={() => console.log("form")}
+              className=" max-w-2xs py-2 hover:bg-gray-100"
+              textClassName="hover:text-blue-600"
+            />
+            {/* <button className="p-2 px-3 w-full rounded-lg font-medium bg-white text-blue-600 hover:bg-gray-100 active:bg-blue-700 active:text-white duration-150 outline-none shadow-md focus:shadow-none sm:px-4">
               Subscribe
-            </button>
+            </button> */}
           </form>
         </div>
       </div>
