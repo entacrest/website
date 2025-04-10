@@ -18,6 +18,7 @@ const SubscribeNews = () => {
     if (!email.trim()) {
       setIsError(true);
       setErrorMsg("Email is required.");
+      setTimeout(() => setIsError(false), 4000);
       return;
     }
 
@@ -25,6 +26,7 @@ const SubscribeNews = () => {
     if (!emailRegex.test(email)) {
       setIsError(true);
       setErrorMsg("Please enter a valid email.");
+      setTimeout(() => setIsError(false), 4000);
       return;
     }
 
@@ -34,26 +36,30 @@ const SubscribeNews = () => {
       setErrorMsg("");
       setSuccess(false);
 
-      const resp = await api.post("/account/newsletter", { email });
+      const resp = await api.post("/account/newsletter/", { email });
       console.log(resp);
 
       setSuccess(true);
       toast.success("You have successfully subscribed");
       setEmail("");
+
+      setTimeout(() => setSuccess(false), 4000);
     } catch (error: any) {
       const msg =
         error?.response?.data?.message ||
         "Something went wrong. Please try again later.";
       setIsError(true);
-      toast.error(msg);
       setErrorMsg(msg);
+      toast.error(msg);
+
+      setTimeout(() => setIsError(false), 4000);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="max-w-[300px] rounded-2xl bg-gray-50 shadow p-4">
+    <div className="max-w-[300px] rounded-2xl  shadow p-4">
       <div className="relative z-10 max-w-xl mx-auto sm:text-center">
         <div className="space-y-3">
           <h3 className="text-xl font-bold">Subscribe to our newsletter</h3>
