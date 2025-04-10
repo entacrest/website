@@ -15,11 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Entacrest Nexus",
+  title: "Entacrest",
   description: "Entacrest Webpage",
-  icons: {
-    icon: "/logo.png",
-  },
 };
 
 export default function RootLayout({
