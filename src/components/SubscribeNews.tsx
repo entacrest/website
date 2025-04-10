@@ -9,7 +9,7 @@ const SubscribeNews = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
+  const [msg, setMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -17,7 +17,7 @@ const SubscribeNews = () => {
 
     if (!email.trim()) {
       setIsError(true);
-      setErrorMsg("Email is required.");
+      setMsg("Email is required.");
       setTimeout(() => setIsError(false), 4000);
       return;
     }
@@ -25,7 +25,7 @@ const SubscribeNews = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setIsError(true);
-      setErrorMsg("Please enter a valid email.");
+      setMsg("Please enter a valid email.");
       setTimeout(() => setIsError(false), 4000);
       return;
     }
@@ -33,24 +33,24 @@ const SubscribeNews = () => {
     try {
       setIsLoading(true);
       setIsError(false);
-      setErrorMsg("");
+      setMsg("");
       setSuccess(false);
 
       const resp = await api.post("/account/newsletter/", { email });
-      console.log(resp);
 
       setSuccess(true);
-      toast.success("You have successfully subscribed");
+      setMsg(resp.data.message);
+      toast.success(resp.data.message);
       setEmail("");
 
       setTimeout(() => setSuccess(false), 4000);
     } catch (error: any) {
-      const msg =
+      const message =
         error?.response?.data?.message ||
         "Something went wrong. Please try again later.";
       setIsError(true);
-      setErrorMsg(msg);
-      toast.error(msg);
+      setMsg(msg);
+      toast.error(message);
 
       setTimeout(() => setIsError(false), 4000);
     } finally {
@@ -74,16 +74,14 @@ const SubscribeNews = () => {
             onSubmit={handleSubmit}
           >
             <input
-              type="email"
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
               className="text-gray-500 bg-[#EDEAEA] border-none rounded-md w-full p-2 outline-none"
             />
-            {isError && <p className="text-red-500 text-sm">{errorMsg}</p>}
-            {success && (
-              <p className="text-green-600 text-sm">Subscribed successfully!</p>
-            )}
+            {isError && <p className="text-red-500 text-sm">{msg}</p>}
+            {success && <p className="text-green-600 text-sm">{msg}</p>}
             <button
               type="submit"
               disabled={isLoading}
