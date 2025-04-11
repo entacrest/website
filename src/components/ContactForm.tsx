@@ -15,6 +15,7 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [msg, setMsg] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
   const {
@@ -36,8 +37,9 @@ const ContactForm = () => {
 
     try {
       const resp = await api.post("/account/contact/", formData);
+      setMsg(resp.data.message);
       setIsSuccess(true);
-      toast.success("Message sent successfully!");
+      toast.success(resp.data.message);
       reset(); // clear form
       setTimeout(() => setIsSuccess(false), 4000);
     } catch (error: any) {
@@ -105,11 +107,7 @@ const ContactForm = () => {
         </div>
 
         {/* ✅ Success & Error Feedback */}
-        {isSuccess && (
-          <p className="text-green-400 text-center">
-            Message sent successfully!
-          </p>
-        )}
+        {isSuccess && <p className="text-green-400 text-center">{msg}</p>}
         {isError && <p className="text-red-500 text-center">{errorMsg}</p>}
 
         <div className="w-full flex justify-center items-center px-4">
