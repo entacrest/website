@@ -6,7 +6,7 @@ import { useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 
 import api from "@/config/api_config";
-import { ContactFormSchema } from "./validation";
+import { ContactFormSchema } from "../../components/validation";
 import { Inputs } from "@/types/global";
 import toast from "react-hot-toast";
 

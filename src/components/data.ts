@@ -1,4 +1,9 @@
-import { TrustedPartners, WhyEntacrest } from "@/types/global";
+import {
+  JobOpenings,
+  TrustedPartners,
+  WhyEntacrest,
+  WorkBenefits,
+} from "@/types/global";
 
 export const whyEntacrest: WhyEntacrest[] = [
   {
@@ -28,4 +33,24 @@ export const trustedPartners: TrustedPartners[] = [
   { icon: "/images/Nomba.svg", className: "w-[100px] h-[80px]" },
   { icon: "/images/OSD.svg", className: "size-[100px]" },
   { icon: "/images/cove.jpg", className: "size-[100px]" },
+];
+export const workBenefits: WorkBenefits[] = [
+  {
+    title: "Health Benefits",
+    description:
+      "We prioritize the well-being of our team by offering comprehensive health benefits, including medical, dental, and vision coverage, along with mental health support and wellness programs to keep our employees healthy and thriving.",
+    iconSrc: "/icons/hospital.svg",
+  },
+  {
+    title: "Health Benefits",
+    description:
+      "We prioritize the well-being of our team by offering comprehensive health benefits, including medical, dental, and vision coverage, along with mental health support and wellness programs to keep our employees healthy and thriving.",
+    iconSrc: "/icons/hospital.svg",
+  },
+  {
+    title: "Health Benefits",
+    description:
+      "We prioritize the well-being of our team by offering comprehensive health benefits, including medical, dental, and vision coverage, along with mental health support and wellness programs to keep our employees healthy and thriving.",
+    iconSrc: "/icons/hospital.svg",
+  },
 ];
