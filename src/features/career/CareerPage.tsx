@@ -86,19 +86,19 @@ const CareerPage = () => {
       </section>
 
       {/* What u stand to gain  */}
-      <section className="bg-button-blue mt-10 px-4 py-8">
-        <h2 className="text-secondary-one text-center font-medium heading-text md:font-bold">
+      <section className="bg-button-blue mt-10 px-4 py-10">
+        <h2 className="text-white text-center font-medium heading-text md:font-bold">
           Work Benefits
         </h2>
-        <section>
+        <section className="mt-10 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {workBenefits.map(({ title, iconSrc, description }, i) => {
             return (
-              <div key={i}>
-                <div>
-                  <h2>{title}</h2>
+              <div key={i} className="border border-white p-2 rounded-md">
+                <div className="flex items-center gap-4 ">
+                  <h2 className="md:text-3xl text-white">{title}</h2>
                   <Image src={iconSrc} alt={title} width={40} height={40} />
                 </div>
-                <p>{description}</p>
+                <p className="my-4 text-white paragraph-text">{description}</p>
               </div>
             );
           })}
