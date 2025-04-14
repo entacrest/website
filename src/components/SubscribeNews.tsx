@@ -36,7 +36,7 @@ const SubscribeNews = () => {
       setMsg("");
       setSuccess(false);
 
-      const resp = await api.post("/account/newsletter/", { email });
+      const resp = await api.post("/webpage/newsletter/", { email });
 
       setSuccess(true);
       setMsg(resp.data.message);

@@ -36,11 +36,13 @@ const ContactForm = () => {
     const formData = { ...data, contact_me: contact };
 
     try {
-      const resp = await api.post("/account/contact/", formData);
+      const resp = await api.post("/webpage/contact/", formData);
       setMsg(resp.data.message);
       setIsSuccess(true);
+
       toast.success(resp.data.message);
       reset(); // clear form
+      setContact(false);
       setTimeout(() => setIsSuccess(false), 4000);
     } catch (error: any) {
       setIsError(true);
