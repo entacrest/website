@@ -8,6 +8,7 @@ import JobCard from "./JobCard";
 import { workBenefits } from "@/components/data";
 import Image from "next/image";
 import JobApplicationForm from "./JobApplicationForm";
+import SkeletonJobCard from "./SkeletonJobCard";
 
 const CareerPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,8 +65,6 @@ const CareerPage = () => {
           Job Openings
         </h2>
         <article className="mt-6">
-          {isLoading && <p className="text-center">Loading job openings...</p>}
-
           {isError && (
             <p className="text-center text-red-500 font-medium">{msg}</p>
           )}
@@ -75,10 +74,12 @@ const CareerPage = () => {
               No job openings available at the moment.
             </p>
           ) : (
-            <section className="grid md:grid-cols-2 lg:grid-cols-3 ">
-              {jobs.map((job, i) => (
-                <JobCard job={job} key={i} />
-              ))}
+            <section className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+              {isLoading
+                ? Array.from({ length: 6 }).map((_, i) => (
+                    <SkeletonJobCard key={i} />
+                  ))
+                : jobs.map((job, i) => <JobCard job={job} key={i} />)}
             </section>
           )}
         </article>
