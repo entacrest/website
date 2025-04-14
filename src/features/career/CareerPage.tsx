@@ -86,7 +86,7 @@ const CareerPage = () => {
       </section>
 
       {/* What u stand to gain  */}
-      <section className="bg-button-blue mt-10 px-4 py-10">
+      <section className="bg-button-blue mt-10 px-4 py-[50px]">
         <h2 className="text-white text-center font-medium heading-text md:font-bold">
           Work Benefits
         </h2>
@@ -95,8 +95,8 @@ const CareerPage = () => {
             return (
               <div key={i} className="border border-white p-2 rounded-md">
                 <div className="flex items-center gap-4 ">
-                  <h2 className="md:text-3xl text-white">{title}</h2>
-                  <Image src={iconSrc} alt={title} width={40} height={40} />
+                  <h2 className="md:text-3xl text-white font-bold">{title}</h2>
+                  <Image src={iconSrc} alt={title} width={32} height={32} />
                 </div>
                 <p className="my-4 text-white paragraph-text">{description}</p>
               </div>

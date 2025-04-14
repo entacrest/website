@@ -42,15 +42,15 @@ export const workBenefits: WorkBenefits[] = [
     iconSrc: "/icons/hospital.svg",
   },
   {
-    title: "Health Benefits",
+    title: "Flexible hours",
     description:
-      "We prioritize the well-being of our team by offering comprehensive health benefits, including medical, dental, and vision coverage, along with mental health support and wellness programs to keep our employees healthy and thriving.",
-    iconSrc: "/icons/hospital.svg",
+      "We offer flexible working hours to support work-life balance, allowing our team to manage their schedules in a way that works best for them and their productivity.",
+    iconSrc: "/icons/building.svg",
   },
   {
-    title: "Health Benefits",
+    title: "Growth Opportunities",
     description:
-      "We prioritize the well-being of our team by offering comprehensive health benefits, including medical, dental, and vision coverage, along with mental health support and wellness programs to keep our employees healthy and thriving.",
-    iconSrc: "/icons/hospital.svg",
+      "We invest in our team’s growth through continuous learning, mentorship, and clear career development paths, empowering employees to reach their full potential.",
+    iconSrc: "/icons/receipt-square.svg",
   },
 ];
