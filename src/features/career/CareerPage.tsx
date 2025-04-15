@@ -43,7 +43,7 @@ const CareerPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="md:bg-[url('/images/career.jfif')] bg-[url('/images/resp-about.jfif')] backgroundImage w-full h-[600px] flex justify-center items-center md:h-[700px] relative">
+      <section className="md:bg-[url('/images/career.jfif')] bg-[url('/images/career-hero.jfif')] backgroundImage w-full h-[600px] flex justify-center items-center md:h-[700px] relative">
         <div className="absolute inset-0 bg-black/40" />
         <div className="max-w-5xl relative text-center text-white">
           <h2 className="mt-6 font-medium heading-text md:font-bold">
