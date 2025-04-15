@@ -1,4 +1,5 @@
 import {
+  Blog,
   JobOpenings,
   TrustedPartners,
   WhyEntacrest,
@@ -52,5 +53,44 @@ export const workBenefits: WorkBenefits[] = [
     description:
       "We invest in our team’s growth through continuous learning, mentorship, and clear career development paths, empowering employees to reach their full potential.",
     iconSrc: "/icons/receipt-square.svg",
+  },
+];
+
+export const blogs: Blog[] = [
+  {
+    id: 1,
+    title: "The Future Of Nigeria Trends In 2026",
+    description:
+      "Nigeria’s future is bright—driven by a dynamic youth population, rapid technological advancement, and a growing entrepreneurial spirit poised to transform the nation into a global economic powerhouse.",
+    imageSrc: "/images/blog1.svg",
+    datePosted: "12 August 2024",
+    author: {
+      name: "Bukola Adeniyi",
+      profileImage: "/images/avatar.svg",
+    },
+  },
+  {
+    id: 2,
+    title: "The Future Of Nigeria Trends In 2026",
+    description:
+      "Nigeria’s future is bright—driven by a dynamic youth population, rapid technological advancement, and a growing entrepreneurial spirit poised to transform the nation into a global economic powerhouse.",
+    imageSrc: "/images/blog1.svg",
+    datePosted: "12 August 2024",
+    author: {
+      name: "Bukola Adeniyi",
+      profileImage: "/images/avatar.svg",
+    },
+  },
+  {
+    id: 3,
+    title: "The Future Of Nigeria Trends In 2026",
+    description:
+      "Nigeria’s future is bright—driven by a dynamic youth population, rapid technological advancement, and a growing entrepreneurial spirit poised to transform the nation into a global economic powerhouse.",
+    imageSrc: "/images/blog1.svg",
+    datePosted: "12 August 2024",
+    author: {
+      name: "Bukola Adeniyi",
+      profileImage: "/images/avatar.svg",
+    },
   },
 ];

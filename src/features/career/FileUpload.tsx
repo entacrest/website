@@ -38,6 +38,7 @@ const FileUploader = () => {
       setUploadProgress(progress);
       if (progress >= 100) {
         clearInterval(interval);
+        toast.success("Upload complete!");
       }
     }, 200);
   };
@@ -55,7 +56,8 @@ const FileUploader = () => {
         <button
           type="button"
           onClick={handleBrowseClick}
-          className="bg-[#E5E3E3] py-3 px-8 rounded-r-md cursor-pointer basis-1/10"
+          disabled={uploadProgress !== null && uploadProgress < 100}
+          className="bg-[#E5E3E3] py-3 px-8 rounded-r-md cursor-pointer basis-1/10 disabled:opacity-50"
         >
           Browse
         </button>
@@ -64,7 +66,7 @@ const FileUploader = () => {
       <input
         ref={fileInputRef}
         type="file"
-        accept=".txt,application/pdf"
+        accept=".txt,.pdf,.doc,.docx"
         className="hidden"
         onChange={handleFileChange}
       />
