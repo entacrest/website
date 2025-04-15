@@ -4,11 +4,14 @@
   --color-button-blue: #003366;
   --color-custom-blue900: #241623;
   --color-green-button: #28a236;
+  --color-green-success: #29d03d;
+  --color-red-danger: #f84141;
   --color-yellow-light: #f2cb00;
   --color-light-gray: #f9f9f9;
   --color-border-one: #c5e0ff;
   --color-text-primary: #1e1e1e;
   --color-secondary-one: #1d1d1d;
+  --color-secondary-two: #b4b4b4;
 }
 .backgroundImage {
   background-size: cover;
