@@ -1,7 +1,6 @@
 import { JobCardProps } from "@/types/global";
 import Image from "next/image";
 import React from "react";
-import { IoBookmarks } from "react-icons/io5";
 
 const JobCard = ({ job }: JobCardProps) => {
   const { id, description, is_active, mode, title, type } = job;
@@ -27,7 +26,7 @@ const JobCard = ({ job }: JobCardProps) => {
           />
         </div>
       </div>
-      <p className="mt-5 text-gray-600">{description}</p>
+      <p className="mt-5 text-gray-600 min-h-16">{description}</p>
       <p className="text-sm mt-2">{is_active}</p>
       <div className="flex items-center my-5 gap-4">
         <p className="bg-[#CFCFCF] text-secondary-one p-1 px-2 rounded-sm">
@@ -38,7 +37,14 @@ const JobCard = ({ job }: JobCardProps) => {
         </p>
       </div>
       <div className="flex items-center pb-5 gap-6">
-        <button className="cursor-pointer hover:bg-button-blue hover:text-white border-button-blue text-button-blue font-bold rounded-xl  p-2 px-6 border-2">
+        <button
+          onClick={() =>
+            document
+              .getElementById("job-application-form")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="cursor-pointer hover:bg-button-blue hover:text-white border-button-blue text-button-blue font-bold rounded-xl  p-2 px-6 border-2"
+        >
           Apply Now
         </button>
         <p

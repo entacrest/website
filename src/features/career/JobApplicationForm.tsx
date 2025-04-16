@@ -40,27 +40,27 @@ const JobApplicationForm = () => {
     setIsSuccess(false);
 
     const formData = { ...data, contact_me: contact };
+    console.log("Accepted successfully");
+    // try {
+    //   const resp = await api.post("/webpage/contact/", formData);
+    //   setMsg(resp.data.message);
+    //   setIsSuccess(true);
 
-    try {
-      const resp = await api.post("/webpage/contact/", formData);
-      setMsg(resp.data.message);
-      setIsSuccess(true);
-
-      toast.success(resp.data.message);
-      reset(); // clear form
-      setContact(false);
-      setTimeout(() => setIsSuccess(false), 4000);
-    } catch (error: any) {
-      setIsError(true);
-      const msg =
-        error?.response?.data?.message ||
-        "An error occurred. Please try again.";
-      setErrorMsg(msg);
-      toast.error(msg);
-      setTimeout(() => setIsError(false), 4000);
-    } finally {
-      setIsLoading(false);
-    }
+    //   toast.success(resp.data.message);
+    //   reset(); // clear form
+    //   setContact(false);
+    //   setTimeout(() => setIsSuccess(false), 4000);
+    // } catch (error: any) {
+    //   setIsError(true);
+    //   const msg =
+    //     error?.response?.data?.message ||
+    //     "An error occurred. Please try again.";
+    //   setErrorMsg(msg);
+    //   toast.error(msg);
+    //   setTimeout(() => setIsError(false), 4000);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
   return (
     <section className="md:bg-[url('/images/application.jfif')] bg-[url('/images/resp-contact.jfif')]  backgroundImage w-full min-h-[300px] md:min-h-[800px] bg-black/60 relative p-6 py-20">

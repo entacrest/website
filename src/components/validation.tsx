@@ -19,7 +19,7 @@ export const ApplicationFormSchema = yup.object().shape({
   role: yup
     .string()
     .matches(/^\d{10,15}$/, "Invalid phone number")
-    .required("Phone number is required"),
+    .required("Enter the role you are applying for"),
   cover_letter: yup
     .string()
     .required("Message is required")
