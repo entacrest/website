@@ -51,4 +51,5 @@ export interface Blog {
   imageSrc: string;
   datePosted: string;
   author: Author;
+  text: string;
 }

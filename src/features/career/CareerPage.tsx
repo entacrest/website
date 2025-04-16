@@ -55,7 +55,15 @@ const CareerPage = () => {
             continuous learning, and a shared commitment to excellence in
             everything we do.
           </p>
-          <Button title="Get Started" className="mt-6 max-w-2xs py-4" />
+          <Button
+            title="Get Started"
+            className="mt-6 max-w-2xs py-4"
+            onClick={() =>
+              document
+                .getElementById("job-application-form")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          />
         </div>
       </section>
 
@@ -104,8 +112,9 @@ const CareerPage = () => {
           })}
         </section>
       </section>
-
-      <JobApplicationForm />
+      <div id="job-application-form">
+        <JobApplicationForm />
+      </div>
     </main>
   );
 };

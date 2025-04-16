@@ -1,5 +1,7 @@
+"use client";
 import { Blog } from "@/types/global";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa6";
 
 interface BlogProp {
@@ -7,6 +9,7 @@ interface BlogProp {
   className: string;
 }
 const BlogCard = ({ blog, className }: BlogProp) => {
+  const router = useRouter();
   const {
     id,
     title,
@@ -40,7 +43,10 @@ const BlogCard = ({ blog, className }: BlogProp) => {
         <p className="text-secondary-one text-[20px] leading-[30px] ">
           {description}
         </p>
-        <div className="flex items-center gap-2 my-4 text-[22px] leading-9 font-bold text-secondary-one">
+        <div
+          className="flex items-center gap-2 my-4 text-[22px] leading-9 font-bold text-secondary-one w-fit cursor-pointer"
+          onClick={() => router.push(`/blog/${id}`)}
+        >
           <span>Read more</span>
           <FaArrowRight />
         </div>

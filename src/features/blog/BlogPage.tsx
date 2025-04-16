@@ -19,15 +19,17 @@ const BlogPage = () => {
       </section>
 
       {/* Top Blog */}
-      <section className="max-w-6xl mx-auto py-10">
-        <h2 className="text-3xl text-secondary-one font-bold">Top Blog</h2>
-        <section className="my-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      <section className="max-w-6xl mx-auto py-10 px-4">
+        <h2 className="text-3xl text-secondary-one font-bold text-center md:text-left">
+          Top Blog
+        </h2>
+        <section className="mx-auto my-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {blogs.map((blog) => {
             return <BlogCard key={blog.id} blog={blog} className="max-w-xs" />;
           })}
         </section>
       </section>
-      <section className="max-w-6xl mx-auto py-10">
+      <section className="max-w-6xl mx-auto py-10 px-4">
         <h2 className="text-3xl text-secondary-one font-bold text-center md:text-left">
           Latest Blog
         </h2>
