@@ -17,6 +17,8 @@ const JobApplicationForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [msg, setMsg] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileName, setFileName] = useState("");
 
   const {
     register,
@@ -39,29 +41,50 @@ const JobApplicationForm = () => {
     setErrorMsg("");
     setIsSuccess(false);
 
-    const formData = { ...data, contact_me: contact };
-    console.log("Accepted successfully");
-    // try {
-    //   const resp = await api.post("/webpage/contact/", formData);
-    //   setMsg(resp.data.message);
-    //   setIsSuccess(true);
+    if (!selectedFile) {
+      toast.error("Please select a file first.");
+      setIsLoading(false);
+      return;
+    }
 
-    //   toast.success(resp.data.message);
-    //   reset(); // clear form
-    //   setContact(false);
-    //   setTimeout(() => setIsSuccess(false), 4000);
-    // } catch (error: any) {
-    //   setIsError(true);
-    //   const msg =
-    //     error?.response?.data?.message ||
-    //     "An error occurred. Please try again.";
-    //   setErrorMsg(msg);
-    //   toast.error(msg);
-    //   setTimeout(() => setIsError(false), 4000);
-    // } finally {
-    //   setIsLoading(false);
-    // }
+    try {
+      const formData = new FormData();
+      formData.append("first_name", data.first_name);
+      formData.append("last_name", data.last_name);
+      formData.append("email", data.email);
+      formData.append("role", data.role);
+      formData.append("cover_letter", data.cover_letter || "");
+      formData.append("contact_consent", contact ? "yes" : "no");
+      formData.append("file", selectedFile);
+
+      const resp = await api.post("/webpage/job-application/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      setMsg(resp.data.message);
+      setIsSuccess(true);
+      toast.success(resp.data.message);
+
+      reset(); // clear form fields
+      setContact(false);
+      setSelectedFile(null);
+      setFileName('') // reset file input
+      setTimeout(() => setIsSuccess(false), 4000);
+    } catch (error: any) {
+      setIsError(true);
+      const msg =
+        error?.response?.data?.message ||
+        "An error occurred. Please try again.";
+      setErrorMsg(msg);
+      toast.error(msg);
+      setTimeout(() => setIsError(false), 4000);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <section className="md:bg-[url('/images/application.jfif')] bg-[url('/images/resp-contact.jfif')]  backgroundImage w-full min-h-[300px] md:min-h-[800px] bg-black/60 relative p-6 py-20">
       <div className="absolute inset-0 bg-black/40" />
@@ -84,7 +107,13 @@ const JobApplicationForm = () => {
               <p className="text-red-500 text-sm">{errors[value]?.message}</p>
             </div>
           ))}
-          <FileUploader />
+
+          <FileUploader
+            selectedFile={selectedFile}
+            setSelectedFile={setSelectedFile}
+            setFileName={setFileName}
+            fileName={fileName}
+          />
           <div className="mb-4">
             <textarea
               {...register("cover_letter")}
