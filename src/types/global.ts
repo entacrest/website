@@ -45,6 +45,14 @@ export interface Author {
   profileImage: string;
 }
 export interface Blog {
+  id: number;
+  title: string;
+  body: string;
+  image: string;
+  user: string;
+  date_created: string;
+}
+export interface BlogPost {
   id: number | string;
   title: string;
   description: string;

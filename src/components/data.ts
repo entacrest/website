@@ -1,5 +1,6 @@
 import {
   Blog,
+  BlogPost,
   Comment,
   JobOpenings,
   TrustedPartners,
@@ -57,7 +58,7 @@ export const workBenefits: WorkBenefits[] = [
   },
 ];
 
-export const blogs: Blog[] = [
+export const blogs: BlogPost[] = [
   {
     id: 1,
     title: "The Future Of Nigeria Trends In 2026",
