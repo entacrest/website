@@ -1,35 +1,68 @@
 "use client";
 
-import { blogs, commentsData } from "@/components/data";
-import { Blog, BlogPost } from "@/types/global";
+import { commentsData } from "@/components/data";
+import { Blog } from "@/types/global";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import CommentForm from "./CommentForm";
 import CommentCard from "./CommentCard";
 import BlogCard from "../blog/BlogCard";
+import api from "@/config/api_config";
+import toast from "react-hot-toast";
+import BlogSkeleton from "../blog/BlogSkeleton";
 
 const SingleBlogPage = () => {
   const params = useParams();
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
-  const [blog, setBlog] = useState<BlogPost>();
+  const [blog, setBlog] = useState<Blog>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    if (id) {
-      const data = blogs.find((bl) => bl.id.toString() === id.toString());
-      if (data) setBlog(data);
-    }
+    const fetchData = async () => {
+      setIsLoading(true);
+      setIsError(false);
+      setMsg("");
+      try {
+        const resp = await api.get(`/webpage/blog_post/${id}`);
+        setBlog(resp.data.data);
+      } catch (error: any) {
+        const errorMessage = error?.response?.data?.message || error.message;
+        setIsError(true);
+        setMsg(errorMessage);
+        toast.error(errorMessage);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
   }, [id]);
 
   if (!blog) {
+    return <div>Loading...</div>;
+  }
+
+  const { image, title, body, user, date_created } = blog;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const url = baseUrl?.replace("/v1/", "/");
+  const imageUrl = `${url}${image?.slice(1)}`;
+  if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-500 text-lg">Loading blog post...</p>
+      <div className="min-h-screen p-4">
+        <BlogSkeleton count={1} />
       </div>
     );
   }
 
-  const { title, imageSrc, datePosted, author, text } = blog;
+  if (isError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-red-500 text-lg">{msg}</p>
+      </div>
+    );
+  }
 
   return (
     <main>
@@ -42,7 +75,7 @@ const SingleBlogPage = () => {
         {/* Blog Image */}
         <div className="w-full">
           <Image
-            src={imageSrc}
+            src={imageUrl}
             alt="Blog Cover"
             width={1000}
             height={600}
@@ -53,19 +86,19 @@ const SingleBlogPage = () => {
         {/* Author Info */}
         <article className="flex items-center gap-4">
           <Image
-            src={author.profileImage}
-            alt={author.name}
+            src="/images/avatar.svg"
+            alt={user}
             width={40}
             height={40}
             className="rounded-full object-cover"
           />
-          <h3 className="text-md font-medium">{author.name}</h3>
-          <p className="text-sm text-gray-500">{datePosted}</p>
+          <h3 className="text-md font-medium">{user}</h3>
+          <p className="text-sm text-gray-500">{date_created}</p>
         </article>
 
         {/* Title & Description */}
         <h2 className="text-secondary-one text-3xl font-bold">{title}</h2>
-        <p className="text-secondary-one text-xl leading-relaxed">{text}</p>
+        <p className="text-secondary-one text-xl leading-relaxed">{body}</p>
 
         {/* share this story */}
         <div></div>
