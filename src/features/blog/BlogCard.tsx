@@ -10,19 +10,16 @@ interface BlogProp {
 }
 const BlogCard = ({ blog, className }: BlogProp) => {
   const router = useRouter();
-  const {
-    id,
-    title,
-    description,
-    imageSrc,
-    datePosted,
-    author: { name, profileImage },
-  } = blog;
+  const { id, user, title, date_created, body, image } = blog;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const url = baseUrl?.replace("/v1/", "/");
+  const imageUrl = `${url}${image.slice(1)}`;
+  console.log(imageUrl);
   return (
     <section className={className}>
       <div className="w-full ">
         <Image
-          src={imageSrc}
+          src={imageUrl}
           alt="img"
           width={100}
           height={100}
@@ -31,17 +28,23 @@ const BlogCard = ({ blog, className }: BlogProp) => {
       </div>
       <div>
         <article className="my-4 flex items-center gap-4">
-          <div className="w-fit  rounded-full">
-            <Image src={profileImage} alt="img" width={30} height={30} />
+          <div className="w-fit">
+            <Image
+              src="/images/avatar.svg"
+              className="rounded-full"
+              alt="img"
+              width={30}
+              height={30}
+            />
           </div>
-          <h3>{name}</h3>
-          <p>{datePosted}</p>
+          <h3>{user}</h3>
+          <p>{date_created}</p>
         </article>
         <h2 className="text-secondary-one text-[24px] leading-[38px] font-bold">
           {title}
         </h2>
         <p className="text-secondary-one text-[20px] leading-[30px] ">
-          {description}
+          {body.slice(0, 100)}...
         </p>
         <div
           className="flex items-center gap-2 my-4 text-[22px] leading-9 font-bold text-secondary-one w-fit cursor-pointer"

@@ -1,7 +1,7 @@
 "use client";
 
 import { blogs, commentsData } from "@/components/data";
-import { Blog } from "@/types/global";
+import { Blog, BlogPost } from "@/types/global";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ import BlogCard from "../blog/BlogCard";
 const SingleBlogPage = () => {
   const params = useParams();
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
-  const [blog, setBlog] = useState<Blog | null>(null);
+  const [blog, setBlog] = useState<BlogPost>();
 
   useEffect(() => {
     if (id) {
@@ -74,11 +74,11 @@ const SingleBlogPage = () => {
       {/* related post  */}
       <section className="py-16 max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold text-secondary-one">Related Posts</h2>
-        <section className="mx-auto my-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        {/* <section className="mx-auto my-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {blogs.map((blog) => {
             return <BlogCard key={blog.id} blog={blog} className="max-w-xs" />;
           })}
-        </section>
+        </section> */}
       </section>
       {/* comments */}
       <CommentForm />
