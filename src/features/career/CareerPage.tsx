@@ -14,7 +14,6 @@ const CareerPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [msg, setMsg] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
@@ -22,14 +21,11 @@ const CareerPage = () => {
       setIsLoading(true);
       setIsError(false);
       setMsg("");
-      setIsSuccess(false);
       try {
         const resp = await api.get("/webpage/jobs/");
         setJobs(resp.data.data);
-        setIsSuccess(true);
       } catch (error: any) {
-        const errorMessage =
-          error?.response?.data?.message || "Failed to load job openings.";
+        const errorMessage = error?.response?.data?.message || error.message;
         setIsError(true);
         setMsg(errorMessage);
         toast.error(errorMessage);
@@ -55,7 +51,15 @@ const CareerPage = () => {
             continuous learning, and a shared commitment to excellence in
             everything we do.
           </p>
-          <Button title="Get Started" className="mt-6 max-w-2xs py-4" />
+          <Button
+            title="Get Started"
+            className="mt-6 max-w-2xs py-4"
+            onClick={() =>
+              document
+                .getElementById("job-application-form")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          />
         </div>
       </section>
 
@@ -104,8 +108,9 @@ const CareerPage = () => {
           })}
         </section>
       </section>
-
-      <JobApplicationForm />
+      <div id="job-application-form">
+        <JobApplicationForm />
+      </div>
     </main>
   );
 };

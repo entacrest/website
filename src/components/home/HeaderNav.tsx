@@ -22,7 +22,7 @@ const HeaderNav = ({ onClick }: { onClick: () => void }) => {
             key={link.href}
             href={link.href}
             onClick={onClick}
-            className={` transition  text-lg ${
+            className={` transition md:text-sm lg:text-lg text-lg ${
               pathname === link.href
                 ? "text-button-blue font-semibold md:border-b-2 border-button-blue"
                 : "text-custom-blue900 hover:text-blue-300"

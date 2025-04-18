@@ -39,3 +39,47 @@ export interface WorkBenefits {
   description: string;
   iconSrc: string;
 }
+
+export interface Author {
+  name: string;
+  profileImage: string;
+}
+export interface Blog {
+  id: number;
+  title: string;
+  body: string;
+  image: string;
+  user: string;
+  date_created: string;
+}
+export interface BlogPost {
+  id: number | string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  datePosted: string;
+  author: Author;
+  text: string;
+}
+export type User = {
+  name: string;
+  profileImage: string;
+  jobTitle: string;
+};
+
+export type Reply = {
+  id: string;
+  user: User;
+  comment: string;
+  createdAt: string; // e.g. "2h", "1d"
+  likes: number;
+};
+
+export type Comment = {
+  id: string;
+  user: User;
+  comment: string;
+  createdAt: string;
+  likes: number;
+  replies: Reply[];
+};
