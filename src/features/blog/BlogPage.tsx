@@ -56,7 +56,11 @@ const BlogPage = () => {
             <p className="text-red-500">{error}</p>
           ) : (
             blogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} className="max-w-xs" />
+              <BlogCard
+                key={blog.id}
+                blog={blog}
+                className="w-full md:max-w-xs"
+              />
             ))
           )}
         </section>
@@ -77,7 +81,7 @@ const BlogPage = () => {
               <BlogCard
                 key={blog.id}
                 blog={blog}
-                className="max-h-[390px] max-w-5xl flex gap-6"
+                className=" max-w-5xl md:flex gap-6"
               />
             ))
           )}
