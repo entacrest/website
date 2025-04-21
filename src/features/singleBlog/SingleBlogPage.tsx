@@ -11,6 +11,7 @@ import BlogCard from "../blog/BlogCard";
 import api from "@/config/api_config";
 import toast from "react-hot-toast";
 import BlogSkeleton from "../blog/BlogSkeleton";
+import HtmlRenderer from "@/components/HTMLRenderer";
 
 const SingleBlogPage = () => {
   const params = useParams();
@@ -40,14 +41,6 @@ const SingleBlogPage = () => {
     fetchData();
   }, [id]);
 
-  if (!blog) {
-    return <div>Loading...</div>;
-  }
-
-  const { image, title, body, user, date_created } = blog;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const url = baseUrl?.replace("/v1/", "/");
-  const imageUrl = `${url}${image?.slice(1)}`;
   if (isLoading) {
     return (
       <div className="min-h-screen p-4">
@@ -64,25 +57,36 @@ const SingleBlogPage = () => {
     );
   }
 
+  if (!blog) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>No blog post found</p>
+      </div>
+    );
+  }
+
+  const { image, title, body, user, date_created } = blog;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const url = baseUrl?.replace("/v1/", "/");
+  const imageUrl = `${url}${image?.slice(1)}`;
+
   return (
-    <main>
+    <main className="relative">
       {/* Hero Section */}
       <section className="bg-[url('/images/blog.jfif')] backgroundImage w-full md:h-[700px] h-[600px] flex justify-center items-center relative">
         <div className="absolute inset-0 bg-black/40" />
-      </section>
-
-      <section className="max-w-5xl mx-auto px-4 py-10 space-y-6">
-        {/* Blog Image */}
-        <div className="w-full">
+        <div className="absolute w-full p-4 max-w-5xl mx-auto top-20">
           <Image
             src={imageUrl}
             alt="Blog Cover"
             width={1000}
             height={600}
-            className="w-full h-auto rounded-md object-cover"
+            className="w-full h-full rounded-md object-cover"
           />
         </div>
+      </section>
 
+      <section className="max-w-5xl mx-auto px-4 mt-6 py-14 space-y-6">
         {/* Author Info */}
         <article className="flex items-center gap-4">
           <Image
@@ -98,22 +102,18 @@ const SingleBlogPage = () => {
 
         {/* Title & Description */}
         <h2 className="text-secondary-one text-3xl font-bold">{title}</h2>
-        <p className="text-secondary-one text-xl leading-relaxed">{body}</p>
+        <HtmlRenderer body={body} className="space-y-3" />
 
-        {/* share this story */}
+        {/* Share this story */}
         <div></div>
       </section>
 
-      {/* related post  */}
-      <section className="py-16 max-w-5xl mx-auto">
+      {/* Related posts */}
+      <section className="py-16 max-w-5xl px-4 mx-auto">
         <h2 className="text-3xl font-bold text-secondary-one">Related Posts</h2>
-        {/* <section className="mx-auto my-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          {blogs.map((blog) => {
-            return <BlogCard key={blog.id} blog={blog} className="max-w-xs" />;
-          })}
-        </section> */}
       </section>
-      {/* comments */}
+
+      {/* Comments */}
       <CommentForm />
       <section className="py-16 w-8/10 max-w-5xl mx-auto">
         <article>
@@ -130,9 +130,9 @@ const SingleBlogPage = () => {
             <h2>Add a comment</h2>
           </div>
           <article>
-            {commentsData.map((comment, i) => {
-              return <CommentCard comment={comment} key={i} />;
-            })}
+            {commentsData.map((comment, i) => (
+              <CommentCard comment={comment} key={i} />
+            ))}
           </article>
         </article>
       </section>
