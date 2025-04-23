@@ -5,6 +5,7 @@ import api from "@/config/api_config";
 import { Blog } from "@/types/global";
 import BlogSkeleton from "./BlogSkeleton"; // <-- import this
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -31,8 +32,14 @@ const BlogPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-[url('/images/blog.jfif')] backgroundImage w-full md:h-[700px] h-[600px] flex justify-center items-center relative">
-        <div className="absolute inset-0 bg-black/40" />
+      <section className="relative w-full md:h-[700px] h-[600px] flex justify-center items-center">
+        <Image
+          src="/images/blog.jfif"
+          alt="background"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30" />
         <div className="max-w-5xl relative text-center text-white">
           <h2 className="mt-6 font-medium heading-text md:font-bold">
             OUR BLOG NEWS

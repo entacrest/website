@@ -51,7 +51,7 @@ const CareerPage = () => {
             continuous learning, and a shared commitment to excellence in
             everything we do.
           </p>
-          <div className="flex items-center md:justify-start md:px-0 justify-center px-6">
+          <div className="flex items-center mt-5 md:px-0 justify-center px-6">
             <Button
               title="Get Started"
               onClick={() =>
@@ -59,7 +59,7 @@ const CareerPage = () => {
                   .getElementById("job-application-form")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className=" max-w-2xs py-4"
+              className="max-w-2xs py-4"
             />
           </div>
         </div>
