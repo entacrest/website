@@ -55,7 +55,7 @@ const JobApplicationForm = () => {
       formData.append("email", data.email);
       formData.append("role", data.role);
       formData.append("cover_letter", data.cover_letter || "");
-      formData.append("contact_consent", contact ? "yes" : "no");
+      formData.append("contact_me", contact ? "true" : "false");
       formData.append("resume", selectedFile);
 
       const resp = await api.post("/webpage/job-application/", formData, {
