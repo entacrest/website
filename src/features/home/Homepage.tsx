@@ -11,7 +11,7 @@ const Homepage = () => {
     <main>
       {/* hero */}
 
-      <section className="bg-[url('/images/resp-hero.jfif')] md:bg-[url('/images/her.jfif')] bg-cover  relative w-full h-[600px] md:h-[700px] ">
+      <section className="bg-[url('/images/resp-hero.jfif')] md:bg-[url('/images/hero.webp')] bg-cover  relative w-full h-[600px] md:h-[700px] ">
         <div className="absolute inset-0 bg-black/40" />
         <article className="relative pt-10 md:pt-0 max-w-7xl mx-auto z-10">
           <div className="p-6  space-y-5 text-white w-full md:max-w-2xl">

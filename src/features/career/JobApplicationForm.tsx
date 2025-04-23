@@ -48,6 +48,7 @@ const JobApplicationForm = () => {
     }
 
     try {
+      console.log(selectedFile);
       const formData = new FormData();
       formData.append("first_name", data.first_name);
       formData.append("last_name", data.last_name);
@@ -55,7 +56,7 @@ const JobApplicationForm = () => {
       formData.append("role", data.role);
       formData.append("cover_letter", data.cover_letter || "");
       formData.append("contact_consent", contact ? "yes" : "no");
-      formData.append("file", selectedFile);
+      formData.append("resume", selectedFile);
 
       const resp = await api.post("/webpage/job-application/", formData, {
         headers: {
@@ -70,7 +71,7 @@ const JobApplicationForm = () => {
       reset(); // clear form fields
       setContact(false);
       setSelectedFile(null);
-      setFileName('') // reset file input
+      setFileName(""); // reset file input
       setTimeout(() => setIsSuccess(false), 4000);
     } catch (error: any) {
       setIsError(true);

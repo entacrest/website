@@ -71,22 +71,23 @@ const SingleBlogPage = () => {
   const imageUrl = `${url}${image?.slice(1)}`;
 
   return (
-    <main className="relative">
+    <main className="relative ">
       {/* Hero Section */}
       <section className="bg-[url('/images/blog.jfif')] backgroundImage w-full md:h-[700px] h-[600px] flex justify-center items-center relative">
         <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute w-full p-4 max-w-5xl mx-auto top-20">
+      </section>
+      <section className="relative mb-40">
+        <div className=" w-full p-4 max-w-5xl absolute left-0 right-0 -top-[500px] mx-auto ">
           <Image
             src={imageUrl}
             alt="Blog Cover"
             width={1000}
-            height={600}
-            className="w-full h-full rounded-md object-cover"
+            height={500}
+            className="w-full h-[600px] rounded-md object-cover"
           />
         </div>
       </section>
-
-      <section className="max-w-5xl mx-auto px-4 mt-6 py-14 space-y-6">
+      <section className="max-w-5xl mx-auto px-4  mt-[170px]  py-12 space-y-6">
         {/* Author Info */}
         <article className="flex items-center gap-4">
           <Image
@@ -105,16 +106,15 @@ const SingleBlogPage = () => {
         <HtmlRenderer body={body} className="space-y-3" />
 
         {/* Share this story */}
-        <div></div>
+        {/* <div></div> */}
       </section>
-
+      <div className="min-h-[200px]"></div>
       {/* Related posts */}
-      <section className="py-16 max-w-5xl px-4 mx-auto">
+      {/* <section className="py-16 max-w-5xl px-4 mx-auto">
         <h2 className="text-3xl font-bold text-secondary-one">Related Posts</h2>
-      </section>
-
+      </section> */}
       {/* Comments */}
-      <CommentForm />
+      {/* <CommentForm />
       <section className="py-16 w-8/10 max-w-5xl mx-auto">
         <article>
           <h2 className="text-3xl font-bold text-secondary-one">Comments</h2>
@@ -135,7 +135,7 @@ const SingleBlogPage = () => {
             ))}
           </article>
         </article>
-      </section>
+      </section> */}
     </main>
   );
 };
