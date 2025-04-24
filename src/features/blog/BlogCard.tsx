@@ -1,4 +1,6 @@
 "use client";
+import { formatDate } from "@/components/FormatDate";
+import HtmlRenderer from "@/components/HTMLRenderer";
 import { Blog } from "@/types/global";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -10,23 +12,22 @@ interface BlogProp {
 }
 const BlogCard = ({ blog, className }: BlogProp) => {
   const router = useRouter();
-  const { id, user, title, date_created, body, image } = blog;
+  const { id, user, title, slug, date_created, body, image } = blog;
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const url = baseUrl?.replace("/v1/", "/");
   const imageUrl = `${url}${image.slice(1)}`;
-  console.log(imageUrl);
   return (
     <section className={className}>
-      <div className="w-full ">
+      <div className="basis-1/2 h-[300px]">
         <Image
           src={imageUrl}
           alt="img"
-          width={100}
-          height={100}
+          width={400}
+          height={400}
           className="size-full"
         />
       </div>
-      <div>
+      <div className="basis-1/2">
         <article className="my-4 flex items-center gap-4">
           <div className="w-fit">
             <Image
@@ -38,16 +39,22 @@ const BlogCard = ({ blog, className }: BlogProp) => {
             />
           </div>
           <h3>{user}</h3>
-          <p>{date_created}</p>
+          <p>{formatDate(date_created)}</p>
         </article>
-        <h2 className="text-secondary-one text-[24px] leading-[38px] font-bold">
+        <h2
+          className="text-button-blue text-[24px] leading-[38px] font-bold cursor-pointer"
+          onClick={() => router.push(`/blog/${id}`)}
+        >
           {title}
         </h2>
-        <p className="text-secondary-one text-[20px] leading-[30px] ">
-          {body.slice(0, 100)}...
-        </p>
+        <div className="">
+          <HtmlRenderer
+            body={`${body.slice(0, 120)}...`}
+            className="text-secondary-one"
+          />
+        </div>
         <div
-          className="flex items-center gap-2 my-4 text-[22px] leading-9 font-bold text-secondary-one w-fit cursor-pointer"
+          className="flex items-center gap-2 my-4 text-[22px] leading-9 font-bold text-button-blue w-fit cursor-pointer"
           onClick={() => router.push(`/blog/${id}`)}
         >
           <span>Read more</span>
