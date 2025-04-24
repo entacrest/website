@@ -51,6 +51,8 @@ export interface Blog {
   image: string;
   user: string;
   date_created: string;
+  slug: string;
+  top_blog: boolean;
 }
 export interface BlogPost {
   id: number | string;

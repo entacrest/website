@@ -32,7 +32,7 @@ const BlogPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative w-full md:h-[700px] h-[600px] flex justify-center items-center">
+      <section className="relative w-full md:h-[700px] h-[400px] sm:h-[500px] flex justify-center items-center">
         <Image
           src="/images/blog.jfif"
           alt="background"
@@ -40,7 +40,7 @@ const BlogPage = () => {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="max-w-5xl relative text-center text-white">
+        <div className="max-w-5xl px-4 sm:px-6 relative text-center text-white">
           <h2 className="mt-6 font-medium heading-text md:font-bold">
             OUR BLOG NEWS
           </h2>
@@ -62,13 +62,15 @@ const BlogPage = () => {
           ) : error ? (
             <p className="text-red-500">{error}</p>
           ) : (
-            blogs.map((blog) => (
-              <BlogCard
-                key={blog.id}
-                blog={blog}
-                className="w-full md:max-w-xs"
-              />
-            ))
+            blogs
+              .filter((blog) => blog.top_blog == true)
+              .map((blog) => (
+                <BlogCard
+                  key={blog.id}
+                  blog={blog}
+                  className="w-full max-w-[500px] mx-auto md:max-w-xs"
+                />
+              ))
           )}
         </section>
       </section>
@@ -88,7 +90,7 @@ const BlogPage = () => {
               <BlogCard
                 key={blog.id}
                 blog={blog}
-                className=" max-w-5xl md:flex gap-6"
+                className="max-w-[500px] mx-auto md:max-w-5xl md:flex gap-6"
               />
             ))
           )}

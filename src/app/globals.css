@@ -29,3 +29,11 @@
     @apply text-[16px] leading-[32px] md:text-[24px] md:leading-[48px];
   }
 }
+.singleBlog {
+  a {
+    @apply text-blue-600;
+  }
+  a:hover {
+    @apply text-button-blue/50;
+  }
+}
