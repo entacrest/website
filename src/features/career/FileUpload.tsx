@@ -74,14 +74,14 @@ const FileUploader = ({
     <>
       <div className="space-y-4">
         <div className="flex items-center">
-          <div className="text-gray-700 py-3 px-6 rounded-l-md bg-white basis-9/10">
+          <div className="text-gray-700 py-3 px-6 text-xs md:text-base rounded-l-md bg-white basis-9/10">
             {fileName || "Resume Upload"}
           </div>
           <button
             type="button"
             onClick={handleBrowseClick}
             disabled={uploadProgress !== null && uploadProgress < 100}
-            className="bg-[#E5E3E3] py-3 px-8 rounded-r-md cursor-pointer basis-1/10 disabled:opacity-50"
+            className="bg-[#E5E3E3] py-3 px-8 rounded-r-md text-xs md:text-base cursor-pointer basis-1/10 disabled:opacity-50"
           >
             {selectedFile ? "Remove" : "Browse"}
           </button>
