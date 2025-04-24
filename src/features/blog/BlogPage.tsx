@@ -7,8 +7,15 @@ import BlogSkeleton from "./BlogSkeleton"; // <-- import this
 import toast from "react-hot-toast";
 import Image from "next/image";
 
+interface BlogType {
+  top_blogs: Blog[];
+  all_blogs: Blog[];
+}
 const BlogPage = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogs, setBlogs] = useState<BlogType>({
+    top_blogs: [],
+    all_blogs: [],
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -62,15 +69,13 @@ const BlogPage = () => {
           ) : error ? (
             <p className="text-red-500">{error}</p>
           ) : (
-            blogs
-              .filter((blog) => blog.top_blog == true)
-              .map((blog) => (
-                <BlogCard
-                  key={blog.id}
-                  blog={blog}
-                  className="w-full max-w-[500px] mx-auto md:max-w-xs"
-                />
-              ))
+            blogs?.top_blogs?.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                blog={blog}
+                className="w-full max-w-[500px] mx-auto md:max-w-xs"
+              />
+            ))
           )}
         </section>
       </section>
@@ -86,7 +91,7 @@ const BlogPage = () => {
           ) : error ? (
             <p className="text-red-500">{error}</p>
           ) : (
-            blogs.map((blog) => (
+            blogs?.all_blogs?.map((blog) => (
               <BlogCard
                 key={blog.id}
                 blog={blog}
