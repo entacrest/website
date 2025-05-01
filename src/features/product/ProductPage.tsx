@@ -23,7 +23,7 @@ const ProductPage = () => {
           </div>
           <div className="w-full md:basis-1/2 flex justify-center">
             <Image
-              src="/images/royalestate.jpg"
+              src="/images/productImage.svg"
               alt="product"
               width={400}
               height={600}

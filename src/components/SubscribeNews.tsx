@@ -23,6 +23,7 @@ const SubscribeNews = () => {
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(email)) {
       setIsError(true);
       setMsg("Please enter a valid email.");
