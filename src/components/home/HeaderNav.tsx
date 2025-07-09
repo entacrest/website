@@ -5,11 +5,9 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Products" },
+  { href: "/products", label: "Products & Services" },
   { href: "/about", label: "About us" },
   { href: "/contact", label: "Contact us" },
-  { href: "/career", label: "Career" },
-  { href: "/blog", label: "Blog" },
 ];
 
 const HeaderNav = ({ onClick }: { onClick: () => void }) => {
