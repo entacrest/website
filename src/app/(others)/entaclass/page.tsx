@@ -1,22 +1,41 @@
+"use client";
+import Button from "@/components/Button";
+
 export default function EntaStartPage() {
   return (
-    <div className="bg-white text-gray-800 px-4 md:px-6 py-10 md:py-12 max-w-6xl mx-auto">
+    <div className="bg-white text-gray-800  ">
       {/* Hero Section */}
-      <div className="text-center mb-10 md:mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-blue-900 leading-tight">
-          Introducing EntaStart
-        </h1>
-        <p className="text-lg md:text-xl mt-4">
-          Everything Your Business Needs to Go Digital — Instantly.
-        </p>
-        <p className="mt-2 text-base md:text-lg text-gray-600">
-          Your complete starter pack for launching a professional online
-          presence.
-        </p>
-      </div>
+      <section className="md:bg-[url('/images/career.jfif')] bg-[url('/images/career-hero.jfif')] backgroundImage w-full h-[600px] flex justify-center items-center md:h-[700px] relative">
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="max-w-5xl relative text-center text-white">
+          <div className="text-center mb-10 md:mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-white">
+              Introducing EntaStart
+            </h1>
+            <p className="text-lg md:text-xl mt-4">
+              Everything Your Business Needs to Go Digital — Instantly.
+            </p>
+            <p className="mt-2 text-base md:text-lg ">
+              Your complete starter pack for launching a professional online
+              presence.
+            </p>
+          </div>
+          <div className="flex items-center mt-5 md:px-0 justify-center px-6">
+            <Button
+              title="Get Started"
+              onClick={() =>
+                document
+                  .getElementById("job-application-form")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="max-w-2xs py-4"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Features */}
-      <section className="mb-10 md:mb-12">
+      <section className="my-10 px-6 md:my-12">
         <h2 className="text-xl md:text-2xl font-semibold mb-6">
           What You Get with EntaStart:
         </h2>
@@ -55,7 +74,7 @@ export default function EntaStartPage() {
       </section>
 
       {/* Built For */}
-      <section className="mb-10 md:mb-12">
+      <section className="px-6 mb-10 md:mb-12">
         <h2 className="text-lg md:text-xl font-semibold mb-4">Built for:</h2>
         <div className="flex flex-wrap gap-3">
           {[
@@ -75,7 +94,7 @@ export default function EntaStartPage() {
       </section>
 
       {/* Why EntaStart */}
-      <section className="mb-10 md:mb-12">
+      <section className="mb-10 px-6 md:mb-12">
         <h2 className="text-lg md:text-xl font-semibold mb-2">
           Why EntaStart?
         </h2>
