@@ -18,19 +18,14 @@ const Homepage = () => {
           fill
           className="object-cover "
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <article className="relative pt-10 md:pt-0 max-w-7xl mx-auto z-10">
-          <div className="p-6  space-y-5 text-white w-full md:max-w-2xl">
-            <h2 className="mt-6 text-3xl font-medium md:text-[56px] md:leading-[90px] md:font-bold">
-              Innovative Software Solutions for Seamless Connectivity
+        <div className="absolute inset-0 bg-black/50" />
+        <article className="relative max-w-7xl mx-auto z-10 h-full flex flex-col justify-center">
+          <div className="p-6 space-y-5 text-white w-full md:max-w-2xl">
+            <h2 className="text-4xl font-medium md:text-[66px] md:leading-[90px] md:font-bold">
+              Building the Next Generation of Consumer Software Products
             </h2>
             <p className="leading-8 md:text-lg">
-              Empowering businesses with cutting-edge technology to streamline
-              operations, enhance efficieny, and drive digital transformation.
-              Our software solutions connect enterprises, entrepreneurs, and
-              organizations with scalable tools for automation, security, and
-              growth
-            </p>
+              We provide technology solutions for diverse industries and initiatives.            </p>
             <div className="flex items-center md:justify-start md:px-0 justify-center px-6">
               <Button
                 title="Get Started"
@@ -41,43 +36,52 @@ const Homepage = () => {
           </div>
         </article>
       </section>
-      {/* Undraw  */}
-      <section className="max-w-7xl mx-auto flex-col md:flex-row gap-6 flex justify-between items-center  px-5 py-20">
-        <div className="basis-1/2 max-w-[570px]">
+      {/* Products Portfolio Image */}
+      <section className="max-w-7xl mx-auto flex-col md:flex-row gap-6 flex justify-between items-center px-5 py-20">
+        <div className="basis-1/2 w-full max-w-[570px]">
           <Image
-            src="/images/undraw_pay.svg"
-            alt="Support"
-            width={563}
-            height={563}
-            className="size-full"
+            src="/images/unsplash_products.jpg"
+            alt="Portfolio Products"
+            width={570}
+            height={570}
+            className="size-full object-cover rounded-3xl shadow-sm h-[400px]"
           />
         </div>
         <article className="basis-[45%]">
           <h2 className="heading-text font-bold ">
-            Custom Payment Solutions for Businesses
+            A Portfolio of Innovative Consumer Products
           </h2>
           <p className="paragraph-text mt-6">
-            We develop secure, scalable payment solutions tailored for
-            merchants, marketplaces, and enterprises, ensuring seamless
-            integration and smooth transactions.
+            We build and own a diverse range of software solutions designed to solve real-world problems and deliver exceptional experiences across various industries.
           </p>
         </article>
       </section>
+      {/*
+        // MOCK PRODUCTS SECTION (Uncomment when products are ready)
+        <section className="max-w-7xl mx-auto px-5 py-20">
+          <h2 className="heading-text font-bold text-center mb-12">Our Products</h2>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="p-6 border border-[#c5e0ff] rounded-3xl shadow-sm bg-white hover:shadow-lg transition-shadow">
+                <div className="h-40 bg-gray-200 rounded-2xl mb-6"></div>
+                <h3 className="text-2xl font-bold mb-3 text-text-primary">Product Name {item}</h3>
+                <p className="text-gray-600">A brief description of this amazing consumer product and the problems it solves for everyday users.</p>
+                <div className="mt-6 flex justify-end">
+                  <Button title="Learn More" className="py-2 px-6" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      */}
       {/* smart Tech  */}
       <section className="flex flex-col-reverse md:flex-row  justify-between items-end-safe max-w-7xl mx-auto px-5 py-20 gap-6 ">
         <article className="md:basis-[46%] w-full md:max-w-lg">
           <h2 className="heading-text font-bold">
-            Smart Technology to Power Your Business
+            Building, Scaling, and Innovating
           </h2>
           <p className="paragraph-text mt-5">
-            Break free from limitations and embrace endless possibilities. At
-            Entacrest Nexus, we build custom software solutions that empower
-            businesses to operate efficiently. Whether you need an enterprise
-            application, a fintech solution, an automation system, or a digital
-            platform tailored to your industry, we develop scalable, secure, and
-            user-friendly systems designed to meet your unique needs. Let us
-            help you transform your business with technology that works
-            seamlessly for you and your customers.
+            At Entacrest, we don't just build software—we build for the future. We conceptualize, develop, and scale our own consumer products, from fintech to lifestyle applications, ensuring sustainable growth and industry-leading user experiences. Every product in our ecosystem is designed to be scalable, secure, and intuitively easy to use, redefining what's possible for everyday consumers.
           </p>
         </article>
         <article className="md:w-1/2 grid grid-cols-2 gap-6">
@@ -166,16 +170,10 @@ const Homepage = () => {
           </div>
           <article className="basis-[45%] text-white">
             <h2 className="heading-text font-bold ">
-              Expert Support at Your Fingertips
+              Dedicated Support for All Our Products
             </h2>
             <p className="paragraph-text mt-6 ">
-              At Entacrest, we provide dedicated support to help your business
-              succeed. Whether you need assistance with software integration,
-              troubleshooting, or optimizing your digital processes, our expert
-              team is always ready to assist. We pride ourselves on delivering
-              fast, accurate, and reliable support—ensuring you get the best
-              experience possible. Have a question? We’re just a call or message
-              away.
+              We provide dedicated support across our entire ecosystem of consumer applications. Whether you need assistance with one of our platforms, have troubleshooting issues, or general inquiries, our expert team is always ready to assist. We pride ourselves on delivering fast, accurate, and reliable support—ensuring you get the best experience possible with any of our products.
             </p>
           </article>
         </article>
