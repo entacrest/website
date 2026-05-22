@@ -12,22 +12,22 @@ export const whyEntacrest: WhyEntacrest[] = [
   {
     icon: "/icons/security-safe.svg",
     heading: "Security",
-    text: "Our solutions are built with advanced security layers to safeguard your data from cyber threats and breaches.",
+    text: "Our consumer products are built with advanced security layers to safeguard user data from cyber threats and breaches.",
   },
   {
     icon: "/icons/airdrop.svg",
     heading: "Efficient",
-    text: "Seamlessly execute business operations with our tailored software, designed for speed and ease of use.",
+    text: "Our portfolio of applications is designed for speed, ensuring seamless execution for everyday users.",
   },
   {
     icon: "/icons/like.svg",
     heading: "Reliable",
-    text: "We develop scalable and high-performance solutions, ensuring seamless operations with minimal downtime.",
+    text: "We build scalable and high-performance consumer solutions, ensuring seamless experiences with minimal downtime.",
   },
   {
     icon: "/icons/recovery-convert.svg",
     heading: "User-Friendly",
-    text: "Our products are intuitive and easy to use, providing a seamless experience that enhances productivity.",
+    text: "Our applications are intuitive and easy to use, providing a seamless experience that enhances everyday life.",
   },
 ];
 export const trustedPartners: TrustedPartners[] = [
