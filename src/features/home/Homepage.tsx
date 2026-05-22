@@ -30,7 +30,7 @@ const Homepage = () => {
               <Button
                 title="Get Started"
                 onClick={() => router.push("/contact")}
-                className=" max-w-2xs py-4"
+                className="max-w-2xs py-4"
               />
             </div>
           </div>
