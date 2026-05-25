@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Entacrest",
-  description: "Entacrest Webpage",
+  title: "Entacrest — Parent Company of SynchGate",
+  description: "Entacrest is the registered parent company behind SynchGate, a payment gateway platform. We build and scale financial technology products.",
 };
 
 export default function RootLayout({
