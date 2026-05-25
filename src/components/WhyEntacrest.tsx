@@ -10,6 +10,9 @@ const WhyEntacrest = () => {
       <h2 className="text-white text-center font-bold text-4xl">
         Why Entacrest
       </h2>
+      <p className="text-white/60 text-center mt-3 max-w-xl mx-auto text-lg">
+        The principles that guide everything we build — from SynchGate to every future product in our portfolio.
+      </p>
       <article className="mx-auto max-w-6xl mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {whyEntacrest.map(({ icon, heading, text }, index) => {
           const isEven = index % 2 === 0;
