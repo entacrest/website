@@ -1,4 +1,3 @@
-"use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -86,10 +85,11 @@ const JobApplicationForm = () => {
   };
 
   return (
-    <section className="md:bg-[url('/images/application.jfif')] bg-[url('/images/resp-contact.jfif')]  backgroundImage w-full min-h-[300px] md:min-h-[800px] bg-black/60 relative p-6 py-20">
-      <div className="absolute inset-0 bg-black/40" />
+    <section className="relative bg-ink-950 grid-pattern w-full p-6 py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "40%" }} />
       <article className="relative">
-        <h2 className="  heading-text text-center font-bold text-white">
+        <p className="text-brand-200 text-sm font-semibold uppercase tracking-widest mb-3 text-center">Apply Now</p>
+        <h2 className="heading-text text-center font-bold text-white">
           Job Application Form
         </h2>
 
@@ -142,7 +142,7 @@ const JobApplicationForm = () => {
           <div className="w-full flex justify-end items-center px-4">
             <button
               type="submit"
-              className="bg-button-blue  font-bold w-full max-w-[150px] text-white rounded p-2 flex items-center justify-center gap-2 hover:bg-button-blue hover:text-white hover:border cursor-pointer"
+              className="bg-gradient-to-r from-brand-500 to-brand-700 font-bold w-full max-w-[150px] text-white rounded p-2 flex items-center justify-center gap-2 hover:brightness-110 cursor-pointer"
               disabled={isLoading}
             >
               {isLoading ? (

@@ -1,9 +1,7 @@
-"use client";
 
 import { commentsData } from "@/components/data";
 import { Blog, BlogPost } from "@/types/global";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CommentForm from "./CommentForm";
 import CommentCard from "./CommentCard";
@@ -15,8 +13,7 @@ import HtmlRenderer from "@/components/HTMLRenderer";
 import { formatDate } from "@/components/FormatDate";
 
 const SingleBlogPage = () => {
-  const params = useParams();
-  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+  const { id } = useParams();
   const [blog, setBlog] = useState<Blog>();
   const [isLoading, setIsLoading] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -83,32 +80,29 @@ const SingleBlogPage = () => {
   }
 
   const { image, title, body, user, date_created } = blog;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const url = baseUrl?.replace("/v1/", "/");
   const imageUrl = `${url}${image?.slice(1)}`;
 
   return (
     <main className="relative ">
       {/* Hero Section */}
-      <section className="bg-[url('/images/blog.jfif')] backgroundImage w-full md:h-[700px] h-[300px] sm:h-[400px] flex justify-center items-center relative">
-        <div className="absolute inset-0 bg-black/40" />
-      </section>
+      <section className="bg-ink-950 grid-pattern w-full md:h-[700px] h-[300px] sm:h-[400px] relative" />
       <section className="relative mb-40">
         <div className="w-full p-4 max-w-5xl absolute left-0 right-0 -top-[200px] sm:-top-[300px] md:-top-[440px] mx-auto">
-          <Image
+          <img
             src={imageUrl}
             alt="Blog Cover"
             width={1000}
             height={600}
             className="w-full h-[350px] sm:h-[450px] md:h-[600px] lg:h-[600px] rounded-md object-cover"
-            priority
           />
         </div>
       </section>
       <section className="max-w-5xl mx-auto px-4  mt-[170px]  py-12 space-y-6">
         {/* Author Info */}
         <article className="flex items-center gap-4">
-          <Image
+          <img
             src="/images/avatar.svg"
             alt={user}
             width={40}

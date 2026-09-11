@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import api from "@/config/api_config";
@@ -60,33 +58,29 @@ const SubscribeNews = () => {
   };
 
   return (
-    <div className="max-w-[300px] rounded-2xl  shadow p-4">
-      <div className="relative z-10 max-w-xl mx-auto sm:text-center">
+    <div className="max-w-[300px] rounded-2xl p-4">
+      <div className="relative z-10 max-w-xl mx-auto">
         <div className="space-y-3">
-          <h3 className="text-xl font-bold">Subscribe to our newsletter</h3>
-          <p className="leading-relaxed text-left">
-            Subscribe to our newsletter and get our latest update about our
-            products and company
+          <h3 className="text-sm font-bold text-white uppercase tracking-wider">Stay in the loop</h3>
+          <p className="leading-relaxed text-left text-sm text-slate-400">
+            Product updates and fintech insights, straight to your inbox.
           </p>
         </div>
-        <div className="mt-6">
-          <form
-            className="space-y-3 rounded-lg p-1 sm:max-w-md sm:mx-auto"
-            onSubmit={handleSubmit}
-          >
+        <div className="mt-4">
+          <form className="space-y-3 sm:max-w-md" onSubmit={handleSubmit}>
             <input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="text-gray-500 bg-[#EDEAEA] border-none rounded-md w-full p-2 outline-none"
+              className="text-white placeholder:text-slate-400 bg-white/5 border border-white/15 rounded-md w-full p-2 outline-none focus:border-brand-300/60"
             />
-            {isError && <p className="text-red-500 text-sm">{msg}</p>}
-            {success && <p className="text-green-600 text-sm">{msg}</p>}
+            {isError && <p className="text-red-400 text-sm">{msg}</p>}
+            {success && <p className="text-green-400 text-sm">{msg}</p>}
             <button
               type="submit"
               disabled={isLoading}
-              className="p-2 px-3 w-full rounded-lg font-medium text-white bg-button-blue cursor-pointer hover:bg-white hover:border hover:border-button-blue hover:text-button-blue duration-150 outline-none sm:px-4 flex justify-center items-center gap-2"
+              className="p-2 px-3 w-full rounded-md font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-700 cursor-pointer hover:brightness-110 duration-150 outline-none sm:px-4 flex justify-center items-center gap-2"
             >
               {isLoading && (
                 <AiOutlineLoading className="animate-spin h-5 w-5" />

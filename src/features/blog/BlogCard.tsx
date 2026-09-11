@@ -1,9 +1,7 @@
-"use client";
 import { formatDate } from "@/components/FormatDate";
 import HtmlRenderer from "@/components/HTMLRenderer";
 import { Blog } from "@/types/global";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 
 interface BlogProp {
@@ -11,15 +9,15 @@ interface BlogProp {
   className: string;
 }
 const BlogCard = ({ blog, className }: BlogProp) => {
-  const router = useRouter();
+  const navigate = useNavigate();
   const { id, user, title, slug, date_created, body, image } = blog;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const url = baseUrl?.replace("/v1/", "/");
   const imageUrl = `${url}${image.slice(1)}`;
   return (
     <section className={className}>
       <div className="basis-1/2 h-[300px]">
-        <Image
+        <img
           src={imageUrl}
           alt="img"
           width={400}
@@ -30,7 +28,7 @@ const BlogCard = ({ blog, className }: BlogProp) => {
       <div className="basis-1/2">
         <article className="my-4 flex items-center gap-4">
           <div className="w-fit">
-            <Image
+            <img
               src="/images/avatar.svg"
               className="rounded-full"
               alt="img"
@@ -43,7 +41,7 @@ const BlogCard = ({ blog, className }: BlogProp) => {
         </article>
         <h2
           className="text-button-blue text-[24px] leading-[38px] font-bold cursor-pointer"
-          onClick={() => router.push(`/blog/${id}`)}
+          onClick={() => navigate(`/blog/${id}`)}
         >
           {title}
         </h2>
@@ -55,7 +53,7 @@ const BlogCard = ({ blog, className }: BlogProp) => {
         </div>
         <div
           className="flex items-center gap-2 my-4 text-[22px] leading-9 font-bold text-button-blue w-fit cursor-pointer"
-          onClick={() => router.push(`/blog/${id}`)}
+          onClick={() => navigate(`/blog/${id}`)}
         >
           <span>Read more</span>
           <FaArrowRight />

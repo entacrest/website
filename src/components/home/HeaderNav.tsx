@@ -1,37 +1,34 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "SynchGate" },
-  { href: "/about", label: "About Entacrest" },
+  { href: "/products", label: "Platforms" },
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/career", label: "Careers" },
 ];
 
 const HeaderNav = ({ onClick }: { onClick: () => void }) => {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
   return (
-    <>
-      <nav className="flex gap-6 lg:gap-10 p-4 flex-col md:flex-row">
-        {navLinks.map((link) => (
+    <nav className="flex gap-6 lg:gap-8 flex-col md:flex-row md:items-center">
+      {navLinks.map((link) => {
+        const active = pathname === link.href;
+        return (
           <Link
             key={link.href}
-            href={link.href}
+            to={link.href}
             onClick={onClick}
-            className={`transition md:text-sm lg:text-base text-lg ${
-              pathname === link.href
-                ? "text-button-blue font-semibold md:border-b-2 border-button-blue"
-                : "text-custom-blue900 hover:text-blue-300"
+            className={`transition text-lg md:text-sm font-medium ${
+              active ? "text-white" : "text-slate-400 hover:text-white"
             }`}
           >
             {link.label}
           </Link>
-        ))}
-      </nav>
-    </>
+        );
+      })}
+    </nav>
   );
 };
 

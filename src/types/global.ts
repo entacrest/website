@@ -40,6 +40,43 @@ export interface WorkBenefits {
   iconSrc: string;
 }
 
+export interface PlatformFeature {
+  title: string;
+  desc: string;
+}
+
+export interface Platform {
+  slug: string;
+  name: string;
+  tag: string;
+  tagline: string;
+  description: string;
+  features: PlatformFeature[];
+  url: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  name: string;
+  logo: string;
+  logoClassName?: string;
+  category: string;
+  summary: string;
+  problem: string;
+  solution: string;
+  outcomes: string[];
+  tags: string[];
+  url: string;
+}
+
+export interface PortfolioMention {
+  name: string;
+  logo: string;
+  logoClassName?: string;
+  description: string;
+  url: string;
+}
+
 export interface Author {
   name: string;
   profileImage: string;

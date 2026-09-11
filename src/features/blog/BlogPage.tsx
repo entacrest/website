@@ -1,11 +1,9 @@
-"use client";
 import BlogCard from "./BlogCard";
 import { useEffect, useState } from "react";
 import api from "@/config/api_config";
 import { Blog } from "@/types/global";
 import BlogSkeleton from "./BlogSkeleton"; // <-- import this
 import toast from "react-hot-toast";
-import Image from "next/image";
 
 interface BlogType {
   top_blogs: Blog[];
@@ -39,28 +37,22 @@ const BlogPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative w-full md:h-[700px] h-[400px] sm:h-[500px] flex justify-center items-center">
-        <Image
-          src="/images/blog.jfif"
-          alt="background"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="max-w-5xl px-4 sm:px-6 relative text-center text-white">
-          <h2 className="mt-6 font-medium heading-text md:font-bold">
-            OUR BLOG NEWS
-          </h2>
-          <p className="paragraph-text px-2 mt-2">
-            Stay updated with the latest insights, trends, and expert tips in
-            our recent blog posts, from industry news to practical guide.
+      <section className="relative bg-ink-950 grid-pattern w-full py-24 md:py-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "35%" }} />
+        <div className="max-w-4xl relative mx-auto text-center">
+          <p className="text-brand-200 text-sm font-semibold uppercase tracking-widest mb-4">Blog</p>
+          <h1 className="text-white font-bold text-4xl md:text-5xl leading-tight mb-6">
+            Insights on fintech, infrastructure, and building for scale
+          </h1>
+          <p className="text-slate-300 leading-8 text-lg max-w-2xl mx-auto">
+            Notes from the team building Synchgate, EBS, and the regulated software our clients run on.
           </p>
         </div>
       </section>
 
       {/* Top Blog */}
-      <section className="max-w-6xl mx-auto py-10 px-4">
-        <h2 className="text-3xl text-secondary-one font-bold text-center md:text-left">
+      <section className="max-w-6xl mx-auto py-16 px-4">
+        <h2 className="text-2xl text-ink-900 font-bold text-center md:text-left">
           Top Blog
         </h2>
         <section className="mx-auto my-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
@@ -82,7 +74,7 @@ const BlogPage = () => {
 
       {/* Latest Blog */}
       <section className="max-w-6xl mx-auto py-10 px-4">
-        <h2 className="text-3xl text-secondary-one font-bold text-center md:text-left">
+        <h2 className="text-2xl text-ink-900 font-bold text-center md:text-left">
           Latest Blog
         </h2>
         <section className="my-6 space-y-6">
