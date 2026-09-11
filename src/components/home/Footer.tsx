@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaInstagram,
@@ -10,19 +9,19 @@ import SubscribeNews from "../SubscribeNews";
 
 const socials = [
   {
-    icon: <FaFacebook className="hover:text-blue-600 cursor-pointer" />,
+    icon: <FaFacebook className="hover:text-brand-300 cursor-pointer" />,
     path: "https://web.facebook.com/entacrest",
   },
   {
-    icon: <FaInstagram className="hover:text-pink-500 cursor-pointer" />,
+    icon: <FaInstagram className="hover:text-brand-300 cursor-pointer" />,
     path: "https://instagram.com/entacrest",
   },
   {
-    icon: <FaLinkedin className="hover:text-blue-800 cursor-pointer" />,
+    icon: <FaLinkedin className="hover:text-brand-300 cursor-pointer" />,
     path: "https://www.linkedin.com/company/entacrest/",
   },
   {
-    icon: <FaXTwitter className="hover:text-black cursor-pointer" />,
+    icon: <FaXTwitter className="hover:text-brand-300 cursor-pointer" />,
     path: "https://x.com/entacrest",
   },
 ];
@@ -30,57 +29,57 @@ const socials = [
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <>
+    <footer className="bg-ink-950 border-t border-white/10">
       <article className="py-16 px-6 flex justify-center">
-        <section className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-between gap-6 w-full max-w-7xl text-secondary-one">
-          <div className="space-y-5">
-            <Image
+        <section className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-between gap-10 w-full max-w-7xl">
+          <div className="space-y-5 max-w-xs">
+            <img
               src="/entacrest_logo.png"
               alt="Entacrest logo"
-              width={180}
-              height={80}
+              width={170}
+              height={72}
+              className="invert brightness-125"
             />
-            <div className="text-secondary-one">
-              <p className="text-[16px] leading-[26px] font-semibold text-button-blue">
-                Parent company of SynchGate
+            <div>
+              <p className="text-[15px] leading-[24px] font-semibold text-brand-300">
+                Fintech infrastructure &amp; custom software
               </p>
-              <p className="text-sm text-gray-500 mt-1">info@entacrest.com</p>
-              <p className="text-sm text-gray-500">+2349010380794</p>
-              <p className="text-sm text-gray-500">Oba Akran, Ikeja Lagos</p>
+              <p className="text-sm text-slate-400 mt-2">info@entacrest.com</p>
+              <p className="text-sm text-slate-400">+234 901 038 0794</p>
+              <p className="text-sm text-slate-400">Oba Akran, Ikeja, Lagos</p>
             </div>
-            <div className="flex gap-4 text-xl text-gray-500">
+            <div className="flex gap-4 text-xl text-slate-400">
               {socials.map(({ icon, path }, i) => (
-                <Link href={path} target="_blank" key={i}>
+                <a href={path} target="_blank" rel="noreferrer" key={i}>
                   {icon}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold">Company</h2>
-            <ul className="mt-5 space-y-4 text-secondary-one flex flex-col">
-              <Link href="/" className="hover:text-button-blue transition text-sm">Home</Link>
-              <Link href="/about" className="hover:text-button-blue transition text-sm">About Entacrest</Link>
-              <Link href="/career" className="hover:text-button-blue transition text-sm">Careers</Link>
-              <Link href="/blog" className="hover:text-button-blue transition text-sm">Blog</Link>
+            <h2 className="text-sm font-bold text-white uppercase tracking-wider">Platforms</h2>
+            <ul className="mt-5 space-y-3 flex flex-col">
+              <Link to="/products" className="hover:text-brand-300 transition text-sm text-slate-400">Synchgate</Link>
+              <Link to="/products" className="hover:text-brand-300 transition text-sm text-slate-400">EBS</Link>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold">Products</h2>
-            <ul className="mt-5 space-y-4 text-secondary-one flex flex-col">
-              <Link href="/products" className="hover:text-button-blue transition text-sm">SynchGate</Link>
-              <li className="text-sm text-gray-400">More coming soon</li>
+            <h2 className="text-sm font-bold text-white uppercase tracking-wider">Company</h2>
+            <ul className="mt-5 space-y-3 flex flex-col">
+              <Link to="/about" className="hover:text-brand-300 transition text-sm text-slate-400">About Entacrest</Link>
+              <Link to="/work" className="hover:text-brand-300 transition text-sm text-slate-400">Our Work</Link>
+              <Link to="/career" className="hover:text-brand-300 transition text-sm text-slate-400">Careers</Link>
+              <Link to="/blog" className="hover:text-brand-300 transition text-sm text-slate-400">Blog</Link>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold">Contact</h2>
-            <ul className="mt-5 space-y-4 text-secondary-one flex flex-col">
-              <Link href="/contact" className="hover:text-button-blue transition text-sm">Contact Us</Link>
-              <li className="text-sm text-gray-500">Partners</li>
-              <li className="text-sm text-gray-500">Press</li>
+            <h2 className="text-sm font-bold text-white uppercase tracking-wider">Contact</h2>
+            <ul className="mt-5 space-y-3 flex flex-col">
+              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Start a Project</Link>
+              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Get in Touch</Link>
             </ul>
           </div>
 
@@ -89,11 +88,11 @@ const Footer = () => {
           </div>
         </section>
       </article>
-      <hr className="text-secondary-one/70" />
-      <p className="text-center pt-4 pb-10 text-secondary-one text-sm">
-        Entacrest © {year} · All copyright reserved · Parent company of SynchGate
+      <hr className="border-white/10" />
+      <p className="text-center py-6 text-slate-400 text-sm px-4">
+        Entacrest © {year} · All rights reserved · Building fintech infrastructure &amp; custom software
       </p>
-    </>
+    </footer>
   );
 };
 

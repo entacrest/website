@@ -1,6 +1,4 @@
 import { JobCardProps } from "@/types/global";
-import Image from "next/image";
-import React from "react";
 
 const JobCard = ({ job }: JobCardProps) => {
   const { id, description, is_active, mode, title, type } = job;
@@ -16,7 +14,7 @@ const JobCard = ({ job }: JobCardProps) => {
             !is_active ? "border-[#b4b4b4]" : "border-[#b3b3b3]"
           } border border-[#b4b4b4] rounded-full p-2`}
         >
-          <Image
+          <img
             src={
               is_active ? "/icons/bookmark_filled.svg" : "/icons/bookmark.svg"
             }
@@ -43,7 +41,7 @@ const JobCard = ({ job }: JobCardProps) => {
               .getElementById("job-application-form")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="cursor-pointer hover:bg-button-blue hover:text-white border-button-blue text-button-blue font-bold rounded-xl  p-2 px-6 border-2"
+          className="cursor-pointer hover:bg-ink-900 hover:text-white hover:border-ink-900 border-ink-900 text-ink-900 font-bold rounded-full p-2 px-6 border-2 transition-colors"
         >
           Apply Now
         </button>

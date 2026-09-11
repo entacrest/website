@@ -1,5 +1,4 @@
 import { Comment } from "@/types/global";
-import Image from "next/image";
 
 type CommentCardProps = {
   comment: Comment;
@@ -10,7 +9,7 @@ const CommentCard = ({ comment }: CommentCardProps) => {
     <div className="w-full p-4 ">
       {/* Main Comment */}
       <div className="flex items-start gap-3">
-        <Image
+        <img
           src="/images/avatar.svg"
           alt={comment.user.name}
           width={40}
@@ -37,7 +36,7 @@ const CommentCard = ({ comment }: CommentCardProps) => {
         <div className="mt-4 pl-10 space-y-4">
           {comment.replies.map((reply) => (
             <div key={reply.id} className="flex items-start gap-3">
-              <Image
+              <img
                 src="/images/avatar.svg"
                 alt={reply.user.name}
                 width={32}

@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Legacy tokens — kept as aliases so untouched components keep working */
+  --color-button-blue: #0a1930;
+  --color-custom-blue900: #241623;
+  --color-grey-medium: #8f8f8f;
+  --color-green-button: #28a236;
+  --color-green-success: #29d03d;
+  --color-red-danger: #f84141;
+  --color-yellow-light: #f2cb00;
+  --color-light-gray: #f9f9f9;
+  --color-border-one: #c5e0ff;
+  --color-text-primary: #1e1e1e;
+  --color-secondary-one: #1d1d1d;
+  --color-secondary-two: #b4b4b4;
+
+  /* Premium fintech-navy system — brand-blue is the dominant color (from the logo) */
+  --color-ink-950: #04070f;
+  --color-ink-900: #070f22;
+  --color-ink-800: #0a1930;
+  --color-ink-700: #0f2340;
+  --color-ink-600: #16305a;
+
+  --color-brand-200: #c7d9ff;
+  --color-brand-300: #93b4ff;
+  --color-brand-400: #5f8bff;
+  --color-brand-500: #3366ff;
+  --color-brand-600: #1f49d6;
+  --color-brand-700: #15339e;
+
+  /* Flare — the logo's small orange/gold accent. Used sparingly (a dot, a highlight), never as a dominant color. */
+  --color-flare-400: #ffc857;
+  --color-flare-500: #f5a623;
+
+  --color-mist-50: #f7f9fc;
+  --color-mist-100: #eef2f8;
+  --color-mist-200: #dde5f0;
+  --color-slate-300: #b7c3d9;
+  --color-slate-400: #8a97b3;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.backgroundImage {
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+@layer utilities {
+  .heading-text {
+    @apply text-[32px] leading-[38px] md:text-[44px] md:leading-[52px];
+  }
+
+  .paragraph-text {
+    @apply text-[16px] leading-[28px] md:text-[19px] md:leading-[34px];
+  }
+
+  /* Subtle engineering-grid texture for dark hero/section backgrounds */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(183, 195, 217, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(183, 195, 217, 0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .glow-brand {
+    background: radial-gradient(600px circle at var(--x, 50%) 0%, rgba(51, 102, 255, 0.22), transparent 60%);
+  }
+
+  .glass-card {
+    @apply bg-white/[0.04] border border-white/10 backdrop-blur-sm;
+  }
+
+  .brand-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #93b4ff, #3366ff);
+  }
+}
+
+.singleBlog {
+  a {
+    @apply text-blue-600;
+  }
+  a:hover {
+    @apply text-button-blue/50;
+  }
+}
