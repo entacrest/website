@@ -5,6 +5,7 @@ import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import Homepage from "@/features/home/Homepage";
 import ProductPage from "@/features/product/ProductPage";
+import EmsPage from "@/features/product/EmsPage";
 import WorkPage from "@/features/work/WorkPage";
 import AboutPage from "@/features/about/AboutPage";
 import CareerPage from "@/features/career/CareerPage";
@@ -36,6 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/ems" element={<EmsPage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/career" element={<CareerPage />} />

@@ -18,7 +18,7 @@ const ContactPage = () => {
             Let&apos;s build something that has to work
           </h1>
           <p className="text-slate-300 leading-8 text-lg mb-10 max-w-md">
-            Whether it&apos;s a product question about Synchgate or EBS, or a custom platform your business needs built, tell us about it and our team will get back to you.
+            Whether it&apos;s a product question about Synchgate, EBS, or EMS, or a custom platform your business needs built, tell us about it and our team will get back to you.
           </p>
           <div className="space-y-5">
             {contactPoints.map(({ icon: Icon, label, value }) => (

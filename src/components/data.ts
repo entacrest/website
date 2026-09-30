@@ -46,6 +46,24 @@ export const platforms: Platform[] = [
     ],
     url: "https://ebs.entacrest.com/",
   },
+  {
+    slug: "ems",
+    name: "EMS",
+    tag: "Microfinance Core Banking",
+    tagline: "Run your MFB, cooperative, or thrift society end to end",
+    description:
+      "EMS (Entacrest MFB Solution) is core banking software for microfinance banks, cooperatives, and thrift (ajo/esusu) societies — customers, savings, thrift, loans, field collections, approvals, and reports in one licensed system that runs on your own computers or your own cloud.",
+    features: [
+      { title: "Savings & thrift", desc: "Savings, target savings, and daily/weekly/monthly thrift plans with cycles, commission, and payouts." },
+      { title: "Loans end to end", desc: "Loan products with monthly or flat interest, processing and late fees, schedules, top-ups, and extensions." },
+      { title: "Field collections app", desc: "Account officers collect in the market on a phone — even offline — and the accountant counts their cash at day end." },
+      { title: "Maker-checker approvals", desc: "Large withdrawals, transfers, reversals, and loans wait for a second person. Every action lands in the audit log." },
+      { title: "Transfers & charges", desc: "Move money between accounts or customers, and apply withdrawal charges automatically." },
+      { title: "Reports that answer questions", desc: "Portfolio at risk, defaulters, officer performance, income, and statements — exported to PDF or CSV." },
+    ],
+    path: "/products/ems",
+    availability: "Licensed software · Desktop & self-hosted",
+  },
 ];
 
 export const caseStudies: CaseStudy[] = [

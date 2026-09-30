@@ -9,7 +9,7 @@ const WhyEntacrest = () => {
         Built by people who've done the hard part
       </h2>
       <p className="text-slate-500 text-center mt-4 max-w-xl mx-auto">
-        The principles behind Synchgate, EBS, and every client platform we build.
+        The principles behind Synchgate, EBS, EMS, and every client platform we build.
       </p>
       <article className="mx-auto max-w-6xl mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {whyEntacrest.map(({ icon, heading, text }, index) => {
