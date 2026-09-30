@@ -52,7 +52,12 @@ export interface Platform {
   tagline: string;
   description: string;
   features: PlatformFeature[];
-  url: string;
+  /** External site for hosted (SaaS) platforms. */
+  url?: string;
+  /** Page on this site, for products that aren't hosted (e.g. licensed software). */
+  path?: string;
+  /** How the product is delivered, shown as a badge when it isn't SaaS. */
+  availability?: string;
 }
 
 export interface CaseStudy {

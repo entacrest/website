@@ -62,6 +62,7 @@ const Footer = () => {
             <ul className="mt-5 space-y-3 flex flex-col">
               <Link to="/products" className="hover:text-brand-300 transition text-sm text-slate-400">Synchgate</Link>
               <Link to="/products" className="hover:text-brand-300 transition text-sm text-slate-400">EBS</Link>
+              <Link to="/products/ems" className="hover:text-brand-300 transition text-sm text-slate-400">EMS</Link>
             </ul>
           </div>
 

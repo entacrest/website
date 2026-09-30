@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   CreditCard,
   Landmark,
+  PiggyBank,
   Receipt,
   ShieldCheck,
   Wallet,
@@ -31,6 +32,7 @@ const Homepage = () => {
   const navigate = useNavigate();
   const synchgate = platforms[0];
   const ebs = platforms[1];
+  const ems = platforms[2];
 
   return (
     <main className="bg-white">
@@ -48,7 +50,7 @@ const Homepage = () => {
               We build the financial infrastructure most software teams avoid
             </h1>
             <p className="text-slate-300 text-lg leading-8 max-w-xl">
-              Entacrest runs its own fintech infrastructure — Synchgate for payment orchestration, EBS for running African SMEs — and builds custom, regulated, money-moving software for the businesses and financial institutions that hire us to get it right.
+              Entacrest runs its own fintech infrastructure — Synchgate for payment orchestration, EBS for running African SMEs, EMS for microfinance banks and cooperatives — and builds custom, regulated, money-moving software for the businesses and financial institutions that hire us to get it right.
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button
@@ -121,7 +123,7 @@ const Homepage = () => {
             </div>
             <h3 className="text-xl font-bold text-ink-900 mb-3">Products we own</h3>
             <p className="text-slate-500 leading-7 mb-6 flex-1">
-              Synchgate and EBS are our own infrastructure — built, operated, and improved by our team every day. They're proof we can build for the long haul, not just to hand off a project.
+              Synchgate, EBS, and EMS are our own infrastructure — built, operated, and improved by our team every day. They're proof we can build for the long haul, not just to hand off a project.
             </p>
             <Link to="/products" className="inline-flex items-center gap-2 text-ink-900 font-semibold text-sm group">
               Explore our platforms
@@ -212,6 +214,40 @@ const Homepage = () => {
                 <p className="text-slate-500 text-xs leading-5">{desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EMS Spotlight */}
+      <section className="px-5 pb-20 md:pb-28">
+        <div className="max-w-7xl mx-auto rounded-3xl bg-ink-950 grid-pattern relative overflow-hidden">
+          <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "85%" }} />
+          <div className="relative grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center p-8 md:p-12">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-brand-500/15 border border-brand-300/25 flex items-center justify-center">
+                  <PiggyBank size={22} className="text-brand-300" />
+                </div>
+                <span className="bg-brand-500/15 border border-brand-300/25 text-brand-200 text-[11px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">
+                  {ems.availability}
+                </span>
+              </div>
+              <h2 className="text-white font-bold heading-text mb-5">{ems.name}: {ems.tag.toLowerCase()}</h2>
+              <p className="text-slate-300 leading-8 mb-8">{ems.description}</p>
+              <Button
+                title="Explore EMS"
+                onClick={() => navigate(ems.path!)}
+                className="w-auto py-3 px-6"
+              />
+            </div>
+            <img
+              src="/images/ems/dashboard.webp"
+              alt="EMS dashboard"
+              loading="lazy"
+              width={1600}
+              height={1012}
+              className="w-full h-auto rounded-2xl border border-white/10 shadow-2xl shadow-brand-600/10"
+            />
           </div>
         </div>
       </section>

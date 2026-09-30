@@ -1,9 +1,9 @@
 import Button from "@/components/Button";
 import { platforms } from "@/components/data";
 import { useNavigate } from "react-router-dom";
-import { ArrowUpRight, Landmark, LayoutGrid } from "lucide-react";
+import { ArrowUpRight, Landmark, LayoutGrid, PiggyBank } from "lucide-react";
 
-const icons = [Landmark, LayoutGrid];
+const icons = [Landmark, LayoutGrid, PiggyBank];
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -18,10 +18,10 @@ const ProductPage = () => {
             Entacrest Platforms
           </p>
           <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Two products, one infrastructure philosophy
+            Three products, one infrastructure philosophy
           </h1>
           <p className="text-slate-300 leading-8 text-lg max-w-2xl mx-auto">
-            Synchgate and EBS are Entacrest's own infrastructure — built and operated by the same team that builds regulated software for our clients. If we're confident enough to run our business on it, we're confident enough to build yours on it.
+            Synchgate, EBS, and EMS are Entacrest's own infrastructure — built and operated by the same team that builds regulated software for our clients. If we're confident enough to run our business on it, we're confident enough to build yours on it.
           </p>
         </div>
       </section>
@@ -41,12 +41,17 @@ const ProductPage = () => {
                   <div>
                     <h2 className={`font-bold text-3xl md:text-4xl leading-tight ${dark ? "text-white" : "text-ink-900"}`}>{platform.name}</h2>
                     <p className={`text-sm mt-1 tracking-wide ${dark ? "text-slate-400" : "text-slate-500"}`}>{platform.tag} · {platform.tagline}</p>
+                    {platform.availability && (
+                      <span className={`inline-block mt-3 text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border ${dark ? "bg-brand-500/15 border-brand-300/25 text-brand-200" : "bg-mist-100 border-mist-200 text-ink-700"}`}>
+                        {platform.availability}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <Button
-                  title={`Visit ${platform.name}`}
+                  title={platform.path ? `Explore ${platform.name}` : `Visit ${platform.name}`}
                   variant={dark ? "primary" : "dark"}
-                  onClick={() => window.open(platform.url, "_blank")}
+                  onClick={() => (platform.path ? navigate(platform.path) : window.open(platform.url, "_blank"))}
                   className="w-auto px-6 py-3 shrink-0"
                 />
               </div>
@@ -83,7 +88,7 @@ const ProductPage = () => {
             The same infrastructure discipline, in everything we build
           </h2>
           <p className="text-slate-500 leading-8 mb-8 max-w-2xl mx-auto">
-            Synchgate and EBS aren&apos;t side projects — they&apos;re proof of how we build. When you hire Entacrest for a custom platform, you get the same governance, security, and long-term ownership that runs our own products.
+            Synchgate, EBS, and EMS aren&apos;t side projects — they&apos;re proof of how we build. When you hire Entacrest for a custom platform, you get the same governance, security, and long-term ownership that runs our own products.
           </p>
           <Button
             title="Learn About Entacrest"

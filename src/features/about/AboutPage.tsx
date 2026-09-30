@@ -17,7 +17,7 @@ const AboutPage = () => {
             A fintech company that builds for itself — and for you
           </h1>
           <p className="text-slate-300 leading-8 text-lg max-w-2xl mx-auto">
-            Entacrest is a fintech-focused software company. We build our own infrastructure — Synchgate and EBS — and we build custom, regulated software for other businesses and financial institutions. Not a generic dev shop. We specialize in the hard, money-moving parts most agencies avoid.
+            Entacrest is a fintech-focused software company. We build our own infrastructure — Synchgate, EBS, and EMS — and we build custom, regulated software for other businesses and financial institutions. Not a generic dev shop. We specialize in the hard, money-moving parts most agencies avoid.
           </p>
         </div>
       </section>
@@ -30,7 +30,7 @@ const AboutPage = () => {
             One team, two ways we create value
           </h2>
           <p className="text-slate-500 leading-8 mb-5">
-            On one side, we build and operate our own infrastructure — Synchgate, a payment orchestration platform, and EBS, a business operating system for African SMEs. Running our own products means we live with the consequences of our own architecture decisions, every day.
+            On one side, we build and operate our own infrastructure — Synchgate, a payment orchestration platform; EBS, a business operating system for African SMEs; and EMS, core banking software for microfinance banks, cooperatives, and thrift societies. Running our own products means we live with the consequences of our own architecture decisions, every day.
           </p>
           <p className="text-slate-500 leading-8">
             On the other side, we take that same expertise and build custom digital products for other businesses and financial institutions — payment integrations, compliance tooling, banking-adjacent platforms. It's the same team, the same standards, applied to your problem.
@@ -38,7 +38,7 @@ const AboutPage = () => {
         </article>
         <div className="grid grid-cols-2 gap-4">
           {[
-            { num: "01", label: "Build our own infrastructure", desc: "Synchgate and EBS are built, operated, and improved by our own team — not outsourced or abandoned after launch." },
+            { num: "01", label: "Build our own infrastructure", desc: "Synchgate, EBS, and EMS are built, operated, and improved by our own team — not outsourced or abandoned after launch." },
             { num: "02", label: "Specialize in regulated software", desc: "Payments, compliance, banking-adjacent platforms — the parts of software that punish shortcuts." },
             { num: "03", label: "Build for other businesses", desc: "Custom platforms for consumer fintech, ICT institutions, and social-impact organisations." },
             { num: "04", label: "Stay after launch", desc: "Every product we touch gets long-term ownership, monitoring, and support — not a handoff email." },
@@ -87,7 +87,7 @@ const AboutPage = () => {
           </div>
           <div className="flex flex-wrap gap-10 text-center">
             <div>
-              <p className="text-3xl font-bold text-white">2</p>
+              <p className="text-3xl font-bold text-white">3</p>
               <p className="text-slate-400 text-sm mt-1">Owned platforms</p>
             </div>
             <div>
