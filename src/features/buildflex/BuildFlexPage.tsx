@@ -34,7 +34,7 @@ const plans = [
   { months: 4, premium: 0.06 },
   { months: 6, premium: 0.09 },
 ];
-const DEPOSIT_RATE = 0.5;
+const DEPOSIT_RATE = 0.3;
 const budgetPresets = [500_000, 1_000_000, 2_500_000, 5_000_000];
 
 const naira = (n: number) =>
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     q: "How much is the deposit?",
-    a: "It depends on the project's size and scope. Most projects start around 50% of the BuildFlex price. Larger, well-documented projects may qualify for a lower deposit. Your quote states the exact figure.",
+    a: "It depends on the project's size and scope. Most projects start with a 30% deposit of the BuildFlex price. Some projects, depending on size and risk, may need a larger deposit. Your quote states the exact figure.",
   },
   {
     q: "Who pays for hosting, domains, and other services?",
@@ -302,7 +302,7 @@ const BuildFlexPage = () => {
                 ["Standard price", naira(budget)],
                 [`BuildFlex premium (${Math.round(plan.premium * 100)}%)`, naira(premium)],
                 ["BuildFlex price", naira(flexPrice)],
-                [`Deposit (${DEPOSIT_RATE * 100}%)`, naira(deposit)],
+                [`Deposit (${Math.round(DEPOSIT_RATE * 100)}%)`, naira(deposit)],
                 ["Balance spread over instalments", naira(flexPrice - deposit)],
               ].map(([k, v], i) => (
                 <div key={k} className={`flex justify-between gap-4 ${i === 2 ? "pt-3 border-t border-white/10 font-semibold text-white" : "text-slate-300"}`}>
