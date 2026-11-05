@@ -21,7 +21,7 @@ const ProductPage = () => {
             Three products, one infrastructure philosophy
           </h1>
           <p className="text-slate-300 leading-8 text-lg max-w-2xl mx-auto">
-            Synchgate, EBS, and EMS are Entacrest's own infrastructure — built and operated by the same team that builds regulated software for our clients. If we're confident enough to run our business on it, we're confident enough to build yours on it.
+            Synchgate, EBS, and EMS are Entacrest's own infrastructure — built and operated by the same team that builds custom software for our clients. If we're confident enough to run our business on it, we're confident enough to build yours on it.
           </p>
         </div>
       </section>
@@ -105,7 +105,7 @@ const ProductPage = () => {
         <div className="relative">
           <h2 className="text-white font-bold heading-text mb-4">Need something built for your business?</h2>
           <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto leading-8">
-            If it involves payments, compliance, or regulated infrastructure, talk to the team that builds this for a living.
+            Websites, apps, or custom business systems — talk to the team that builds and runs its own platforms. Pay outright or spread the cost with BuildFlex.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button

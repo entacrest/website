@@ -1,5 +1,6 @@
 import ContactForm from "./ContactForm";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CalendarClock, Mail, MapPin, Phone } from "lucide-react";
 
 const contactPoints = [
   { icon: Mail, label: "Email", value: "info@entacrest.com" },
@@ -17,9 +18,19 @@ const ContactPage = () => {
           <h1 className="heading-text font-bold text-white mb-6">
             Let&apos;s build something that has to work
           </h1>
-          <p className="text-slate-300 leading-8 text-lg mb-10 max-w-md">
-            Whether it&apos;s a product question about Synchgate, EBS, or EMS, or a custom platform your business needs built, tell us about it and our team will get back to you.
+          <p className="text-slate-300 leading-8 text-lg mb-6 max-w-md">
+            Whether it&apos;s a website, a mobile app, a custom system your business needs built, or a question about Synchgate, EBS, or EMS, tell us about it and our team will get back to you.
           </p>
+          <Link
+            to="/buildflex"
+            className="flex items-start gap-3 rounded-2xl border border-flare-400/25 bg-flare-400/10 p-4 mb-10 max-w-md group"
+          >
+            <CalendarClock size={20} className="text-flare-400 shrink-0 mt-0.5" />
+            <span className="text-sm text-slate-300 leading-6">
+              <span className="text-white font-semibold">Prefer to pay over time?</span> With BuildFlex, eligible projects start with a deposit and the rest is spread monthly.{" "}
+              <span className="text-flare-400 font-semibold group-hover:underline">Apply for BuildFlex →</span>
+            </span>
+          </Link>
           <div className="space-y-5">
             {contactPoints.map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-4">
