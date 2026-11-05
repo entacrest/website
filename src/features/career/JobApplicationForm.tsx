@@ -56,7 +56,7 @@ const JobApplicationForm = () => {
       formData.append("contact_me", contact ? "true" : "false");
       formData.append("resume", selectedFile);
 
-      const resp = await api.post("/webpage/job-application/", formData, {
+      const resp = await api.post("/entacrest/job-applications/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

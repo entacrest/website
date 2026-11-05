@@ -21,9 +21,27 @@ type FormValues = {
   details: string;
 };
 
-const applicantTypes = ["Registered business (SME)", "Startup", "NGO / non-profit", "Established company", "Individual / professional"];
-const budgets = ["Below ₦500,000", "₦500,000 – ₦2 million", "₦2 million – ₦5 million", "Above ₦5 million", "Not sure yet"];
-const durations = ["3 months", "4 months", "6 months", "Not sure yet"];
+// Values must match the choice keys on the backend (synchgate entacrest/models/buildflex.py).
+const applicantTypes = [
+  { value: "sme", label: "Registered business (SME)" },
+  { value: "startup", label: "Startup" },
+  { value: "ngo", label: "NGO / non-profit" },
+  { value: "established", label: "Established company" },
+  { value: "individual", label: "Individual / professional" },
+];
+const budgets = [
+  { value: "below_500k", label: "Below ₦500,000" },
+  { value: "500k_2m", label: "₦500,000 – ₦2 million" },
+  { value: "2m_5m", label: "₦2 million – ₦5 million" },
+  { value: "above_5m", label: "Above ₦5 million" },
+  { value: "unsure", label: "Not sure yet" },
+];
+const durations = [
+  { value: "3", label: "3 months" },
+  { value: "4", label: "4 months" },
+  { value: "6", label: "6 months" },
+  { value: "unsure", label: "Not sure yet" },
+];
 
 const fieldClass =
   "w-full p-3 py-2.5 bg-white/5 border border-white/15 text-white placeholder:text-slate-400 outline-none rounded-lg focus:border-brand-300/60";
@@ -42,8 +60,6 @@ const BuildFlexForm = () => {
     resolver: yupResolver(BuildFlexFormSchema),
   });
 
-  // Goes through the existing contact endpoint, so the application lands in the same inbox
-  // with a [BuildFlex] subject line and every answer laid out in the message body.
   const onSubmit = async (data: FormValues) => {
     if (!consent) {
       toast.error("Please agree that we may contact you about your application.");
@@ -51,24 +67,11 @@ const BuildFlexForm = () => {
     }
     setIsLoading(true);
 
-    const message = [
-      "[BuildFlex application]",
-      `Applying as: ${data.applicant_type}`,
-      `Organisation: ${data.organisation || "—"}`,
-      `Wants built: ${data.service}`,
-      `Estimated budget: ${data.budget}`,
-      `Preferred payment period: ${data.duration}`,
-      "",
-      data.details,
-    ].join("\n");
-
     try {
-      const resp = await api.post("/webpage/contact/", {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        phone: data.phone,
-        message,
+      const { duration, ...rest } = data;
+      const resp = await api.post("/entacrest/buildflex/applications/", {
+        ...rest,
+        preferred_duration: duration,
         contact_me: consent,
       });
       toast.success(resp.data?.message ?? "Application received. We'll be in touch.");
@@ -107,29 +110,29 @@ const BuildFlexForm = () => {
         <div>
           <select {...register("applicant_type")} className={selectClass} defaultValue="">
             <option value="" disabled>Applying as…</option>
-            {applicantTypes.map((t) => <option key={t}>{t}</option>)}
+            {applicantTypes.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}
           </select>
           <p className="text-red-400 text-sm">{errors.applicant_type?.message}</p>
         </div>
         <div>
           <select {...register("service")} className={selectClass} defaultValue="">
             <option value="" disabled>What do you want built?</option>
-            {services.map((s) => <option key={s.slug}>{s.title}</option>)}
-            <option>Something else</option>
+            {services.map((s) => <option key={s.slug} value={s.slug}>{s.title}</option>)}
+            <option value="other">Something else</option>
           </select>
           <p className="text-red-400 text-sm">{errors.service?.message}</p>
         </div>
         <div>
           <select {...register("budget")} className={selectClass} defaultValue="">
             <option value="" disabled>Estimated budget</option>
-            {budgets.map((b) => <option key={b}>{b}</option>)}
+            {budgets.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}
           </select>
           <p className="text-red-400 text-sm">{errors.budget?.message}</p>
         </div>
         <div>
           <select {...register("duration")} className={selectClass} defaultValue="">
             <option value="" disabled>Preferred payment period</option>
-            {durations.map((d) => <option key={d}>{d}</option>)}
+            {durations.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}
           </select>
           <p className="text-red-400 text-sm">{errors.duration?.message}</p>
         </div>

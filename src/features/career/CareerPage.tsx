@@ -20,7 +20,7 @@ const CareerPage = () => {
       setIsError(false);
       setMsg("");
       try {
-        const resp = await api.get("/webpage/jobs/");
+        const resp = await api.get("/entacrest/jobs/");
         setJobs(resp.data.data);
       } catch (error: any) {
         const errorMessage = error?.response?.data?.message || error.message;
