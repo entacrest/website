@@ -6,6 +6,7 @@ import Footer from "@/components/home/Footer";
 import Homepage from "@/features/home/Homepage";
 import ProductPage from "@/features/product/ProductPage";
 import EmsPage from "@/features/product/EmsPage";
+import BuildFlexPage from "@/features/buildflex/BuildFlexPage";
 import WorkPage from "@/features/work/WorkPage";
 import AboutPage from "@/features/about/AboutPage";
 import CareerPage from "@/features/career/CareerPage";
@@ -14,10 +15,13 @@ import SingleBlogPage from "@/features/singleBlog/SingleBlogPage";
 import ContactPage from "@/features/contact/ContactPage";
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // Links like /buildflex#apply land on the section instead of the top of the page.
+    const target = hash ? document.getElementById(hash.slice(1)) : null;
+    if (target) target.scrollIntoView();
+    else window.scrollTo(0, 0);
+  }, [pathname, hash]);
   return null;
 };
 
@@ -38,6 +42,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/products/ems" element={<EmsPage />} />
+        <Route path="/buildflex" element={<BuildFlexPage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/career" element={<CareerPage />} />

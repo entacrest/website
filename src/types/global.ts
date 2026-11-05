@@ -60,6 +60,13 @@ export interface Platform {
   availability?: string;
 }
 
+export interface Service {
+  slug: string;
+  title: string;
+  desc: string;
+  examples: string[];
+}
+
 export interface CaseStudy {
   slug: string;
   name: string;

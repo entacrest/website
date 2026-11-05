@@ -1,7 +1,7 @@
 import WhyEntacrest from "@/components/WhyEntacrest";
 import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
-import { Building2, Landmark, ShieldCheck } from "lucide-react";
+import { Building2, Globe, Landmark, Smartphone } from "lucide-react";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -14,10 +14,10 @@ const AboutPage = () => {
         <div className="relative max-w-4xl mx-auto text-center">
           <p className="text-brand-200 text-sm font-semibold uppercase tracking-widest mb-4">About Entacrest</p>
           <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            A fintech company that builds for itself — and for you
+            A technology company that builds for itself — and for you
           </h1>
           <p className="text-slate-300 leading-8 text-lg max-w-2xl mx-auto">
-            Entacrest is a fintech-focused software company. We build our own infrastructure — Synchgate, EBS, and EMS — and we build custom, regulated software for other businesses and financial institutions. Not a generic dev shop. We specialize in the hard, money-moving parts most agencies avoid.
+            Entacrest builds websites, mobile apps, and custom software for businesses, NGOs, and institutions, and runs its own platforms: Synchgate, EBS, and EMS. Through BuildFlex, we also make that software easier to afford, so cost isn&apos;t the reason a business stays offline.
           </p>
         </div>
       </section>
@@ -27,20 +27,23 @@ const AboutPage = () => {
         <article>
           <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">Our model</p>
           <h2 className="heading-text font-bold text-ink-900 mb-6">
-            One team, two ways we create value
+            One team, three ways we create value
           </h2>
           <p className="text-slate-500 leading-8 mb-5">
-            On one side, we build and operate our own infrastructure — Synchgate, a payment orchestration platform; EBS, a business operating system for African SMEs; and EMS, core banking software for microfinance banks, cooperatives, and thrift societies. Running our own products means we live with the consequences of our own architecture decisions, every day.
+            First, we build custom digital solutions for businesses of every size: websites, online stores, web and mobile apps, business management systems, and enterprise software. We&apos;ve built for consumer fintech, ICT institutions, and social-impact organisations.
+          </p>
+          <p className="text-slate-500 leading-8 mb-5">
+            Second, we build and operate our own platforms: Synchgate for payment orchestration, EBS for running African SMEs, and EMS for microfinance banks, cooperatives, and thrift societies. Running our own products means we live with our architecture decisions every day, and that discipline goes into every client project.
           </p>
           <p className="text-slate-500 leading-8">
-            On the other side, we take that same expertise and build custom digital products for other businesses and financial institutions — payment integrations, compliance tooling, banking-adjacent platforms. It's the same team, the same standards, applied to your problem.
+            Third, we make good software easier to afford. With Entacrest BuildFlex, eligible clients pay a deposit, launch their platform, and spread the rest of the development cost over an agreed period, so digital transformation doesn&apos;t wait on one big payment.
           </p>
         </article>
         <div className="grid grid-cols-2 gap-4">
           {[
-            { num: "01", label: "Build our own infrastructure", desc: "Synchgate, EBS, and EMS are built, operated, and improved by our own team — not outsourced or abandoned after launch." },
-            { num: "02", label: "Specialize in regulated software", desc: "Payments, compliance, banking-adjacent platforms — the parts of software that punish shortcuts." },
-            { num: "03", label: "Build for other businesses", desc: "Custom platforms for consumer fintech, ICT institutions, and social-impact organisations." },
+            { num: "01", label: "Build for other businesses", desc: "Websites, apps, and custom systems for SMEs, startups, NGOs, and established companies." },
+            { num: "02", label: "Run our own platforms", desc: "Synchgate, EBS, and EMS are built, operated, and improved by our own team — not outsourced or abandoned after launch." },
+            { num: "03", label: "Make it affordable", desc: "BuildFlex lets eligible clients build now and pay small small, with every cost clear upfront." },
             { num: "04", label: "Stay after launch", desc: "Every product we touch gets long-term ownership, monitoring, and support — not a handoff email." },
           ].map(({ num, label, desc }) => (
             <div key={num} className="p-5 border border-mist-200 rounded-2xl bg-mist-50">
@@ -55,13 +58,14 @@ const AboutPage = () => {
       {/* Focus areas */}
       <section className="bg-ink-950 px-5 py-20 md:py-28">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-300/80 font-semibold text-sm uppercase tracking-widest mb-3 text-center">What We Specialize In</p>
-          <h2 className="text-white text-center font-bold heading-text mb-14">The parts of software most agencies avoid</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <p className="text-brand-300/80 font-semibold text-sm uppercase tracking-widest mb-3 text-center">What We Build</p>
+          <h2 className="text-white text-center font-bold heading-text mb-14">Digital solutions for every stage of growth</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Landmark, title: "Payment integrations", desc: "Connecting businesses to payment providers, orchestrating routing, and reconciling every transaction." },
-              { icon: ShieldCheck, title: "Compliance tooling", desc: "Systems built to survive an audit — not just a demo — from day one." },
-              { icon: Building2, title: "Banking-adjacent platforms", desc: "Virtual accounts, wallets, and financial infrastructure for institutions and the businesses that serve them." },
+              { icon: Globe, title: "Websites & e-commerce", desc: "Business websites and online stores that win customers' trust and take payments properly." },
+              { icon: Smartphone, title: "Web & mobile apps", desc: "Portals, SaaS products, MVPs, and Android and iOS apps built around your users." },
+              { icon: Building2, title: "Business & enterprise systems", desc: "Inventory, school, HR, and workflow systems that replace spreadsheets and paperwork." },
+              { icon: Landmark, title: "Payments & integrations", desc: "Payment gateways, wallets, and third-party APIs, by the team behind Synchgate." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
                 <div className="w-11 h-11 rounded-xl bg-brand-500/15 border border-brand-300/25 flex items-center justify-center mb-5">
@@ -83,7 +87,7 @@ const AboutPage = () => {
         <div className="bg-ink-950 rounded-3xl px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h3 className="text-2xl font-bold text-white mb-1">Entacrest</h3>
-            <p className="text-slate-400 text-sm">Fintech Software Company · Lagos, Nigeria</p>
+            <p className="text-slate-400 text-sm">Software &amp; Technology Company · Lagos, Nigeria</p>
           </div>
           <div className="flex flex-wrap gap-10 text-center">
             <div>

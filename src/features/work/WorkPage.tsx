@@ -14,10 +14,10 @@ const WorkPage = () => {
         <div className="relative max-w-4xl mx-auto text-center">
           <p className="text-brand-200 text-sm font-semibold uppercase tracking-widest mb-4">Our Work</p>
           <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Software for the hard, regulated parts of business
+            Platforms we&apos;ve built for businesses, institutions, and causes
           </h1>
           <p className="text-slate-300 leading-8 text-lg max-w-2xl mx-auto">
-            We're not a generic dev shop. These are platforms we've built for businesses and institutions that needed money, trust, or compliance to work correctly the first time.
+            From consumer fintech to ICT training to social impact, these are platforms we&apos;ve designed, built, and launched for organisations that needed them to work properly from day one.
           </p>
         </div>
       </section>
@@ -113,13 +113,21 @@ const WorkPage = () => {
         <div className="relative">
           <h2 className="text-white font-bold heading-text mb-4">Have a similar problem?</h2>
           <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto leading-8">
-            Payments, compliance, or a banking-adjacent platform — let's talk about what you're building.
+            A website, an app, or a full business platform — let&apos;s talk about what you&apos;re building.
           </p>
-          <Button
-            title="Start a Project"
-            onClick={() => navigate("/contact")}
-            className="w-auto px-10 py-4 mx-auto"
-          />
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button
+              title="Start a Project"
+              onClick={() => navigate("/contact")}
+              className="w-auto px-10 py-4"
+            />
+            <Button
+              title="Pay Small Small with BuildFlex"
+              variant="outline"
+              onClick={() => navigate("/buildflex")}
+              className="w-auto px-8 py-4"
+            />
+          </div>
         </div>
       </section>
     </main>

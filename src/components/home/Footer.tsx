@@ -42,7 +42,7 @@ const Footer = () => {
             />
             <div>
               <p className="text-[15px] leading-[24px] font-semibold text-brand-300">
-                Fintech infrastructure &amp; custom software
+                Custom software, our own platforms &amp; flexible payment
               </p>
               <p className="text-sm text-slate-400 mt-2">info@entacrest.com</p>
               <p className="text-sm text-slate-400">+234 901 038 0794</p>
@@ -55,6 +55,16 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-bold text-white uppercase tracking-wider">Services</h2>
+            <ul className="mt-5 space-y-3 flex flex-col">
+              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Websites &amp; e-commerce</Link>
+              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Web &amp; mobile apps</Link>
+              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Business systems</Link>
+              <Link to="/buildflex" className="hover:text-brand-300 transition text-sm text-slate-400">BuildFlex — pay small small</Link>
+            </ul>
           </div>
 
           <div>
@@ -91,7 +101,7 @@ const Footer = () => {
       </article>
       <hr className="border-white/10" />
       <p className="text-center py-6 text-slate-400 text-sm px-4">
-        Entacrest © {year} · All rights reserved · Building fintech infrastructure &amp; custom software
+        Entacrest © {year} · All rights reserved · Technology solutions for growing businesses
       </p>
     </footer>
   );

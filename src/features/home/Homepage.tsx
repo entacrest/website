@@ -1,29 +1,48 @@
 import Button from "@/components/Button";
-import { caseStudies, platforms, trustedPartners } from "@/components/data";
+import { caseStudies, platforms, services, trustedPartners } from "@/components/data";
 import WhyEntacrest from "@/components/WhyEntacrest";
 import { motion } from "motion/react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   ArrowUpRight,
+  Boxes,
+  Building2,
+  CalendarClock,
   CheckCircle2,
-  CreditCard,
+  CircleDashed,
+  Code2,
+  Globe,
+  HeartHandshake,
   Landmark,
   PiggyBank,
-  Receipt,
+  Plug,
   ShieldCheck,
-  Wallet,
+  ShoppingBag,
+  Smartphone,
 } from "lucide-react";
 
-const transactionFeed = [
-  { label: "Card payment", provider: "via Synchgate", icon: CreditCard },
-  { label: "Bank transfer", provider: "via Synchgate", icon: Landmark },
-  { label: "Wallet payout", provider: "via Synchgate", icon: Wallet },
+const serviceIcons: Record<string, typeof Globe> = {
+  websites: Globe,
+  ecommerce: ShoppingBag,
+  "web-apps": Code2,
+  mobile: Smartphone,
+  "business-systems": Boxes,
+  ngo: HeartHandshake,
+  enterprise: Building2,
+  integrations: Plug,
+};
+
+const projectFeed = [
+  { label: "Design approved", note: "Week 2", done: true },
+  { label: "Store built & tested", note: "Week 6", done: true },
+  { label: "Launched to customers", note: "Week 8", done: true },
+  { label: "BuildFlex instalment 3 of 6", note: "Due next month", done: false },
 ];
 
 const process = [
-  { step: "01", title: "Discover", desc: "We dig into the regulatory, technical, and business constraints before writing a line of code." },
-  { step: "02", title: "Build", desc: "Engineers who've shipped payment infrastructure build your platform — not junior devs learning on your dime." },
+  { step: "01", title: "Discover", desc: "We dig into your business goals, your users, and your budget before writing a line of code." },
+  { step: "02", title: "Build", desc: "The engineers who run our own platforms build yours — not junior devs learning on your dime." },
   { step: "03", title: "Ship", desc: "Launch with monitoring, documentation, and a rollback plan — not a demo dressed up as production." },
   { step: "04", title: "Support", desc: "We stay on after go-live. Every product we touch gets long-term ownership, not a handoff email." },
 ];
@@ -44,30 +63,30 @@ const Homepage = () => {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase text-brand-200">
               <span className="w-1.5 h-1.5 rounded-full bg-flare-400 inline-block" />
-              Fintech infrastructure &amp; custom software
+              Custom software · Our own platforms · Flexible payment
             </div>
             <h1 className="text-white text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1]">
-              We build the financial infrastructure most software teams avoid
+              We build the software your business runs on
             </h1>
             <p className="text-slate-300 text-lg leading-8 max-w-xl">
-              Entacrest runs its own fintech infrastructure — Synchgate for payment orchestration, EBS for running African SMEs, EMS for microfinance banks and cooperatives — and builds custom, regulated, money-moving software for the businesses and financial institutions that hire us to get it right.
+              Websites, online stores, mobile apps, and custom business systems for SMEs, startups, NGOs, and enterprises — built by the team behind Synchgate, EBS, and EMS. And with BuildFlex, you don&apos;t have to pay for it all upfront.
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button
-                title="Explore Our Platforms"
-                onClick={() => navigate("/products")}
+                title="Start a Project"
+                onClick={() => navigate("/contact")}
                 className="w-auto px-7 py-3.5"
               />
               <Button
-                title="Start a Project"
+                title="Build Now, Pay Small Small"
                 variant="outline"
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/buildflex")}
                 className="w-auto px-7 py-3.5"
               />
             </div>
           </div>
 
-          {/* Orchestration mock card */}
+          {/* Project progress mock card */}
           <div className="relative hidden md:flex justify-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -76,13 +95,13 @@ const Homepage = () => {
               className="glass-card rounded-3xl p-6 w-full max-w-sm shadow-2xl"
             >
               <div className="flex items-center justify-between mb-5">
-                <p className="text-white font-semibold text-sm">Transaction routing</p>
+                <p className="text-white font-semibold text-sm">Project · Online store</p>
                 <span className="flex items-center gap-1.5 text-green-400 text-xs font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Live
                 </span>
               </div>
               <div className="space-y-3">
-                {transactionFeed.map(({ label, provider, icon: Icon }, i) => (
+                {projectFeed.map(({ label, note, done }, i) => (
                   <motion.div
                     key={label}
                     initial={{ opacity: 0, x: 20 }}
@@ -90,58 +109,143 @@ const Homepage = () => {
                     transition={{ delay: 0.3 + i * 0.15, duration: 0.5 }}
                     className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-brand-500/15 border border-brand-300/25 flex items-center justify-center shrink-0">
-                      <Icon size={16} className="text-brand-300" />
-                    </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-white text-sm font-medium">{label}</p>
-                      <p className="text-slate-400 text-xs">{provider}</p>
+                      <p className="text-slate-400 text-xs">{note}</p>
                     </div>
-                    <CheckCircle2 size={16} className="text-green-400 shrink-0" />
+                    {done ? (
+                      <CheckCircle2 size={16} className="text-green-400 shrink-0" />
+                    ) : (
+                      <CircleDashed size={16} className="text-flare-400 shrink-0" />
+                    )}
                   </motion.div>
                 ))}
               </div>
               <div className="mt-5 pt-5 border-t border-white/10 flex items-center justify-between">
-                <p className="text-slate-400 text-xs">Settlement</p>
-                <p className="text-white text-sm font-semibold">Reconciled in real time</p>
+                <p className="text-slate-400 text-xs">Payment plan</p>
+                <p className="text-white text-sm font-semibold">BuildFlex · 6 months</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Two ways we work */}
+      {/* Three ways we create value */}
       <section className="max-w-7xl mx-auto px-5 py-20 md:py-28">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">How we work</p>
-          <h2 className="heading-text font-bold text-ink-900">Two sides of the same expertise</h2>
+          <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">What we do</p>
+          <h2 className="heading-text font-bold text-ink-900">One team. Three ways we help you grow.</h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-3xl border border-mist-200 bg-mist-50 p-8 md:p-10 flex flex-col">
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="rounded-3xl border border-ink-800 bg-ink-950 p-8 flex flex-col">
+            <div className="w-12 h-12 rounded-2xl bg-brand-500/15 border border-brand-300/25 flex items-center justify-center mb-6">
+              <Code2 size={22} className="text-brand-300" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">Software we build for you</h3>
+            <p className="text-slate-400 leading-7 mb-6 flex-1">
+              Websites, e-commerce, web and mobile apps, and business systems, built around how your organisation actually works. We&apos;ve done it for consumer fintech, ICT institutions, and social-impact platforms alike.
+            </p>
+            <Link to="/work" className="inline-flex items-center gap-2 text-brand-300 font-semibold text-sm group">
+              See our work
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+          <div className="rounded-3xl border border-mist-200 bg-mist-50 p-8 flex flex-col">
             <div className="w-12 h-12 rounded-2xl bg-ink-900 flex items-center justify-center mb-6">
               <ShieldCheck size={22} className="text-brand-300" />
             </div>
-            <h3 className="text-xl font-bold text-ink-900 mb-3">Products we own</h3>
+            <h3 className="text-xl font-bold text-ink-900 mb-3">Platforms we own</h3>
             <p className="text-slate-500 leading-7 mb-6 flex-1">
-              Synchgate, EBS, and EMS are our own infrastructure — built, operated, and improved by our team every day. They're proof we can build for the long haul, not just to hand off a project.
+              Synchgate for payments, EBS for SMEs, and EMS for microfinance and cooperatives — built, operated, and improved by our team every day. Proof we build for the long haul.
             </p>
             <Link to="/products" className="inline-flex items-center gap-2 text-ink-900 font-semibold text-sm group">
               Explore our platforms
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-          <div className="rounded-3xl border border-ink-800 bg-ink-950 p-8 md:p-10 flex flex-col">
-            <div className="w-12 h-12 rounded-2xl bg-brand-500/15 border border-brand-300/25 flex items-center justify-center mb-6">
-              <Receipt size={22} className="text-brand-300" />
+          <div className="rounded-3xl border border-mist-200 bg-mist-50 p-8 flex flex-col">
+            <div className="w-12 h-12 rounded-2xl bg-ink-900 flex items-center justify-center mb-6">
+              <CalendarClock size={22} className="text-flare-400" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Software we build for you</h3>
-            <p className="text-slate-400 leading-7 mb-6 flex-1">
-              Payment integrations, compliance tooling, banking-adjacent platforms — the regulated, money-moving parts of software most agencies avoid. We've done it for consumer fintech, ICT institutions, and social-impact platforms alike.
+            <h3 className="text-xl font-bold text-ink-900 mb-3">A flexible way to pay</h3>
+            <p className="text-slate-500 leading-7 mb-6 flex-1">
+              With Entacrest BuildFlex, eligible clients pay a deposit, launch their platform, and spread the remaining development cost over an agreed period.
             </p>
-            <Link to="/work" className="inline-flex items-center gap-2 text-brand-300 font-semibold text-sm group">
-              See our work
+            <Link to="/buildflex" className="inline-flex items-center gap-2 text-ink-900 font-semibold text-sm group">
+              How BuildFlex works
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="bg-mist-50 border-y border-mist-200 px-5 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="max-w-2xl">
+              <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">What we build</p>
+              <h2 className="heading-text font-bold text-ink-900">From your first website to enterprise software</h2>
+            </div>
+            <Link to="/contact" className="inline-flex items-center gap-2 text-ink-900 font-semibold text-sm shrink-0 group">
+              Tell us what you need
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {services.map(({ slug, title, desc, examples }) => {
+              const Icon = serviceIcons[slug] ?? Globe;
+              return (
+                <div key={slug} className="rounded-2xl border border-mist-200 bg-white p-6 flex flex-col">
+                  <div className="w-11 h-11 rounded-xl bg-ink-900 flex items-center justify-center mb-5">
+                    <Icon size={20} className="text-brand-300" />
+                  </div>
+                  <h3 className="font-bold text-ink-900 mb-2">{title}</h3>
+                  <p className="text-slate-500 text-sm leading-6 flex-1">{desc}</p>
+                  <p className="text-slate-400 text-xs mt-4">{examples.join(" · ")}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* BuildFlex Spotlight */}
+      <section className="px-5 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto rounded-3xl bg-ink-950 grid-pattern relative overflow-hidden">
+          <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "15%" }} />
+          <div className="relative grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center p-8 md:p-12">
+            <div>
+              <span className="inline-block bg-flare-400/15 border border-flare-400/30 text-flare-400 text-[11px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
+                Entacrest BuildFlex
+              </span>
+              <h2 className="text-white font-bold heading-text mb-5">
+                Build now. <span className="brand-gradient-text">Pay small small.</span>
+              </h2>
+              <p className="text-slate-300 leading-8 mb-8 max-w-xl">
+                Don&apos;t put off your website, app, or business system because of the upfront cost. Pay an agreed deposit, use your platform from launch day, and spread the rest of the development cost over 3 to 6 months. Your quote shows both prices side by side, and nothing is hidden.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <Button title="Explore BuildFlex" onClick={() => navigate("/buildflex")} className="w-auto py-3 px-6" />
+                <Link to="/buildflex#apply" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-semibold transition">
+                  Apply now <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { k: "Deposit", v: "Pay to start", d: "Agreed per project" },
+                { k: "Launch", v: "Use it live", d: "Full operational access" },
+                { k: "Instalments", v: "3 – 6 months", d: "Fixed monthly amount" },
+                { k: "Handover", v: "It's all yours", d: "On your final payment" },
+              ].map(({ k, v, d }) => (
+                <div key={k} className="glass-card rounded-2xl p-5">
+                  <p className="text-brand-300/80 text-xs font-semibold uppercase tracking-wider mb-2">{k}</p>
+                  <p className="text-white font-bold mb-1">{v}</p>
+                  <p className="text-slate-400 text-xs">{d}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -258,7 +362,7 @@ const Homepage = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <p className="text-brand-300/80 font-semibold text-sm uppercase tracking-widest mb-3">Our Work</p>
-              <h2 className="text-white font-bold heading-text">Built for businesses that move money — and trust</h2>
+              <h2 className="text-white font-bold heading-text">Built for businesses, institutions, and causes</h2>
             </div>
             <Link to="/work" className="inline-flex items-center gap-2 text-brand-300 font-semibold text-sm shrink-0 group">
               See all work
@@ -334,10 +438,10 @@ const Homepage = () => {
         <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "50%" }} />
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="text-white font-bold heading-text mb-5">
-            Building something regulated, or something that moves money?
+            Have a project your business needs built?
           </h2>
           <p className="text-slate-300 text-lg mb-10 max-w-xl mx-auto leading-8">
-            Let's talk about what you're building — whether it's a payment integration, compliance tooling, or a full banking-adjacent platform.
+            A website, a mobile app, a business system, or a payment integration — let&apos;s talk about it. Ask about BuildFlex if you&apos;d rather pay over time.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button

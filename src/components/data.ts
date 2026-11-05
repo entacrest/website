@@ -6,6 +6,7 @@ import {
   JobOpenings,
   Platform,
   PortfolioMention,
+  Service,
   TrustedPartners,
   WhyEntacrest,
   WorkBenefits,
@@ -63,6 +64,58 @@ export const platforms: Platform[] = [
     ],
     path: "/products/ems",
     availability: "Licensed software · Desktop & self-hosted",
+  },
+];
+
+// Every service here is eligible for BuildFlex, subject to project assessment.
+export const services: Service[] = [
+  {
+    slug: "websites",
+    title: "Business & corporate websites",
+    desc: "Fast, credible websites that tell customers who you are and turn visits into enquiries.",
+    examples: ["Company websites", "Landing pages", "Portfolios"],
+  },
+  {
+    slug: "ecommerce",
+    title: "E-commerce platforms",
+    desc: "Online stores with payments, inventory, and delivery built in, so you can sell beyond your shop.",
+    examples: ["Online stores", "Marketplaces", "Order management"],
+  },
+  {
+    slug: "web-apps",
+    title: "Custom web applications",
+    desc: "Portals, dashboards, and SaaS products built around how your business actually works.",
+    examples: ["Customer portals", "SaaS & MVPs", "Booking platforms"],
+  },
+  {
+    slug: "mobile",
+    title: "Mobile applications",
+    desc: "Android and iOS apps for your customers, your field staff, or both.",
+    examples: ["Customer apps", "Field & staff apps", "Offline-first apps"],
+  },
+  {
+    slug: "business-systems",
+    title: "Business management systems",
+    desc: "Replace spreadsheets with one system for stock, sales, staff, and reports.",
+    examples: ["Inventory", "School management", "HR & payroll"],
+  },
+  {
+    slug: "ngo",
+    title: "NGO & fundraising platforms",
+    desc: "Donation, campaign, and beneficiary platforms where every contribution can be accounted for.",
+    examples: ["Donation platforms", "Campaigns", "Beneficiary records"],
+  },
+  {
+    slug: "enterprise",
+    title: "Enterprise software",
+    desc: "Larger systems with roles, approvals, audit trails, and the controls growing organisations need.",
+    examples: ["Workflow automation", "Approvals", "Internal tools"],
+  },
+  {
+    slug: "integrations",
+    title: "Payments & integrations",
+    desc: "Payment gateways, SMS, email, and third-party APIs connected properly, by the team behind Synchgate.",
+    examples: ["Payment gateways", "Virtual accounts", "API integrations"],
   },
 ];
 
@@ -138,23 +191,23 @@ export const alsoBuilt: PortfolioMention[] = [
 export const whyEntacrest: WhyEntacrest[] = [
   {
     icon: "/icons/security-safe.svg",
-    heading: "Regulated by default",
-    text: "Compliance and security aren't bolted on. Every system we ship — ours or yours — is built to survive an audit, not just a demo.",
+    heading: "Secure by default",
+    text: "Security, backups, and access control aren't bolted on. Every system we ship — ours or yours — is built to hold up in real use, not just a demo.",
   },
   {
     icon: "/icons/airdrop.svg",
-    heading: "Orchestration expertise",
-    text: "We've built the hard part before: routing, reconciling, and settling money across multiple providers without losing a kobo.",
+    heading: "We run our own platforms",
+    text: "Synchgate, EBS, and EMS run in production every day. That same operational discipline goes into every client project.",
   },
   {
-    icon: "/icons/like.svg",
-    heading: "Built to stay up",
-    text: "Synchgate and EBS run in production every day. That same operational discipline goes into every client platform we build.",
+    icon: "/icons/receipt-square.svg",
+    heading: "Pay small small",
+    text: "With BuildFlex, eligible clients start with a deposit and spread the development cost over an agreed period. No surprises in the price.",
   },
   {
     icon: "/icons/recovery-convert.svg",
-    heading: "Developer-first delivery",
-    text: "Clean APIs, real documentation, and engineers who show up after launch — not just at handover.",
+    heading: "We stay after launch",
+    text: "Clear documentation, a proper handover, and engineers who show up after go-live — not just at delivery.",
   },
 ];
 
