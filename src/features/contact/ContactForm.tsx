@@ -35,7 +35,7 @@ const ContactForm = () => {
     const formData = { ...data, contact_me: contact };
 
     try {
-      const resp = await api.post("/webpage/contact/", formData);
+      const resp = await api.post("/entacrest/contact/", formData);
       setMsg(resp.data.message);
       setIsSuccess(true);
 

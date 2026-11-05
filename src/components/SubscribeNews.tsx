@@ -35,7 +35,7 @@ const SubscribeNews = () => {
       setMsg("");
       setSuccess(false);
 
-      const resp = await api.post("/webpage/newsletter/", { email });
+      const resp = await api.post("/entacrest/newsletter/", { email });
 
       setSuccess(true);
       setMsg(resp.data.message);

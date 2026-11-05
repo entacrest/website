@@ -21,8 +21,8 @@ const BlogPage = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await api.get("/webpage/blogs");
-        setBlogs(response.data.data.results);
+        const response = await api.get("/entacrest/blogs/");
+        setBlogs(response.data.data);
       } catch (err: any) {
         setError("Failed to fetch blogs.");
         toast.error(err.message);

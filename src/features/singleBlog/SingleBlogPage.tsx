@@ -25,8 +25,8 @@ const SingleBlogPage = () => {
     const fetchRelatedPosts = async () => {
       setLoading(true);
       try {
-        const response = await api.get("/webpage/blogs");
-        setRelatedBlogs(response.data.data.results.all_blogs);
+        const response = await api.get("/entacrest/blogs/");
+        setRelatedBlogs(response.data.data.all_blogs);
       } catch (err: any) {
         setError("Failed to fetch related blogs.");
         toast.error(err.message);
@@ -40,7 +40,7 @@ const SingleBlogPage = () => {
       setIsError(false);
       setMsg("");
       try {
-        const resp = await api.get(`/webpage/blog_post/${id}`);
+        const resp = await api.get(`/entacrest/blogs/${id}/`);
         setBlog(resp.data.data);
       } catch (error: any) {
         const errorMessage = error?.response?.data?.message || error.message;
