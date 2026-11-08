@@ -34,11 +34,10 @@ const Footer = () => {
         <section className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-between gap-10 w-full max-w-7xl">
           <div className="space-y-5 max-w-xs">
             <img
-              src="/entacrest_logo.png"
+              src="/entacrest_logo_dark.png"
               alt="Entacrest logo"
               width={170}
               height={72}
-              className="invert brightness-125"
             />
             <div>
               <p className="text-[15px] leading-[24px] font-semibold text-brand-300">
@@ -60,9 +59,9 @@ const Footer = () => {
           <div>
             <h2 className="text-sm font-bold text-white uppercase tracking-wider">Services</h2>
             <ul className="mt-5 space-y-3 flex flex-col">
-              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Websites &amp; e-commerce</Link>
-              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Web &amp; mobile apps</Link>
-              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Business systems</Link>
+              <Link to="/book?source=footer" className="hover:text-brand-300 transition text-sm text-slate-400">Websites &amp; e-commerce</Link>
+              <Link to="/book?source=footer" className="hover:text-brand-300 transition text-sm text-slate-400">Web &amp; mobile apps</Link>
+              <Link to="/book?source=footer" className="hover:text-brand-300 transition text-sm text-slate-400">Business systems</Link>
               <Link to="/buildflex" className="hover:text-brand-300 transition text-sm text-slate-400">BuildFlex — pay small small</Link>
             </ul>
           </div>
@@ -89,8 +88,8 @@ const Footer = () => {
           <div>
             <h2 className="text-sm font-bold text-white uppercase tracking-wider">Contact</h2>
             <ul className="mt-5 space-y-3 flex flex-col">
-              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Start a Project</Link>
-              <Link to="/contact" className="hover:text-brand-300 transition text-sm text-slate-400">Get in Touch</Link>
+              <Link to="/book?source=footer" className="hover:text-brand-300 transition text-sm text-slate-400">Book a free scoping call</Link>
+              <a href="mailto:info@entacrest.com" className="hover:text-brand-300 transition text-sm text-slate-400">info@entacrest.com</a>
             </ul>
           </div>
 

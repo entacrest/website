@@ -109,8 +109,8 @@ const ProductPage = () => {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
-              title="Contact Us"
-              onClick={() => navigate("/contact")}
+              title="Book a Free Scoping Call"
+              onClick={() => navigate("/book?source=platforms")}
               className="w-auto px-10 py-4"
             />
             <a

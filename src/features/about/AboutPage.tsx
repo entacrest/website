@@ -109,8 +109,8 @@ const AboutPage = () => {
       {/* CTA */}
       <section className="px-5 pb-24 text-center">
         <Button
-          title="Start a Project"
-          onClick={() => navigate("/contact")}
+          title="Book a Free Scoping Call"
+          onClick={() => navigate("/book?source=about")}
           className="w-auto px-10 py-4 mx-auto"
         />
       </section>

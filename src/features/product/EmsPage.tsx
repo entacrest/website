@@ -268,7 +268,7 @@ const EmsPage = () => {
                 Entacrest MFB Solution runs your whole operation, from the market to the MD&apos;s desk. It covers customers, savings, thrift, loans, field collections, approvals, and reports, and runs on your own computers or your own cloud.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button title="Request a Demo" onClick={() => navigate("/contact")} className="w-auto px-7 py-3.5" />
+                <Button title="Request a Demo" onClick={() => navigate("/book?source=ems")} className="w-auto px-7 py-3.5" />
                 <a
                   href="#features"
                   className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-semibold transition"
@@ -495,7 +495,7 @@ const EmsPage = () => {
             Book a demo and we&apos;ll walk you through EMS set up like your institution: your branches, thrift plans, and loan products.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button title="Request a Demo" onClick={() => navigate("/contact")} className="w-auto px-10 py-4" />
+            <Button title="Request a Demo" onClick={() => navigate("/book?source=ems")} className="w-auto px-10 py-4" />
             <a
               href="mailto:info@entacrest.com?subject=EMS%20demo%20request"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition"
