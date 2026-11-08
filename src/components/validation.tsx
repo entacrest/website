@@ -1,7 +1,13 @@
 import * as yup from "yup";
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-export const ContactFormSchema = yup.object().shape({
+// Booking window for scoping calls; the backend enforces the same rules in Lagos time.
+export const BOOKING_WINDOW_DAYS = 60;
+export const isoDate = (d: Date) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+export const addDays = (d: Date, n: number) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+
+export const BookCallSchema = yup.object().shape({
   first_name: yup
     .string()
     .required("Name is required")
@@ -16,14 +22,31 @@ export const ContactFormSchema = yup.object().shape({
     .required("Email is required"),
   phone: yup
     .string()
-    .matches(/^\d+$/, "Phone number must contain only digits")
-
     .matches(/^\d{10,15}$/, "Invalid phone number")
     .required("Phone number is required"),
-  message: yup
+  company: yup.string().default(""),
+  service: yup.string().required("Choose what you want built"),
+  budget: yup.string().required("Choose an estimated budget"),
+  timeline: yup.string().required("Choose when you'd like to start"),
+  payment_preference: yup.string().required("Choose how you'd like to pay"),
+  preferred_date: yup
     .string()
-    .required("Message is required")
-    .min(10, "Message must be at least 10 characters"),
+    .required("Pick a date for the call")
+    .test("weekday", "Calls run Monday to Friday. Please choose a weekday.", (v) => {
+      if (!v) return false;
+      const day = new Date(`${v}T12:00:00`).getDay();
+      return day !== 0 && day !== 6;
+    })
+    .test("window", `Choose a date between tomorrow and ${BOOKING_WINDOW_DAYS} days from now.`, (v) => {
+      if (!v) return false;
+      const today = new Date();
+      return v >= isoDate(addDays(today, 1)) && v <= isoDate(addDays(today, BOOKING_WINDOW_DAYS));
+    }),
+  preferred_time: yup.string().required("Pick a time"),
+  details: yup
+    .string()
+    .required("Tell us about your project")
+    .min(30, "Tell us a little more (at least 30 characters)"),
 });
 export const BuildFlexFormSchema = yup.object().shape({
   first_name: yup

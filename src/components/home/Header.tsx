@@ -14,18 +14,18 @@ const Header = () => {
       <div className="flex items-center justify-between max-w-7xl mx-auto p-4">
         <Link to="/" className="flex items-center shrink-0">
           <img
-            src="/entacrest_logo.png"
+            src="/entacrest_logo_dark.png"
             alt="Entacrest"
             width={160}
             height={48}
-            className="w-[140px] md:w-[160px] h-auto invert brightness-125"
+            className="w-[140px] md:w-[160px] h-auto"
           />
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <HeaderNav onClick={() => setToggleSide(false)} />
           <Button
-            title="Start a Project"
-            onClick={() => navigate("/contact")}
+            title="Book a Scoping Call"
+            onClick={() => navigate("/book?source=header")}
             className="w-auto px-5 py-2.5 text-sm"
           />
         </div>
@@ -57,10 +57,10 @@ const Header = () => {
               />
               <HeaderNav onClick={() => setToggleSide(false)} />
               <Button
-                title="Start a Project"
+                title="Book a Scoping Call"
                 onClick={() => {
                   setToggleSide(false);
-                  navigate("/contact");
+                  navigate("/book?source=header");
                 }}
                 className="mt-8 w-full py-3"
               />

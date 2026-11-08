@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import Header from "@/components/home/Header";
@@ -12,7 +12,8 @@ import AboutPage from "@/features/about/AboutPage";
 import CareerPage from "@/features/career/CareerPage";
 import BlogPage from "@/features/blog/BlogPage";
 import SingleBlogPage from "@/features/singleBlog/SingleBlogPage";
-import ContactPage from "@/features/contact/ContactPage";
+import BookCallPage from "@/features/book/BookCallPage";
+import { captureAttribution } from "@/config/attribution";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -33,6 +34,10 @@ const NotFound = () => (
 );
 
 function App() {
+  useEffect(() => {
+    captureAttribution();
+  }, []);
+
   return (
     <>
       <ScrollToTop />
@@ -48,7 +53,9 @@ function App() {
         <Route path="/career" element={<CareerPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<SingleBlogPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/book" element={<BookCallPage />} />
+        {/* The old contact form is replaced by the scoping-call booking. */}
+        <Route path="/contact" element={<Navigate to="/book?source=contact-redirect" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

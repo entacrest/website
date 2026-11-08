@@ -73,8 +73,8 @@ const Homepage = () => {
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button
-                title="Start a Project"
-                onClick={() => navigate("/contact")}
+                title="Book a Free Scoping Call"
+                onClick={() => navigate("/book?source=home-hero")}
                 className="w-auto px-7 py-3.5"
               />
               <Button
@@ -187,8 +187,8 @@ const Homepage = () => {
               <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">What we build</p>
               <h2 className="heading-text font-bold text-ink-900">From your first website to enterprise software</h2>
             </div>
-            <Link to="/contact" className="inline-flex items-center gap-2 text-ink-900 font-semibold text-sm shrink-0 group">
-              Tell us what you need
+            <Link to="/book?source=home-services" className="inline-flex items-center gap-2 text-ink-900 font-semibold text-sm shrink-0 group">
+              Book a free scoping call
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -445,8 +445,8 @@ const Homepage = () => {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
-              title="Start a Project"
-              onClick={() => navigate("/contact")}
+              title="Book a Free Scoping Call"
+              onClick={() => navigate("/book?source=home-footer-cta")}
               className="w-auto px-8 py-4"
             />
             <a

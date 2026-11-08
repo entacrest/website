@@ -117,8 +117,8 @@ const WorkPage = () => {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
-              title="Start a Project"
-              onClick={() => navigate("/contact")}
+              title="Book a Free Scoping Call"
+              onClick={() => navigate("/book?source=work")}
               className="w-auto px-10 py-4"
             />
             <Button

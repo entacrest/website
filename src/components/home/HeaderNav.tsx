@@ -6,8 +6,6 @@ const navLinks = [
   { href: "/products", label: "Platforms" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/career", label: "Careers" },
 ];
 
 const HeaderNav = ({ onClick }: { onClick: () => void }) => {

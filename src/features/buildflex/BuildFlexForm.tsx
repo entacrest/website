@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 import api from "@/config/api_config";
 import { services } from "@/components/data";
+import { budgets } from "@/components/leadOptions";
 import { BuildFlexFormSchema } from "@/components/validation";
 
 type FormValues = {
@@ -28,13 +29,6 @@ const applicantTypes = [
   { value: "ngo", label: "NGO / non-profit" },
   { value: "established", label: "Established company" },
   { value: "individual", label: "Individual / professional" },
-];
-const budgets = [
-  { value: "below_500k", label: "Below ₦500,000" },
-  { value: "500k_2m", label: "₦500,000 – ₦2 million" },
-  { value: "2m_5m", label: "₦2 million – ₦5 million" },
-  { value: "above_5m", label: "Above ₦5 million" },
-  { value: "unsure", label: "Not sure yet" },
 ];
 const durations = [
   { value: "3", label: "3 months" },

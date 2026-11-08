@@ -523,10 +523,10 @@ const BuildFlexPage = () => {
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <button
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/book?source=buildflex-outright")}
                 className="inline-flex items-center gap-2 text-brand-300 hover:text-brand-200 font-semibold text-sm transition cursor-pointer"
               >
-                Prefer to pay outright? Start a project <ArrowRight size={16} />
+                Prefer to pay outright? Book a free scoping call <ArrowRight size={16} />
               </button>
               <a
                 href="mailto:info@entacrest.com?subject=BuildFlex%20enquiry"
