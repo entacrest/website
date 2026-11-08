@@ -10,7 +10,6 @@ import {
   Building2,
   CheckCircle2,
   ClipboardCheck,
-  Cloud,
   FileClock,
   HandCoins,
   KeyRound,
@@ -177,47 +176,50 @@ const modules = [
   },
 ];
 
+const EMS_URL = "https://ems.entacrest.com";
+const SIGNUP_URL = `${EMS_URL}/signup`;
+
 const deployments = [
   {
     icon: Monitor,
-    title: "Desktop",
-    tag: "One office",
-    desc: "Install EMS on a Windows computer. Your data stays on that computer, with one-click backups.",
+    title: "Back office in the browser",
+    tag: "Every desk",
+    desc: "The MD, managers, accountants and cashiers use EMS in any web browser at ems.entacrest.com. Nothing to install.",
+  },
+  {
+    icon: Smartphone,
+    title: "Field app on phones",
+    tag: "Every officer",
+    desc: "Account officers install the field app on an Android phone and collect in the market, even without network.",
   },
   {
     icon: Network,
-    title: "Office network",
-    tag: "Several desks",
-    desc: "Share the head office computer over your office network. Staff computers connect to it without a licence of their own.",
-  },
-  {
-    icon: Cloud,
-    title: "Your own cloud",
-    tag: "Many branches",
-    desc: "Run EMS on your own PostgreSQL database (such as Supabase) and host it online, so every branch works on the same books.",
+    title: "Head office and branches",
+    tag: "Every branch",
+    desc: "All your branches work on the same books. Head office sees everything; each branch sees its own.",
   },
 ];
 
 const security = [
-  { icon: KeyRound, title: "Two-step sign-in", desc: "Password plus a one-time SMS code for every staff member. Field officers unlock with a PIN." },
+  { icon: KeyRound, title: "Two-step sign-in", desc: "Password plus a one-time code sent to each staff member's email. Field officers unlock with a PIN." },
   { icon: UserCog, title: "Least privilege", desc: "Each person gets only the permissions their job needs, set by the MD." },
   { icon: BadgeCheck, title: "Four-eyes approvals", desc: "Sensitive actions need a second person. Nobody can approve their own request." },
   { icon: FileClock, title: "Complete audit trail", desc: "Every sign-in, posting, approval, edit, and settings change is recorded." },
   { icon: WifiOff, title: "Works offline", desc: "Field collections are kept safely on the phone until the network returns." },
-  { icon: ShieldCheck, title: "Your data, your servers", desc: "EMS runs on your computers or your own cloud database, not ours." },
+  { icon: ShieldCheck, title: "Your data, kept apart", desc: "Each business's records are kept separate from every other business. Only your own staff can see them." },
 ];
 
 const steps = [
-  { step: "01", title: "Talk to us", desc: "Tell us about your branches, products, and how you collect today." },
-  { step: "02", title: "See a demo", desc: "Walk through EMS with sample data that looks like your business." },
-  { step: "03", title: "Get your licence", desc: "Licensed by number of branches, renewed yearly." },
-  { step: "04", title: "Go live", desc: "We help you install, set up products, and train your staff, with a step-by-step user guide." },
+  { step: "01", title: "Start your free trial", desc: "Sign up at ems.entacrest.com in minutes. You become the managing director of your business in EMS." },
+  { step: "02", title: "Set up your business", desc: "Add your branches, staff, thrift plans and loan products. Each person signs in with their own account." },
+  { step: "03", title: "Choose a plan", desc: "Pick the plan that fits your branches and staff, and pay monthly by card, bank transfer or USSD." },
+  { step: "04", title: "Go live", desc: "Register customers and send officers out. We're on hand to help you set up and train your staff." },
 ];
 
 const faqs = [
   {
-    q: "Is EMS a subscription website?",
-    a: "No. EMS is licensed software. You install it on your own computers or host it on your own cloud database, and your data stays with you. It isn't a shared SaaS platform.",
+    q: "Is EMS a subscription?",
+    a: "Yes. EMS runs online at ems.entacrest.com, so there's nothing to install or maintain. You pay monthly, or for several months at once, and can change plan at any time.",
   },
   {
     q: "Who is EMS for?",
@@ -225,19 +227,19 @@ const faqs = [
   },
   {
     q: "How is it priced?",
-    a: "By the number of branches, with a yearly licence renewal. Staff computers that connect to your EMS don't need their own licence.",
+    a: "By plan: each plan covers a number of branches and staff. Every plan starts with a 14-day free trial, and you can see current prices on the EMS website.",
   },
   {
     q: "Can we use it across several branches?",
-    a: "Yes. Every branch works on the same data, either over your office network or through your own cloud database.",
+    a: "Yes. Every branch works on the same data. Head office sees and compares them all, and branch staff see their own branch.",
   },
   {
     q: "What happens when there's no internet in the field?",
     a: "Officers keep collecting. Entries are saved on the phone and sent automatically when the network comes back.",
   },
   {
-    q: "Can staff practise before going live?",
-    a: "Yes. EMS includes a separate demo workspace full of sample data, so staff can train without touching real accounts.",
+    q: "Can we try it before paying?",
+    a: "Yes. Every plan starts with a 14-day free trial, with no card needed. If you don't continue, nothing is charged.",
   },
 ];
 
@@ -259,16 +261,22 @@ const EmsPage = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase text-brand-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-flare-400 inline-block" />
-                Licensed software · Desktop &amp; self-hosted
+                Subscription · Web &amp; field app
               </div>
               <h1 className="text-white text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1]">
                 EMS: core banking for microfinance, cooperatives &amp; thrift
               </h1>
               <p className="text-slate-300 text-lg leading-8 max-w-xl">
-                Entacrest MFB Solution runs your whole operation, from the market to the MD&apos;s desk. It covers customers, savings, thrift, loans, field collections, approvals, and reports, and runs on your own computers or your own cloud.
+                Entacrest MFB Solution runs your whole operation, from the market to the MD&apos;s desk. It covers customers, savings, thrift, loans, field collections, approvals, and reports, online, so every branch and officer works on the same books.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button title="Request a Demo" onClick={() => navigate("/book?source=ems")} className="w-auto px-7 py-3.5" />
+                <Button title="Start free trial" onClick={() => window.location.assign(SIGNUP_URL)} className="w-auto px-7 py-3.5" />
+                <a
+                  href={EMS_URL}
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-semibold transition"
+                >
+                  Visit EMS <ArrowUpRight size={16} />
+                </a>
                 <a
                   href="#features"
                   className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-semibold transition"
@@ -398,15 +406,18 @@ const EmsPage = () => {
       <section className="max-w-7xl mx-auto px-5 py-20 md:py-28">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
           <div>
-            <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">Not SaaS, by design</p>
-            <h2 className="heading-text font-bold text-ink-900 mb-5">Your software, your data, your servers</h2>
+            <p className="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-3">Hosted for you</p>
+            <h2 className="heading-text font-bold text-ink-900 mb-5">Nothing to install, nothing to maintain</h2>
             <p className="text-slate-500 leading-8 mb-6">
-              Financial institutions need to own their books. EMS is licensed to you and runs where you choose. Start on one computer and grow to many branches without changing systems.
+              EMS runs online, looked after by Entacrest. Start with one office and grow to many branches without changing systems; your staff just sign in.
             </p>
             <div className="rounded-2xl border border-mist-200 bg-mist-50 p-5">
-              <p className="font-semibold text-ink-900 text-sm mb-1.5">Licensing</p>
+              <p className="font-semibold text-ink-900 text-sm mb-1.5">Pricing</p>
               <p className="text-slate-500 text-sm leading-6">
-                Priced by number of branches and renewed yearly. Only the head office needs a licence. Staff computers and phones connect to it for free.
+                A monthly subscription, with plans by the number of branches and staff. Every plan starts with a 14-day free trial.{" "}
+                <a href={`${EMS_URL}/#pricing`} className="text-brand-600 font-semibold hover:underline">
+                  See current prices
+                </a>
               </p>
             </div>
           </div>
@@ -490,11 +501,12 @@ const EmsPage = () => {
       <section className="relative bg-ink-950 py-20 px-5 text-center overflow-hidden">
         <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "50%" }} />
         <div className="relative">
-          <h2 className="text-white font-bold heading-text mb-4">See EMS with your own products</h2>
+          <h2 className="text-white font-bold heading-text mb-4">Start running EMS today</h2>
           <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto leading-8">
-            Book a demo and we&apos;ll walk you through EMS set up like your institution: your branches, thrift plans, and loan products.
+            Try it free for 14 days, or book a demo and we&apos;ll walk you through EMS set up like your institution: your branches, thrift plans, and loan products.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button title="Start free trial" onClick={() => window.location.assign(SIGNUP_URL)} className="w-auto px-10 py-4" />
             <Button title="Request a Demo" onClick={() => navigate("/book?source=ems")} className="w-auto px-10 py-4" />
             <a
               href="mailto:info@entacrest.com?subject=EMS%20demo%20request"

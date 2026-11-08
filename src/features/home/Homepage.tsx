@@ -338,11 +338,19 @@ const Homepage = () => {
               </div>
               <h2 className="text-white font-bold heading-text mb-5">{ems.name}: {ems.tag.toLowerCase()}</h2>
               <p className="text-slate-300 leading-8 mb-8">{ems.description}</p>
-              <Button
-                title="Explore EMS"
-                onClick={() => navigate(ems.path!)}
-                className="w-auto py-3 px-6"
-              />
+              <div className="flex flex-wrap items-center gap-4">
+                <Button
+                  title="Explore EMS"
+                  onClick={() => navigate(ems.path!)}
+                  className="w-auto py-3 px-6"
+                />
+                <a
+                  href="https://ems.entacrest.com/signup"
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-semibold transition"
+                >
+                  Start free trial →
+                </a>
+              </div>
             </div>
             <img
               src="/images/ems/dashboard.webp"
