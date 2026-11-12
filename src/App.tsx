@@ -13,6 +13,7 @@ import CareerPage from "@/features/career/CareerPage";
 import BlogPage from "@/features/blog/BlogPage";
 import SingleBlogPage from "@/features/singleBlog/SingleBlogPage";
 import BookCallPage from "@/features/book/BookCallPage";
+import OlecPage from "@/features/olec/OlecPage";
 import { captureAttribution } from "@/config/attribution";
 
 const ScrollToTop = () => {
@@ -54,6 +55,7 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<SingleBlogPage />} />
         <Route path="/book" element={<BookCallPage />} />
+        <Route path="/olec" element={<OlecPage />} />
         {/* The old contact form is replaced by the scoping-call booking. */}
         <Route path="/contact" element={<Navigate to="/book?source=contact-redirect" replace />} />
         <Route path="*" element={<NotFound />} />

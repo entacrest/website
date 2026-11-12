@@ -91,3 +91,22 @@ export const ApplicationFormSchema = yup.object().shape({
   role: yup.string().required("Enter the role you are applying for"),
   cover_letter: yup.string(),
 });
+
+// Nigerian mobile numbers, with or without +234 / 234 / leading 0 (spaces and dashes ignored).
+export const NG_PHONE = /^(?:\+?234|0)[789][01]\d{8}$/;
+
+export const OlecClaimSchema = yup.object().shape({
+  code: yup.string().trim().required("Enter your voucher code"),
+  full_name: yup.string().trim().required("Enter your full name"),
+  business_name: yup.string().trim().required("Enter your business name"),
+  email: yup
+    .string()
+    .matches(emailRegex, "Enter a valid email address")
+    .required("Enter your email address"),
+  phone: yup
+    .string()
+    .required("Enter your phone or WhatsApp number")
+    .test("ng-phone", "Enter a valid Nigerian number, e.g. 08012345678", (v) => NG_PHONE.test((v || "").replace(/[\s\-()]/g, ""))),
+  about: yup.string().max(500, "Keep this under 500 characters").default(""),
+  accept_terms: yup.boolean().oneOf([true], "Please accept the terms and conditions").required(),
+});
