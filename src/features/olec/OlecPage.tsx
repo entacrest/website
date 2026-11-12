@@ -8,7 +8,7 @@ import OlecClaimForm from "./OlecClaimForm";
 const steps = [
   { icon: KeyRound, title: "Enter your code", desc: "Type the code printed on your voucher." },
   { icon: Ticket, title: "Submit your details", desc: "Tell us who you are and accept the terms." },
-  { icon: Send, title: "Send your content within 14 days", desc: "Logo, text and images, so we can start building." },
+  { icon: Send, title: "Send your content and payment within 14 days", desc: "Logo, text and images, plus the ₦75,000 (we’ll send an invoice), so we can start building." },
 ];
 
 const terms = [
@@ -16,7 +16,8 @@ const terms = [
   { title: "Claiming.", text: "The voucher must be claimed on this page by 31 December 2026. Unclaimed vouchers expire." },
   { title: "One per holder.", text: "Each voucher is non-transferable, has no cash value, and cannot be combined with other offers." },
   { title: "Content.", text: "Within 14 days of claiming, the holder must send all website content (text, images, logo and any other material). Development starts once everything is received." },
-  { title: "Missed deadline.", text: "If complete content is not received within 14 days of claiming, the voucher is forfeited." },
+  { title: "Payment.", text: "The holder pays the full ₦75,000 within 14 days of claiming, along with their website content. Entacrest sends an invoice with payment details. Development starts once Entacrest has received both the complete content and the full payment." },
+  { title: "Missed deadline.", text: "If complete content or the full payment is not received within 14 days of claiming, the voucher is forfeited." },
   { title: "Development time.", text: "Entacrest will deliver the website within 1 month of receiving all the information needed to build it." },
   { title: "Domain and hosting.", text: "Entacrest covers the first year of one domain (.com, .com.ng or .ng) and basic hosting, registered in the holder’s name. Renewals from the second year, and any upgrades, are paid by the holder." },
   { title: "Support.", text: "Entacrest provides 1 month of free support after launch. Later support is charged separately." },
