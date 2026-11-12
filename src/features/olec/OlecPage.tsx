@@ -17,8 +17,8 @@ const terms = [
   { title: "One per holder.", text: "Each voucher is non-transferable, has no cash value, and cannot be combined with other offers." },
   { title: "Content.", text: "Within 14 days of claiming, the holder must send all website content (text, images, logo and any other material). Development starts once everything is received." },
   { title: "Missed deadline.", text: "If complete content is not received within 14 days of claiming, the voucher is forfeited." },
-  { title: "Development time.", text: "Entacrest will deliver the website within 2 months of receiving complete content." },
-  { title: "Domain and hosting.", text: "The holder is responsible for the cost of the domain and hosting." },
+  { title: "Development time.", text: "Entacrest will deliver the website within 1 month of receiving all the information needed to build it." },
+  { title: "Domain and hosting.", text: "Entacrest covers the first year of one domain (.com, .com.ng or .ng) and basic hosting, registered in the holder’s name. Renewals from the second year, and any upgrades, are paid by the holder." },
   { title: "Support.", text: "Entacrest provides 1 month of free support after launch. Later support is charged separately." },
   { title: "Data.", text: "By claiming, the holder agrees that Entacrest may store and use their details to deliver the project and contact them about it." },
 ];
@@ -37,7 +37,7 @@ const OlecPage = () => (
           OLEC&apos;26 Website Voucher
         </h1>
         <p className="text-slate-300 text-lg leading-8 max-w-2xl mt-6">
-          Get 50% off a business website worth ₦150,000, so you pay <span className="text-white font-semibold">₦75,000</span>.
+          Get 50% off a business website worth ₦150,000, so you pay <span className="text-white font-semibold">₦75,000</span>. Your first year of domain and hosting is on us.
         </p>
         <p className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-flare-400">
           <CalendarClock size={16} /> Claim by 31 December 2026
