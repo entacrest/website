@@ -29,20 +29,35 @@ const OlecPage = () => (
     {/* Hero */}
     <section className="relative bg-ink-950 grid-pattern w-full overflow-hidden">
       <div className="absolute inset-0 glow-brand" style={{ ["--x" as string]: "70%" }} />
-      <div className="relative max-w-7xl mx-auto px-5 pt-16 pb-14 md:pt-24 md:pb-20">
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase text-brand-200 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-flare-400 inline-block" />
-          Osun Local Economy Conference
+      <div className="relative max-w-7xl mx-auto px-5 pt-16 pb-14 md:pt-24 md:pb-20 grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
+        <div>
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase text-brand-200 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-flare-400 inline-block" />
+            Osun Local Economy Conference
+          </div>
+          <h1 className="text-white text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] max-w-3xl">
+            OLEC&apos;26 Website Voucher
+          </h1>
+          <p className="text-slate-300 text-lg leading-8 max-w-2xl mt-6">
+            Get 50% off a business website worth ₦150,000, so you pay <span className="text-white font-semibold">₦75,000</span>. Your first year of domain and hosting is on us.
+          </p>
+          <p className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-flare-400">
+            <CalendarClock size={16} /> Claim by 31 December 2026
+          </p>
         </div>
-        <h1 className="text-white text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] max-w-3xl">
-          OLEC&apos;26 Website Voucher
-        </h1>
-        <p className="text-slate-300 text-lg leading-8 max-w-2xl mt-6">
-          Get 50% off a business website worth ₦150,000, so you pay <span className="text-white font-semibold">₦75,000</span>. Your first year of domain and hosting is on us.
-        </p>
-        <p className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-flare-400">
-          <CalendarClock size={16} /> Claim by 31 December 2026
-        </p>
+        {/* What winners receive at the event; the code shown is a placeholder. */}
+        <figure>
+          <img
+            src="/images/olec/voucher-sample.webp"
+            alt="Sample OLEC'26 website voucher: 50% off a ₦150,000 business website, with a voucher code and a QR code to entacrest.com/olec"
+            width={1300}
+            height={570}
+            className="w-full h-auto rounded-2xl ring-1 ring-white/10 shadow-2xl shadow-black/40"
+          />
+          <figcaption className="text-slate-400 text-xs text-center mt-3">
+            Sample voucher. Your code is printed on the voucher you received.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
