@@ -8,6 +8,9 @@ import toast from "react-hot-toast";
 import api from "@/config/api_config";
 import { OlecClaimSchema } from "@/components/validation";
 
+// Must match the VoucherCampaign slug in the synchgate admin.
+const OLEC_CAMPAIGN = "olec26";
+
 type FormValues = {
   code: string;
   full_name: string;
@@ -46,7 +49,8 @@ const OlecClaimForm = () => {
     setIsLoading(true);
     setCodeError("");
     try {
-      const resp = await api.post("/entacrest/olec/claim/", data);
+      // Generic voucher endpoint; the campaign slug keeps codes from other campaigns out of this page.
+      const resp = await api.post("/entacrest/vouchers/claim/", { ...data, campaign: OLEC_CAMPAIGN });
       setClaimed({ email: data.email.trim(), due: formatLagosDate(resp.data.data.content_due_at) });
     } catch (error: any) {
       const message = error?.response?.data?.message || "Something went wrong. Please try again.";
